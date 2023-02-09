@@ -245,26 +245,31 @@ input{
     right:-140px;
     width:150px;
     height:150px;
-    animation-name: fangRunRight;
-    animation-duration:6s;
+    animation: fangRunRight 6s;
+    -moz-animation: fangRunRight 6s;
+    -webkit-animation: fangRunRight 6s;
+    -o-animation: fangRunRight 6s;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
-    
 }
 
-#fangrunner-runs-to-right {
-    position: absolute;
-    bottom: 0px;
-    left: -140px;
-    width: 150px;
-    height: 150px;
-    animation-name: fangRunLeft;
-    animation-duration: 6s;
-    animation-delay: 6s;
-    transform: rotateY(180deg);
+.flipper{
+    animation:flip 6s;
+    -moz-animation: flip 6s;
+    -webkit-animation: flip 6s;
+    -o-animation: flip 6s;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
     animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
 }
+
+
 
 
 .slideInLeft{
@@ -337,8 +342,18 @@ input{
     0%{
         right: -140px;
     }
+    49%{
+        transform: rotateY(0deg);
+    }
+    50%{
+        right:1500px;
+        transform: rotateY(180deg);
+    }
+    99%{
+        transform: rotateY(180deg);
+    }
     100%{
-        right: 1500px;
+        right: -140px;
     }
 }
 

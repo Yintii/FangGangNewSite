@@ -149,7 +149,7 @@ export default function Home() {
                     <div className="px-fang-img-area" ref={pxlFangAvatarRef}>
                         <img src="./images/pxlfang.png" width="196px" height="179px" alt="pxlfang mascot" />
                     </div>
-                    <img id="fangrunner-runs-to-right" src="./images/fangrun.gif" />
+                    {/* <img id="fangrunner-runs-to-right" src="./images/fangrun.gif" /> */}
                     <img id="fangrunner-runs-to-left" src="./images/fangrun.gif" />
                 </div>
                 <div id="dropdowns">
