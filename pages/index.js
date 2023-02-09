@@ -8,12 +8,21 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 
-
+import { useAccount, useConnect, useDisconnect } from 'wagmi'
+import { InjectedConnector } from '@wagmi/core'
 
 const inter = Inter({ subsets: ['latin'] })
 
 
 export default function Home() {
+
+    const { address, isConnected } = useAccount()
+    const { connect } = useConnect({
+        connector: new InjectedConnector(),
+    })
+    const { disconnect } = useDisconnect()
+
+
 
     const NavComponent = () => {
         return(
@@ -94,6 +103,12 @@ export default function Home() {
 
         const [pxlFangAvatarRef, pxlFangAvatarRefInView] = useInView({threshold:0});
 
+        const handleClaimClick = () => {
+            if(!isConnected){
+                connect()
+            }
+        }
+
         useEffect(()=>{
             pxlFangAvatarRefInView ? document.querySelector('.px-fang-img-area').classList.add('zoomingIn') : null
         }, [pxlFangAvatarRefInView]);
@@ -105,7 +120,12 @@ export default function Home() {
                         <h1>RUN WITH THE <span className="gold">PXLFANGS</span></h1>
                         <div id="pxl-buttons">
                             <button className="gold-bg">JOIN</button>
-                            <button className="gold-bg">CLAIM</button>
+                            <button 
+                                className="gold-bg"
+                                onClick={() => handleClaimClick()} 
+                                >
+                                CLAIM
+                            </button>
                             <button className="gold-bg">PLAY</button>
                         </div>
                         <p>
@@ -129,6 +149,8 @@ export default function Home() {
                     <div className="px-fang-img-area" ref={pxlFangAvatarRef}>
                         <img src="./images/pxlfang.png" width="196px" height="179px" alt="pxlfang mascot" />
                     </div>
+                    <img id="fangrunner-runs-to-right" src="./images/fangrun.gif" />
+                    <img id="fangrunner-runs-to-left" src="./images/fangrun.gif" />
                 </div>
                 <div id="dropdowns">
                     <div id="claim">
@@ -138,6 +160,13 @@ export default function Home() {
                             <input type="button" value="CHECK CLAIM STATUS" />
                         </div>
                         <div id="current_fangs">
+                            {/**This is where we will need to 
+                             * spit out the data from the users wallets about the fangsters
+                             * they have
+                             */}
+                        
+
+
                         </div>
                     </div>
                     <div id="play" hidden>

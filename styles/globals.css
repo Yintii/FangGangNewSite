@@ -90,6 +90,7 @@ nav{
 
 #px-top{
     display:flex;
+    position: relative;
     flex-flow:row nowrap;
     justify-content: space-evenly;
     align-items: center;
@@ -238,6 +239,33 @@ input{
     background-color: #6950D0;
 }
 
+#fangrunner-runs-to-left{
+    position:absolute;
+    bottom:0px;
+    right:-140px;
+    width:150px;
+    height:150px;
+    animation-name: fangRunRight;
+    animation-duration:6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    
+}
+
+#fangrunner-runs-to-right {
+    position: absolute;
+    bottom: 0px;
+    left: -140px;
+    width: 150px;
+    height: 150px;
+    animation-name: fangRunLeft;
+    animation-duration: 6s;
+    animation-delay: 6s;
+    transform: rotateY(180deg);
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
 
 .slideInLeft{
     animation-name:slideInFromLeft;
@@ -300,5 +328,26 @@ input{
     }
     100%{
         scale:1;
+    }
+}
+
+
+
+@keyframes fangRunRight{
+    0%{
+        right: -140px;
+    }
+    100%{
+        right: 1500px;
+    }
+}
+
+@keyframes fangRunLeft {
+    0% {
+        left: -140px;
+    }
+
+    100% {
+        left: 1500px;
     }
 }
