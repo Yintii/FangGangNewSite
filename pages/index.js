@@ -5,7 +5,7 @@ import { Inter } from '@next/font/google'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
@@ -18,6 +18,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
+    const [userFangs, setUserFangs] = useState(null);
+
     const { address, isConnected } = useAccount()
     const { connect } = useConnect({
         connector: new InjectedConnector(),
@@ -25,12 +27,11 @@ export default function Home() {
     const { disconnect } = useDisconnect();
 
     const settings = {
-        apiKey: "",
+        apiKey: "QVgxIPWahXBDZTW_ZvQdl-_pkMF2anDw",
         network: Network.ETH_MAINNET,
     };
 
     const alchemy = new Alchemy(settings);
-
 
 
     const NavComponent = () => {
@@ -122,29 +123,34 @@ export default function Home() {
             alert("hide the drawer plz");
         }
 
-        const RenderUsersFangs = () => {
-            return(
-                <>
-                <div id="users-fangs">
-                    <img width='250px' height='250px' />
-                    <img width='250px' height='250px' />
-                    <img width='250px' height='250px' />
-                    <img width='250px' height='250px' />
-                    <img width='250px' height='250px' />
-                    <img width='250px' height='250px' />
-                    <img width='250px' height='250px' />
-                    <img width='250px' height='250px' />
-                    <img width='250px' height='250px' />
-                    <img width='250px' height='250px' />
-                </div>
-                </>
-            );
+
+        async function getFangstersFromWallet(){
+            const FANG_GANG_CONTRACT_ADDRESS = '0x9d418c2cae665d877f909a725402ebd3a0742844';
+            const data = await alchemy.nft.getNftsForOwner(address)
+            let fangsters = data.ownedNfts.filter(nft => nft.contract.address == FANG_GANG_CONTRACT_ADDRESS)
+            fangsters.forEach(fang => console.log(fang.rawMetadata.image));
+            setUserFangs(fangsters);
         }
 
+        const RenderFangsters = () => {
+            if(userFangs){
+                let _fangs = userFangs.map(fang =>{
+                    return(
+                        <img src={fang.rawMetadata.image} />
+                    )
+                })
+                return _fangs;
+            }
+            else{
+                return
+            }
+        }
 
         useEffect(()=>{
             pxlFangAvatarRefInView ? document.querySelector('.px-fang-img-area').classList.add('zoomingIn') : null
         }, [pxlFangAvatarRefInView]);
+
+
 
         return(
             <section id="pxlfangs">
@@ -155,7 +161,7 @@ export default function Home() {
                             <button className="gold-bg">JOIN</button>
                             <button 
                                 className="gold-bg"
-                                onClick={() => handleClaimClick()} 
+                                onClick={() => getFangstersFromWallet()} 
                                 >
                                 CLAIM
                             </button>
@@ -193,7 +199,7 @@ export default function Home() {
                             <input type="button" value="CHECK CLAIM STATUS" />
                         </div>
                         <div id="current_fangs">
-                             <RenderUsersFangs />
+                            <RenderFangsters />
                         </div>
                     </div>
                     <div id="play" hidden>
@@ -211,6 +217,8 @@ export default function Home() {
             </section>
         )
     }
+
+   
 
   return (
 <>
