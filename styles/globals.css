@@ -166,12 +166,70 @@ nav{
     flex-flow:row nowrap;
     padding:1rem;
 }
+#current_fangs{
+    display:flex;
+    flex-flow:row nowrap;
+    align-items: center;
+    box-sizing: border-box;
+    width:80%;
+    overflow-x: scroll;
+    padding:1rem;
+    margin:1rem auto;
+}
 
+#current_fangs::-webkit-scrollbar{
+    background:inherit;
+}
+#current_fangs::-webkit-scrollbar-track {
+    background-image: url("/images/white-line-bg.png");
+    background-repeat: repeat-x;
+    background-position: center;
+    color:white;
+    
+}
+#current_fangs::-webkit-scrollbar-thumb{
+    background-color: white;
+    border-radius: 10px;
+}
+
+#current_fangs img{
+    width:250px;
+    height:250px;
+    margin:1rem 3rem 1rem 0;
+    border-radius: 25px;
+    box-sizing: border-box;
+}
 
 #claim{
     text-align: center;
     margin:5rem 0;
 }
+
+#claim-options{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 70%;
+    margin:0 auto;
+    justify-content: space-between;
+    align-items: center;
+}
+#claim-options>button{
+    border-radius: 15px;
+    background-color: #6950D0;
+    color:white;
+    font-size:30px;
+    padding:1rem 5rem;
+}
+
+#claim-options>div>button{
+    border-radius:20px;
+    padding:.5rem 2rem;
+    background-color: black;
+    color:white;
+    margin:0 1rem;
+    font-size:25px;
+}
+
 #claim-header>h2{
     font-size:50px;
 }
@@ -179,6 +237,10 @@ nav{
     background-color: #6950D0;
     color:white;
     padding:1rem 3rem;
+}
+
+.selected-for-claim{
+    border: 5px white solid;
 }
 
 input{

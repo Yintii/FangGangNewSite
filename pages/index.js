@@ -20,6 +20,8 @@ export default function Home() {
 
     const [userFangs, setUserFangs] = useState(null);
 
+    const [toggledForClaimTokens, setToggledForClaimedTokens] = useState([]);
+
     const { address, isConnected } = useAccount()
     const { connect } = useConnect({
         connector: new InjectedConnector(),
@@ -123,20 +125,40 @@ export default function Home() {
             alert("hide the drawer plz");
         }
 
+        const toggleForClaim = (fangId) => {
+            if(toggledForClaimTokens.includes(fangId)){
+                console.log('removing token...')
+                let arr = toggledForClaimTokens.filter(id => id != fangId);
+                setToggledForClaimedTokens(arr);
+            }else{
+                console.log('adding token...')
+                let arr = [...toggledForClaimTokens, fangId]
+                setToggledForClaimedTokens(arr);
+            }
+        }
+
 
         async function getFangstersFromWallet(){
             const FANG_GANG_CONTRACT_ADDRESS = '0x9d418c2cae665d877f909a725402ebd3a0742844';
-            const data = await alchemy.nft.getNftsForOwner(address)
-            let fangsters = data.ownedNfts.filter(nft => nft.contract.address == FANG_GANG_CONTRACT_ADDRESS)
-            fangsters.forEach(fang => console.log(fang.rawMetadata.image));
-            setUserFangs(fangsters);
+            if(!isConnected){
+                connect()
+            }else{
+                const data = await alchemy.nft.getNftsForOwner(address)
+                let fangsters = data.ownedNfts.filter(nft => nft.contract.address == FANG_GANG_CONTRACT_ADDRESS)
+                fangsters.forEach(fang => console.log(fang));
+                setUserFangs(fangsters);
+            }
+
         }
 
         const RenderFangsters = () => {
             if(userFangs){
                 let _fangs = userFangs.map(fang =>{
                     return(
-                        <img src={fang.rawMetadata.image} />
+                        <img 
+                            onClick={()=>toggleForClaim(fang.tokenId)}
+                            class={toggledForClaimTokens.includes(fang.tokenId) ? 'selected-for-claim' : ''} 
+                            src={fang.rawMetadata.image} />
                     )
                 })
                 return _fangs;
@@ -188,7 +210,6 @@ export default function Home() {
                     <div className="px-fang-img-area" ref={pxlFangAvatarRef}>
                         <img src="./images/pxlfang.png" width="196px" height="179px" alt="pxlfang mascot" />
                     </div>
-                    {/* <img id="fangrunner-runs-to-right" src="./images/fangrun.gif" /> */}
                     <img id="fangrunner-runs-to-left" src="./images/fangrun.gif" />
                 </div>
                 <div id="dropdowns">
@@ -198,9 +219,20 @@ export default function Home() {
                             <input type="text" placeholder="8888" />
                             <input type="button" value="CHECK CLAIM STATUS" />
                         </div>
-                        <div id="current_fangs">
+                        <div id="current_fangs" style={{display: userFangs ? 'flex' : 'none'}}>
                             <RenderFangsters />
                         </div>
+                        {userFangs && (
+                            <div id="claim-options">
+                                <div>
+                                    <button>SELECT MAX ({userFangs.length})</button>
+                                    <button>UNSELECT ALL</button>
+                                </div>
+                                <button>CLAIM</button>
+                            </div>
+                        )
+
+                        }
                     </div>
                     <div id="play" hidden>
 
