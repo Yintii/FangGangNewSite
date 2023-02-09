@@ -11,6 +11,8 @@ import { useInView } from 'react-intersection-observer'
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
 import { InjectedConnector } from '@wagmi/core'
 
+import { Network, Alchemy } from "alchemy-sdk";
+
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -20,7 +22,14 @@ export default function Home() {
     const { connect } = useConnect({
         connector: new InjectedConnector(),
     })
-    const { disconnect } = useDisconnect()
+    const { disconnect } = useDisconnect();
+
+    const settings = {
+        apiKey: "",
+        network: Network.ETH_MAINNET,
+    };
+
+    const alchemy = new Alchemy(settings);
 
 
 
@@ -109,6 +118,30 @@ export default function Home() {
             }
         }
 
+        const handleDrawerHide = () => {
+            alert("hide the drawer plz");
+        }
+
+        const RenderUsersFangs = () => {
+            return(
+                <>
+                <div id="users-fangs">
+                    <img width='250px' height='250px' />
+                    <img width='250px' height='250px' />
+                    <img width='250px' height='250px' />
+                    <img width='250px' height='250px' />
+                    <img width='250px' height='250px' />
+                    <img width='250px' height='250px' />
+                    <img width='250px' height='250px' />
+                    <img width='250px' height='250px' />
+                    <img width='250px' height='250px' />
+                    <img width='250px' height='250px' />
+                </div>
+                </>
+            );
+        }
+
+
         useEffect(()=>{
             pxlFangAvatarRefInView ? document.querySelector('.px-fang-img-area').classList.add('zoomingIn') : null
         }, [pxlFangAvatarRefInView]);
@@ -160,19 +193,21 @@ export default function Home() {
                             <input type="button" value="CHECK CLAIM STATUS" />
                         </div>
                         <div id="current_fangs">
-                            {/**This is where we will need to 
-                             * spit out the data from the users wallets about the fangsters
-                             * they have
-                             */}
-                        
-
-
+                             <RenderUsersFangs />
                         </div>
                     </div>
                     <div id="play" hidden>
 
                     </div>
                 </div>
+                <img 
+                    id="pxl-arrow"
+                    src="./images/pxlfangarrow.png"
+                    width="103px"
+                    height='69px'
+                    onClick={()=>handleDrawerHide()}
+                />
+
             </section>
         )
     }
