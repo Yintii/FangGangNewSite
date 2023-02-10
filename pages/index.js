@@ -74,7 +74,6 @@ export default function Home() {
                     <h1>THE BACKBONE OF <span className="gold">CREATIVE CULTURE</span>.</h1>
                     <span>Discover the character brand straight from New Fang City.</span>
                 </div>
-                <img id="groupPhoto" src={'images/groupphoto.png'} width="1179px" />
             </section>
         )
     }
@@ -102,17 +101,22 @@ export default function Home() {
                     <div id="meet-copy" ref={meetRef}  className="purple-bg">
                         <div id="meet-wrap">
                             <h2>MEET THE <span className="gold">FANG GANG</span>.</h2>
+                            <button>JOIN</button>
                             <button>VISIT</button>
-                            <p>Join the Fangsters on the streets of New Fang City, our very own microverse where we connect, enjoy special
-                                events,
-                                hang out and spend the $AWOO ecosystem token.</p>
+                            <p>
+                                The Fang Gang comes out at night to throw parties, hang around in dark alleys and have fun on the streets of New Fang City.
+                            </p>
+                            <p>
+                                What started as a character built for digital collectibles has grown to be somuch more. They love streetwear, a tight-knit community, music and art. All of which has been established within the Awoo Studios ecosystem.
+                            </p>
                         </div>
                     </div>
                     <div className="fang-img-area" ref={fangAvatarRef}>
                         <img src={'./images/mascot.png'} width="196px" height="179px" />
+                        <img src={'./images/logoNoHash.png'} width="196px" height="179px" />
                     </div>
                 </div>
-                <img id="newFangCity-img" ref={newFangCityRef} src={"./images/newFangCity.png"} />
+                <img id="newFangCity-img" ref={newFangCityRef} src={"./images/fanggrid.png"} />
             </section>
         )
     }
@@ -248,42 +252,46 @@ export default function Home() {
 
         return(
             <section id="pxlfangs">
-                <div id="px-top">
-                    <div id="pxl-copy">
-                        <h1>RUN WITH THE <span className="gold">PXLFANGS</span></h1>
-                        <div id="pxl-buttons">
-                            <button className="gold-bg">JOIN</button>
-                            <button 
-                                className="gold-bg"
-                                onClick={() => getFangstersFromWallet()} 
-                                >
-                                CLAIM
-                            </button>
-                            <button className="gold-bg">PLAY</button>
+                <div id='px-wrapper'>
+                    <div id="px-top">
+                        <div id="pxl-copy">
+                            <h1>RUN WITH THE <span className="gold">PXLFANGS</span>.</h1>
+                            <div id="pxl-buttons">
+                                <button className="gold-bg">JOIN</button>
+                                <button 
+                                    className="gold-bg"
+                                    onClick={() => getFangstersFromWallet()} 
+                                    >
+                                    CLAIM
+                                </button>
+                                <button className="gold-bg">PLAY</button>
+                            </div>
+                            <p>
+                                To expand the Fangverse we introduced PxlFangs, a first of its kind pixelated side collection. Every Fangster has a PxlFangster attached, claimable for free.
+                            </p>
+                            <p>
+                                With PxlFangs you’ll get access to exclusive skins in some of the most popular metaverse projects, passive $AWOO income and more.
+                            </p>
+                            <p>
+                                To accompany this expansion we also released the arcade game Fang Runner.
+                            </p>
+
                         </div>
-                        <p>
-                            To expand the Fangverse and enter the gaming territory we introduced PxlFangs, a first of its kind pixelated
-                            side
-                            collection. Every Fangster NFT has a PxlFangster attached, to be claimed for free.
-                        </p>
-                        <p>
-                            With these PxlFangs you’ll
-                            get access
-                            to exclusive skins in some of the most popular metaverse projects, passive $AWOO income and much, much more.
-                        </p>
-                        <p>
-                            To accompany this expansion we also released an arcade game; Fang Runner.
-                        </p>
-                        <div id="px-bottom">
-                            <img id="city-img" src="./images/pxlrunner.png" width="610px" />
-                            <img id="game-case" src="./images/game-case.png" width="246px" />
+                        <div className="px-fang-img-area" ref={pxlFangAvatarRef}>
+                            <img src="./images/superpxlmascot.png" alt="pxlfang mascot" />
+                            <img src="./images/px-fang-copy-logo.png" alt="pxlfang mascot" />
                         </div>
+
                     </div>
-                    <div className="px-fang-img-area" ref={pxlFangAvatarRef}>
-                        <img src="./images/pxlfang.png" width="196px" height="179px" alt="pxlfang mascot" />
+                    <div id="px-bottom">
+                        <img id="city-img" src="./images/pxlrunner.png" width="610px" />
+                        <img id="game-case" src="./images/game-case.png" width="246px" />
                     </div>
                     <img id="fangrunner-runs-to-left" src="./images/fangrun.gif" />
+
                 </div>
+               
+
                 <div id="dropdowns">
                     <div id="claim">
                         <div id="claim-header">
