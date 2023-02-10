@@ -168,13 +168,15 @@ nav{
 }
 #current_fangs{
     display:flex;
+    position: relative;
     flex-flow:row nowrap;
     align-items: center;
     box-sizing: border-box;
+    border-top:1px solid white;
     width:80%;
     overflow-x: scroll;
     padding:1rem;
-    margin:1rem auto;
+    margin:5rem auto 1rem;
 }
 
 #current_fangs::-webkit-scrollbar{
@@ -198,6 +200,32 @@ nav{
     margin:1rem 3rem 1rem 0;
     border-radius: 25px;
     box-sizing: border-box;
+}
+
+.single-fang{
+    position: relative;
+}
+
+.already-claimed{
+    background: rgba(60,60,60,0.5);
+    background-size: cover;
+    width:250px;
+    height:250px;
+    position: absolute;
+    display: flex;
+    top:0;
+    margin: 2rem 3rem 1rem 0;
+    border-radius: 25px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+}
+
+.claimed-text{
+    background-color: black;
+    width:100%;
+    font-size:50px;
+    font-weight: bold;
 }
 
 #claim{
@@ -242,7 +270,9 @@ nav{
 .selected-for-claim{
     border: 5px white solid;
 }
-
+input[type='number']{
+    width:20%;
+}
 input{
     border:none;
     border-radius: 1rem;

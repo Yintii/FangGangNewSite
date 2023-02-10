@@ -12,9 +12,11 @@ import { useAccount, useConnect, useDisconnect } from 'wagmi'
 import { InjectedConnector } from '@wagmi/core'
 
 import { Network, Alchemy } from "alchemy-sdk";
+import { ethers } from 'ethers'
+
+import PxlABI from '../artifacts/contracts/PxlFangs.sol/PxlFangs.json'
 
 const inter = Inter({ subsets: ['latin'] })
-
 
 export default function Home() {
 
@@ -32,6 +34,9 @@ export default function Home() {
         apiKey: "QVgxIPWahXBDZTW_ZvQdl-_pkMF2anDw",
         network: Network.ETH_MAINNET,
     };
+
+    const FANG_GANG_CONTRACT_ADDRESS = '0x9d418c2cae665d877f909a725402ebd3a0742844';
+    const PXL_FANGS_CONTRACT_ADDRESS = '0x30917A657Ae7d1132bdcA40187D781FA3B60002F';
 
     const alchemy = new Alchemy(settings);
 
@@ -111,20 +116,34 @@ export default function Home() {
             </section>
         )
     }
+
+
+
+
+
+
+
+
     const PxlFangsSection = () => {
 
+        //the fangster we're going to check if it's claimed from the form
+        const [fangsterToCheckClaim, setFangsterToCheckClaim] = useState('');
+
+        //for the animation that bounces the avatar
         const [pxlFangAvatarRef, pxlFangAvatarRefInView] = useInView({threshold:0});
 
-        const handleClaimClick = () => {
-            if(!isConnected){
-                connect()
-            }
+        //handle input change for claim checker
+        const handleClaimCheckChange = (event) => {
+            setFangsterToCheckClaim(event.target.value)
         }
 
+        //hide drawer when the user clicks arrow on bottom of drawer
         const handleDrawerHide = () => {
             alert("hide the drawer plz");
         }
 
+        //adds fangster ids to an array for claiming
+        //if it's already in the array, it removes it
         const toggleForClaim = (fangId) => {
             if(toggledForClaimTokens.includes(fangId)){
                 console.log('removing token...')
@@ -137,41 +156,94 @@ export default function Home() {
             }
         }
 
-
+        //inital function that grabs all of the fangsters from the connected wallet
         async function getFangstersFromWallet(){
             const FANG_GANG_CONTRACT_ADDRESS = '0x9d418c2cae665d877f909a725402ebd3a0742844';
             if(!isConnected){
-                connect()
+                connect();
             }else{
                 const data = await alchemy.nft.getNftsForOwner(address)
-                let fangsters = data.ownedNfts.filter(nft => nft.contract.address == FANG_GANG_CONTRACT_ADDRESS)
-                fangsters.forEach(fang => console.log(fang));
+                let fangsters = data
+                                .ownedNfts
+                                .filter(nft => nft.contract.address == FANG_GANG_CONTRACT_ADDRESS)
+               
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const signer = provider.getSigner();
+                const contract = new ethers.Contract(PXL_FANGS_CONTRACT_ADDRESS, PxlABI.abi, signer);
+
+                let _data = fangsters.map(async (fang) => {
+                    let claimed = await contract.claimed(fang.tokenId);
+                    return { ...fang, claimed }
+                })
+
+                fangsters = await Promise.all(_data);
+                //uncomment to see data on fangs
+                // fangsters.forEach(fang => console.log(fang));
                 setUserFangs(fangsters);
             }
 
         }
 
+        async function checkFangster() {
+
+            if(fangsterToCheckClaim > 8887 || fangsterToCheckClaim < 0){
+                alert("you've entered an invalid id, please try something between 0 and 8887");
+                return;
+            }
+
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+            const contract = new ethers.Contract(PXL_FANGS_CONTRACT_ADDRESS, PxlABI.abi, signer);
+            const [acc] = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            console.log(acc);
+            const claimed = await contract.claimed(fangsterToCheckClaim);
+
+
+            // console.log(claimed)
+            if (claimed) {
+                alert('already claimed');
+            } else {
+                alert('Ready to be claimed');
+            }
+        }
+
+ 
+
         const RenderFangsters = () => {
             if(userFangs){
-                let _fangs = userFangs.map(fang =>{
-                    return(
-                        <img 
-                            onClick={()=>toggleForClaim(fang.tokenId)}
-                            class={toggledForClaimTokens.includes(fang.tokenId) ? 'selected-for-claim' : ''} 
-                            src={fang.rawMetadata.image} />
-                    )
+                let fangsters = userFangs.map(fang => {
+                    if (fang.claimed) {
+                        return (
+                            <div key={`fang-${fang.tokenId}`}>
+                                <div className='already-claimed'>
+                                    <p className='claimed-text'>CLAIMED</p>
+                                </div>
+                                <img src={fang.rawMetadata.image}/>
+                            </div>
+                        )
+                    } else {
+                        return(
+                        <>
+                            <img
+                                onClick={() => toggleForClaim(fang.tokenId)}
+                                src={fang.rawMetadata.image}
+                                class={toggledForClaimTokens.includes(fang.tokenId) ? 'selected-for-claim' : ''}
+                            />
+                        </>
+                        )
+                    }
                 })
-                return _fangs;
-            }
-            else{
+                return fangsters
+            }else{
                 return
             }
         }
+        
+
 
         useEffect(()=>{
             pxlFangAvatarRefInView ? document.querySelector('.px-fang-img-area').classList.add('zoomingIn') : null
         }, [pxlFangAvatarRefInView]);
-
 
 
         return(
@@ -216,8 +288,19 @@ export default function Home() {
                     <div id="claim">
                         <div id="claim-header">
                             <h2 className="black">CLAIM YOUR PXLFANGSTER.</h2>
-                            <input type="text" placeholder="8888" />
-                            <input type="button" value="CHECK CLAIM STATUS" />
+                            <input 
+                                value={fangsterToCheckClaim} 
+                                type="number" 
+                                placeholder="8888" 
+                                onChange={(event) => handleClaimCheckChange(event)}
+                                min={0}
+                                max={8887}
+                                />
+                            <input 
+                                type="button"
+                                value="CHECK CLAIM STATUS" 
+                                onClick={() => checkFangster()}
+                                />
                         </div>
                         <div id="current_fangs" style={{display: userFangs ? 'flex' : 'none'}}>
                             <RenderFangsters />
@@ -250,16 +333,23 @@ export default function Home() {
         )
     }
 
+
+
+
+
+
+
+
    
 
   return (
-<>
-    <NavComponent />
-    <main>
-        <IntroSection />
-        <MeetSection />
-        <PxlFangsSection />
-    </main>
-</>
+    <>
+        <NavComponent />
+        <main>
+            <IntroSection />
+            <MeetSection />
+            <PxlFangsSection />
+        </main>
+    </>
   )
 }
