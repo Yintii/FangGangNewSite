@@ -276,13 +276,24 @@ nav{
     margin:0 auto;
     justify-content: space-between;
     align-items: center;
+    
 }
 #claim-options>button{
     border-radius: 15px;
-    background-color: #6950D0;
     color:white;
+    background-color: #6950D0;
     font-size:30px;
     padding:1rem 5rem;
+}
+
+
+.some-to-claim{
+    background-color: #6950D0;
+    cursor: pointer;
+}
+.none-to-claim{
+    background-color:#999 !important;
+    cursor: not-allowed;
 }
 
 #claim-options>div>button{
@@ -292,6 +303,7 @@ nav{
     color:white;
     margin:0 1rem;
     font-size:25px;
+    cursor: pointer;
 }
 
 #claim-header>h2{
@@ -348,16 +360,16 @@ input{
     padding:.75rem 3rem;
     margin-right:1rem;
     background-color: #FFC657;
-    font-size:
+    
 }
 #meet-wrap>p {
     width:80%;
     font-size: 20px;
 }
-#newFangCity-img{
+#fanggrid{
     align-self: end;
-    width:80%;
-    height:419px;
+    width:1253px;
+    height:415px;
     position: relative;
     right:0px;
     top:-25px;

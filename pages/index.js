@@ -20,7 +20,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
-    const [userFangs, setUserFangs] = useState(null);
+    const [userFangs, setUserFangs] = useState([]);
 
     const [toggledForClaimTokens, setToggledForClaimedTokens] = useState([]);
 
@@ -92,7 +92,7 @@ export default function Home() {
         }, [fangAvatarRefInView])
 
         useEffect(() => {
-            newFangCityRefInView ? document.querySelector("#newFangCity-img").classList.add('slideInRight') : null;
+            newFangCityRefInView ? document.querySelector("#fanggrid").classList.add('slideInRight') : null;
         }, [newFangCityRefInView])
 
         return(
@@ -116,17 +116,10 @@ export default function Home() {
                         <img src={'./images/logoNoHash.png'} width="196px" height="179px" />
                     </div>
                 </div>
-                <img id="newFangCity-img" ref={newFangCityRef} src={"./images/fanggrid.png"} />
+                <img id="fanggrid" ref={newFangCityRef} src={"./images/fanggrid.png"} />
             </section>
         )
     }
-
-
-
-
-
-
-
 
     const PxlFangsSection = () => {
 
@@ -136,15 +129,27 @@ export default function Home() {
         //for the animation that bounces the avatar
         const [pxlFangAvatarRef, pxlFangAvatarRefInView] = useInView({threshold:0});
 
+        const [unclaimedFangs, setUnclaimedFangs] = useState([]);
+
         //handle input change for claim checker
         const handleClaimCheckChange = (event) => {
             setFangsterToCheckClaim(event.target.value)
+        }
+
+        const handleSelectMax = () => {
+            setToggledForClaimedTokens(unclaimedFangs)
+        }
+
+        const handleUnselectAll = () => {
+            setToggledForClaimedTokens([]);
         }
 
         //hide drawer when the user clicks arrow on bottom of drawer
         const handleDrawerHide = () => {
             alert("hide the drawer plz");
         }
+
+
 
         //adds fangster ids to an array for claiming
         //if it's already in the array, it removes it
@@ -229,9 +234,10 @@ export default function Home() {
                         return(
                         <>
                             <img
+                                key={`fang-${fang.tokenId}`}
                                 onClick={() => toggleForClaim(fang.tokenId)}
                                 src={fang.rawMetadata.image}
-                                class={toggledForClaimTokens.includes(fang.tokenId) ? 'selected-for-claim' : ''}
+                                className={toggledForClaimTokens.includes(fang.tokenId) ? 'selected-for-claim' : 'claimable'}
                             />
                         </>
                         )
@@ -248,6 +254,11 @@ export default function Home() {
         useEffect(()=>{
             pxlFangAvatarRefInView ? document.querySelector('.px-fang-img-area').classList.add('zoomingIn') : null
         }, [pxlFangAvatarRefInView]);
+
+        useEffect(()=>{
+            let unclaimed = userFangs.filter(fangster => fangster.claimed == false);
+            setUnclaimedFangs(unclaimed);
+        },[userFangs.length])
 
 
         return(
@@ -316,10 +327,25 @@ export default function Home() {
                         {userFangs && (
                             <div id="claim-options">
                                 <div>
-                                    <button>SELECT MAX ({userFangs.length})</button>
-                                    <button>UNSELECT ALL</button>
+                                    <button
+                                        onClick={()=>handleSelectMax()}
+                                    >
+                                        SELECT MAX ({unclaimedFangs.length})
+                                    </button>
+                                    <button
+                                        onClick={() => handleUnselectAll()}
+                                    >
+                                        UNSELECT ALL
+                                    </button>
                                 </div>
-                                <button>CLAIM</button>
+                                <button 
+                                    disabled={unclaimedFangs.length > 0 ? false : true}
+                                    className={
+                                        unclaimedFangs.length == 0 || toggledForClaimTokens.length == 0 ? 'none-to-claim' : 'some-to-claim'}
+                                    >
+                                    CLAIM
+                                </button>
+                                
                             </div>
                         )
 
