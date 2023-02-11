@@ -7,7 +7,7 @@ import PxlABI from '../artifacts/contracts/PxlFangs.sol/PxlFangs.json'
 
 
 const PxlFangsSection = ({
-    userFangs, isConnected, alchemy, 
+    userFangs, isConnected, alchemy, connect,
     address, PXL_FANGS_CONTRACT_ADDRESS, FANG_GANG_CONTRACT_ADDRESS,
     setUserFangs,toggledForClaimTokens, setToggledForClaimedTokens
 }) => {
@@ -20,27 +20,23 @@ const PxlFangsSection = ({
 
     const [unclaimedFangs, setUnclaimedFangs] = useState([]);
 
-    const [drawerActive, setDrawerActive] = useState(false);
-    const [pxClaimActive, setPxClaimActive] = useState(false);
-    const [pxPlayActive, setPxPlayActive] = useState(false);
-
     //handle input change for claim checker
-    const handleClaimCheckChange = (event) => {
-        setFangsterToCheckClaim(event.target.value)
-    }
+    // const handleClaimCheckChange = (event) => {
+    //     setFangsterToCheckClaim(event.target.value)
+    // }
 
-    const handleSelectMax = () => {
-        setToggledForClaimedTokens(unclaimedFangs)
-    }
+    // const handleSelectMax = () => {
+    //     setToggledForClaimedTokens(unclaimedFangs)
+    // }
 
-    const handleUnselectAll = () => {
-        setToggledForClaimedTokens([]);
-    }
+    // const handleUnselectAll = () => {
+    //     setToggledForClaimedTokens([]);
+    // }
 
-    //hide drawer when the user clicks arrow on bottom of drawer
-    const handleDrawerHide = () => {
-        setDrawerActive(false)
-    }
+    // //hide drawer when the user clicks arrow on bottom of drawer
+    // const handleDrawerHide = () => {
+    //     setDrawerActive(false)
+    // }
 
 
 
@@ -152,10 +148,10 @@ const PxlFangsSection = ({
         setUnclaimedFangs(unclaimed);
     }, [userFangs.length])
 
+
     useEffect(()=>{
         getFangstersFromWallet();
-    }, [])
-
+    },[isConnected])
 
     return (
         <section id="pxlfangs">

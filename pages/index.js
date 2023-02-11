@@ -1,5 +1,3 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -25,7 +23,7 @@ export default function Home() {
 
     const [toggledForClaimTokens, setToggledForClaimedTokens] = useState([]);
 
-    const { address, isConnected } = useAccount()
+    const { address, isConnected } = useAccount();
     const { connect } = useConnect({
         connector: new InjectedConnector(),
     })
@@ -122,7 +120,14 @@ export default function Home() {
         )
     }
 
-   
+    useEffect(()=>{
+        if(isConnected){
+            console.log("Connected with: ", address);
+        }
+        if(!isConnected){
+            connect();
+        }
+    },[])
 
   return (
     <>
@@ -140,6 +145,7 @@ export default function Home() {
                 setUserFangs={setUserFangs}
                 toggledForClaimTokens={toggledForClaimTokens}
                 setToggledForClaimedTokens={setToggledForClaimedTokens}
+                connect={connect}
             />
         </main>
     </>
