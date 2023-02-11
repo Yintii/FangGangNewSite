@@ -7,18 +7,19 @@ import PxlABI from '../artifacts/contracts/PxlFangs.sol/PxlFangs.json'
 
 
 const PxlFangsSection = ({
-    userFangs, isConnected, alchemy, connect,
+    isConnected, alchemy, connect,
     address, PXL_FANGS_CONTRACT_ADDRESS, FANG_GANG_CONTRACT_ADDRESS,
-    setUserFangs,toggledForClaimTokens, setToggledForClaimedTokens
 }) => {
 
-    //the fangster we're going to check if it's claimed from the form
-    const [fangsterToCheckClaim, setFangsterToCheckClaim] = useState('');
+    const [fangsterToCheckClaim, setFangsterToCheckClaim]     = useState('');
+    const [userFangs, setUserFangs]                           = useState([]);
+    const [toggledForClaimTokens, setToggledForClaimedTokens] = useState([]);
+    const [unclaimedFangs, setUnclaimedFangs]                 = useState([]);
 
     //for the animation that bounces the avatar
     const [pxlFangAvatarRef, pxlFangAvatarRefInView] = useInView({ threshold: 0 });
 
-    const [unclaimedFangs, setUnclaimedFangs] = useState([]);
+    
 
     //handle input change for claim checker
     // const handleClaimCheckChange = (event) => {
