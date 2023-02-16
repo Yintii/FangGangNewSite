@@ -1,21 +1,20 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ethers } from 'ethers'
 
 import PxlABI from '../artifacts/contracts/PxlFangs.sol/PxlFangs.json'
 
-const Drawer = ({ 
-    drawerActive, handleDrawerHide, fangsterToCheckClaim,
-    userFangs, unclaimedFangs, handleClaimCheckChange, web3,
-    setUserFangs, toggleForClaim
-}) => {
+const Drawer = ({web3, setDrawerActive, drawerActive}) => {
 
     const {
-        isConnected, 
-        alchemy, 
-        address, 
-        FANG_GANG_CONTRACT_ADDRESS, 
-        PXL_FANGS_CONTRACT_ADDRESS 
+        isConnected, alchemy, address, connect,
+        FANG_GANG_CONTRACT_ADDRESS, PXL_FANGS_CONTRACT_ADDRESS,
     } = web3;
+
+    const [fangsterToCheckClaim, setFangsterToCheckClaim] = useState('');
+    const [userFangs, setUserFangs] = useState([]);
+    const [toggledForClaimTokens, setToggledForClaimedTokens] = useState([]);
+    const [unclaimedFangs, setUnclaimedFangs] = useState([]);
+    
 
     async function getFangstersFromWallet() {
         if (!isConnected) {
@@ -67,10 +66,73 @@ const Drawer = ({
         }
     }
 
+    // handle input change for claim checker
+    const handleClaimCheckChange = (event) => {
+        setFangsterToCheckClaim(event.target.value)
+    }
+
+    const handleSelectMax = () => {
+        let all = unclaimedFangs.map(each => each.tokenId)
+        setToggledForClaimedTokens(all);
+    }
+
+    const handleUnselectAll = () => {
+        setToggledForClaimedTokens([]);
+    }
+
+
+    //adds fangster ids to an array for claiming
+    //if it's already in the array, it removes it
+    const toggleForClaim = (fangId) => {
+        if (toggledForClaimTokens.includes(fangId)) {
+            console.log('removing token...')
+            let arr = toggledForClaimTokens.filter(id => id != fangId);
+            setToggledForClaimedTokens(arr);
+        } else {
+            console.log('adding token...')
+            let arr = [...toggledForClaimTokens, fangId]
+            setToggledForClaimedTokens(arr);
+        }
+    }
+
+    const RenderFangsters = () => {
+        let fangsters = userFangs.map(fang => {
+            if (fang.claimed) {
+                return (
+                    <div key={`fang-${fang.tokenId}`}>
+                        <div className='already-claimed'>
+                            <p className='claimed-text'>CLAIMED</p>
+                        </div>
+                        <img src={fang.rawMetadata.image} />
+                    </div>
+                )
+            } else {
+                return (
+                    <>
+                        <img
+                            key={`fang-${fang.tokenId}`}
+                            onClick={() => toggleForClaim(fang.tokenId)}
+                            src={fang.rawMetadata.image}
+                            className={toggledForClaimTokens.includes(fang.tokenId) ? 'selected-for-claim' : 'claimable'}
+                        />
+                    </>
+                )
+            }
+        })
+        return fangsters;
+        
+    }
+
 
     useEffect(() => {
         getFangstersFromWallet();
     }, [isConnected])
+
+
+    useEffect(() => {
+        let unclaimed = userFangs.filter(fangster => fangster.claimed == false);
+        setUnclaimedFangs(unclaimed);
+    }, [userFangs.length])
 
 
     return (
@@ -96,32 +158,7 @@ const Drawer = ({
                     />
                 </div>
                 <div id="current_fangs" style={{ display: userFangs ? 'flex' : 'none' }}>
-                    {/* <RenderFangsters /> */}
-                    {userFangs.map(fang => {
-                        if (fang.claimed) {
-                            return (
-                                <div key={`fang-${fang.tokenId}`}>
-                                    <div className='already-claimed'>
-                                        <p className='claimed-text'>CLAIMED</p>
-                                    </div>
-                                    <img src={fang.rawMetadata.image} />
-                                </div>
-                            )
-                        } else {
-                            return (
-                                <>
-                                    <img
-                                        key={`fang-${fang.tokenId}`}
-                                        onClick={() => toggleForClaim(fang.tokenId)}
-                                        src={fang.rawMetadata.image}
-                                        className={toggledForClaimTokens.includes(fang.tokenId) ? 'selected-for-claim' : 'claimable'}
-                                    />
-                                </>
-                            )
-                        }
-                    })
-
-                    }
+                    <RenderFangsters />
                 </div>
                 {userFangs && (
                     <div id="claim-options">
@@ -159,7 +196,7 @@ const Drawer = ({
                 src="./images/pxlfangarrow.png"
                 width="103px"
                 height='69px'
-                onClick={() => handleDrawerHide()}
+                onClick={() => setDrawerActive(false)}
             />
         </div>
     )

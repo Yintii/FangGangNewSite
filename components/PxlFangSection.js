@@ -6,58 +6,14 @@ import Drawer from './Drawer';
 
 const PxlFangsSection = (props) => {
 
-    const [fangsterToCheckClaim, setFangsterToCheckClaim]     = useState('');
-    const [userFangs, setUserFangs]                           = useState([]);
-    const [toggledForClaimTokens, setToggledForClaimedTokens] = useState([]);
-    const [unclaimedFangs, setUnclaimedFangs]                 = useState([]);
+
     const [drawerActive, setDrawerActive] = useState(false);
-    //for the animation that bounces the avatar
+
     const [pxlFangAvatarRef, pxlFangAvatarRefInView] = useInView({ threshold: 0 });
-
-    
-
-    // handle input change for claim checker
-    const handleClaimCheckChange = (event) => {
-        setFangsterToCheckClaim(event.target.value)
-    }
-
-    const handleSelectMax = () => {
-        setToggledForClaimedTokens(unclaimedFangs)
-    }
-
-    const handleUnselectAll = () => {
-        setToggledForClaimedTokens([]);
-    }
-
-    //hide drawer when the user clicks arrow on bottom of drawer
-    const handleDrawerHide = () => {
-        setDrawerActive(false)
-    }
-
-    //adds fangster ids to an array for claiming
-    //if it's already in the array, it removes it
-    const toggleForClaim = (fangId) => {
-        if (toggledForClaimTokens.includes(fangId)) {
-            console.log('removing token...')
-            let arr = toggledForClaimTokens.filter(id => id != fangId);
-            setToggledForClaimedTokens(arr);
-        } else {
-            console.log('adding token...')
-            let arr = [...toggledForClaimTokens, fangId]
-            setToggledForClaimedTokens(arr);
-        }
-    }
-
 
     useEffect(() => {
         pxlFangAvatarRefInView ? document.querySelector('.px-fang-img-area').classList.add('zoomingIn') : null
     }, [pxlFangAvatarRefInView]);
-
-    useEffect(() => {
-        let unclaimed = userFangs.filter(fangster => fangster.claimed == false);
-        setUnclaimedFangs(unclaimed);
-    }, [userFangs.length])
-
 
     return (
         <section id="pxlfangs">
@@ -100,14 +56,8 @@ const PxlFangsSection = (props) => {
 
             </div>
             <Drawer 
-                drawerActive={drawerActive} 
-                userFangs={userFangs}
-                unclaimedFangs={unclaimedFangs}
-                fangsterToCheckClaim={fangsterToCheckClaim}
-                setUserFangs={setUserFangs}
-                toggleForClaim={toggleForClaim}
-                handleDrawerHide={handleDrawerHide}
-                handleClaimCheckChange={handleClaimCheckChange}
+                setDrawerActive={setDrawerActive}
+                drawerActive={drawerActive}
                 web3={props}
             />
         </section>
