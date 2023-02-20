@@ -193,7 +193,9 @@ nav{
     scale: 1.3;
 }
 
-#dropdowns{
+
+
+#claim-drop-down, #game-drop-down{
     border-bottom-left-radius: 100px;
     border-bottom-right-radius: 100px;
     background-color: #FFC657;

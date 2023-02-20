@@ -3,7 +3,7 @@ import { ethers } from 'ethers'
 
 import PxlABI from '../artifacts/contracts/PxlFangs.sol/PxlFangs.json'
 
-const Drawer = ({web3, setDrawerActive, drawerActive}) => {
+const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
 
     const {
         isConnected, alchemy, address, connect,
@@ -136,10 +136,7 @@ const Drawer = ({web3, setDrawerActive, drawerActive}) => {
 
 
     return (
-        <div
-            id="dropdowns"
-            className={drawerActive ? '' : 'hidden'}
-        >
+        <div id="claim-drop-down" className={claimDrawerActive ? '' : ' hidden'}>
             <div id="claim">
                 <div id="claim-header">
                     <h2 className="black">CLAIM YOUR PXLFANGSTER.</h2>
@@ -178,7 +175,7 @@ const Drawer = ({web3, setDrawerActive, drawerActive}) => {
                             disabled={unclaimedFangs.length > 0 ? false : true}
                             className={
                                 unclaimedFangs.length == 0 || toggledForClaimTokens.length == 0 ? 'none-to-claim' : 'some-to-claim'}
-                            onClick={() => setDrawerActive()}
+                            onClick={() => handleToggleClaimDrawer()}
                         >
                             CLAIM
                         </button>
@@ -196,11 +193,11 @@ const Drawer = ({web3, setDrawerActive, drawerActive}) => {
                 src="./images/pxlfangarrow.png"
                 width="103px"
                 height='69px'
-                onClick={() => setDrawerActive(false)}
+                onClick={() => handleToggleClaimDrawer()}
             />
         </div>
     )
 };
 
 
-export default Drawer;
+export default ClaimDrawer;

@@ -2,12 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 
-import Drawer from './Drawer';
+import ClaimDrawer from './ClaimDrawer';
+import FangRunner from './FangRunnerDrawer';
 
 const PxlFangsSection = (props) => {
 
 
-    const [drawerActive, setDrawerActive] = useState(false);
+    const [claimDrawerActive, setClaimDrawerActive] = useState(false);
+    const [fangRunnerActive, setFangRunnerActive] = useState(false);
+
+    const handleToggleClaimDrawer = () => {
+        if(fangRunnerActive){
+            setFangRunnerActive(false)
+        }
+        setClaimDrawerActive(!claimDrawerActive);
+    }
+
+    const handleToggleFangRunnerDrawer = () => {
+        if(claimDrawerActive){
+            setClaimDrawerActive(false)
+        }
+        setFangRunnerActive(!fangRunnerActive);
+    }
+
 
     const [pxlFangAvatarRef, pxlFangAvatarRefInView] = useInView({ threshold: 0 });
 
@@ -25,11 +42,16 @@ const PxlFangsSection = (props) => {
                             <button className="gold-bg">JOIN</button>
                             <button
                                 className="gold-bg"
-                                onClick={() => setDrawerActive(true)}
+                                onClick={() => handleToggleClaimDrawer()}
                             >
                                 CLAIM
                             </button>
-                            <button className="gold-bg">PLAY</button>
+                            <button 
+                                className="gold-bg"
+                                onClick={()=> handleToggleFangRunnerDrawer()}
+                            >
+                                PLAY
+                            </button>
                         </div>
                         <p>
                             To expand the Fangverse we introduced PxlFangs, a first of its kind pixelated side collection. Every Fangster has a PxlFangster attached, claimable for free.
@@ -55,10 +77,14 @@ const PxlFangsSection = (props) => {
                 <img id="fangrunner-runs-to-left" src="./images/fangrun.gif" />
 
             </div>
-            <Drawer 
-                setDrawerActive={setDrawerActive}
-                drawerActive={drawerActive}
+            <ClaimDrawer 
+                handleToggleClaimDrawer={handleToggleClaimDrawer}
+                claimDrawerActive={claimDrawerActive}
                 web3={props}
+            />
+            <FangRunner 
+                handleToggleFangRunnerDrawer={handleToggleFangRunnerDrawer}
+                fangRunnerActive={fangRunnerActive}
             />
         </section>
     )
