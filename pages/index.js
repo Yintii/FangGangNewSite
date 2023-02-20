@@ -11,6 +11,7 @@ import NavComponent from '@/components/Navbar'
 import IntroSection from '@/components/Intro'
 import MeetSection from '@/components/Meeting'
 import PxlFangsSection from '@/components/PxlFangSection'
+import GearSection from '@/components/GearUpSection';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -58,6 +59,7 @@ export default function Home() {
                 PXL_FANGS_CONTRACT_ADDRESS={PXL_FANGS_CONTRACT_ADDRESS}
                 FANG_GANG_CONTRACT_ADDRESS={FANG_GANG_CONTRACT_ADDRESS}
             />
+            <GearSection />
         </main>
     </>
   )

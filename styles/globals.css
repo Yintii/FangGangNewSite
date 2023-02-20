@@ -86,7 +86,7 @@ nav{
     top:-125px;
 }
 
-#meet{
+#meet, #gear{
     background-color:black;
     padding:5rem 0;
     position: relative;
@@ -98,7 +98,7 @@ nav{
 #pxlfangs{
     display:flex;
     flex-flow:column nowrap;
-    
+    background-color: black;
 }
 
 #px-wrapper{
@@ -158,7 +158,9 @@ nav{
     margin-bottom:10px;
 }
 
-.fang-img-area, .px-fang-img-area   {
+.fang-img-area, 
+.px-fang-img-area,
+.wildfang-logo-area  {
     background-color: #FFC657;
     border-radius: 100%;
     width:264px;
@@ -170,6 +172,11 @@ nav{
     left:-150px;
     /* animation: pulse 4s infinite ease-in-out; */
 }
+
+.wildfang-logo-area>img{
+    scale: 1.2;
+}
+
 .fang-img-area>img:first-child{
     scale:1.3;
 }
@@ -340,14 +347,14 @@ input{
     text-align: center;
 }
 
-#meet>div{
+#meet>div, #gear>div{
     display: flex;
     flex-flow:row nowrap;
     align-items: center;
 }
 
 
-#meet-copy{
+#meet-copy, #gear-copy{
     position: relative;
     width:80%;
     height:419px;
@@ -357,15 +364,15 @@ input{
     border-bottom-right-radius: 25rem;
     
 }
-#meet-wrap{
+#meet-wrap, #gear-wrap{
     padding:0rem 8rem;
 }
 
-#meet-wrap>h2{
+#meet-wrap>h2, #gear-wrap>h2{
     font-size:50px;
     margin-bottom:5px;
 }
-#meet-wrap>button{
+#meet-wrap>button, #gear-wrap>button{
     border-radius: 30px;
     font-size: 25px;
     padding:.75rem 3rem;
@@ -373,7 +380,7 @@ input{
     background-color: #FFC657;
     
 }
-#meet-wrap>p {
+#meet-wrap>p, #gear-wrap>p{
     width:80%;
     font-size: 20px;
 }
@@ -384,6 +391,16 @@ input{
     position: relative;
     right:0px;
     top:-25px;
+    border-top-left-radius: 25rem;
+    border-bottom-left-radius: 25rem;
+}
+
+#fangModels {
+    align-self: end;
+    width: 1264px;
+    position: relative;
+    right: 0px;
+    top: -25px;
     border-top-left-radius: 25rem;
     border-bottom-left-radius: 25rem;
 }
