@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
 
-import Button from 'react-bootstrap/Button';
 
 
 function FangRunner({fangRunnerActive, handleToggleFangRunnerDrawer}) {
 
     const ratio = .566;
     const [style, setStyle] = useState({})
-    const [fullscreen, setFullscreen] = useState(false)
 
     useEffect(() => {
         window.addEventListener("resize", resize);
@@ -29,48 +27,33 @@ function FangRunner({fangRunnerActive, handleToggleFangRunnerDrawer}) {
         }
 
         setStyle({
-            // border: "1px solid #000",
-            margin: "0 0 0 " + margin / 2 + "px",
-            width: width + "px",
-            height: height + "px"
+            border: "1px solid #000",
+            margin: "0 auto",
+            borderRadius: '50px',
+            marginTop: '2rem',
+            marginBottom: '2rem',
+            width: "80%",
+            height: "670px"
         });
-        setFullscreen(false)
         document.body.style.overflowX = "hidden";
         document.body.style.overflowY = "scroll";
     }
 
-    function gameFullscreen() {
-        document.body.style.overflow = "hidden";
-        setStyle({
-            position: "fixed",
-            top: "-5px",
-            left: "-5px",
-            zIndex: "9999",
-            margin: "0",
-            width: window.innerWidth + 10 + "px",
-            height: window.innerHeight + 10 + "px"
-        });
-        setFullscreen(true)
-    }
-
-    function ButtonX() {
-        if (fullscreen) {
-            return <div className="x" onClick={resize}>X</div>
-        } else {
-            return <div></div>
-        }
-    }
+ 
 
 
     return (
         <div id="game-drop-down" className={fangRunnerActive ? '' : ' hidden'}>
+            <h3>PLAY FANGRUNNER.</h3>
             <div className="game-container">
                 <iframe id="test" style={style} src="https://fanggang.io/fangrunnergame/" title="Fang Runner"></iframe>
             </div>
-            <div className="container text-center">
-                <ButtonX />
-                <Button className="pxlfngs-btn" onClick={gameFullscreen}>FULLSCREEN</Button>
-            </div>
+            <p>
+                Run your way through New Fang City while avoiding flippers and paper hands to collect as many precious diamonds as possible! 
+            </p>
+            <p>
+                By holding a Fangster you start your run with a shield power up. Stay on the look out for Fang Runner competitions during celebrations and other events.
+            </p>
             <img
                 id="pxl-arrow"
                 src="./images/pxlfangarrow.png"
