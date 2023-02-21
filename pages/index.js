@@ -12,7 +12,7 @@ import IntroSection from '@/components/Intro'
 import MeetSection from '@/components/Meeting'
 import PxlFangsSection from '@/components/PxlFangSection'
 import GearSection from '@/components/GearUpSection';
-
+import Join from '@/components/Join';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -60,6 +60,7 @@ export default function Home() {
                 FANG_GANG_CONTRACT_ADDRESS={FANG_GANG_CONTRACT_ADDRESS}
             />
             <GearSection />
+            <Join />
         </main>
     </>
   )

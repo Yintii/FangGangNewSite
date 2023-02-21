@@ -8,7 +8,7 @@ const MeetSection = () => {
     const [newFangCityRef, newFangCityRefInView] = useInView({ threshold: 0 });
 
     useEffect(() => {
-        meetInView ? document.querySelector('#meet-copy').classList.add('slideInLeft') : null;
+        meetInView ? document.querySelector('.section-copy').classList.add('slideInLeft') : null;
     }, [meetInView]);
 
     useEffect(() => {
@@ -22,15 +22,15 @@ const MeetSection = () => {
     return (
         <section id="meet">
             <div>
-                <div id="meet-copy" ref={meetRef} className="purple-bg">
-                    <div id="meet-wrap">
+                <div className="section-copy purple-bg" ref={meetRef}>
+                    <div className='copy-wrap'>
                         <h2>MEET THE <span className="gold">FANG GANG</span>.</h2>
-                        <button>JOIN</button>
-                        <button>VISIT</button>
-                        <p>
+                        <button className='section-button'>JOIN</button>
+                        <button className='section-button'>VISIT</button>
+                        <p className='section-p'>
                             The Fang Gang comes out at night to throw parties, hang around in dark alleys and have fun on the streets of New Fang City.
                         </p>
-                        <p>
+                        <p className='section-p'>
                             What started as a character built for digital collectibles has grown to be somuch more. They love streetwear, a tight-knit community, music and art. All of which has been established within the Awoo Studios ecosystem.
                         </p>
                     </div>

@@ -8,7 +8,7 @@ const GearSection = () => {
     const [modelFangsRef, modelFangsRefInView] = useInView({ threshold: 0 });
 
     useEffect(() => {
-        gearRefInView ? document.querySelector('#gear-copy').classList.add('slideInLeft') : null;
+        gearRefInView ? document.querySelector('.section-copy').classList.add('slideInLeft') : null;
     }, [gearRefInView]);
 
     useEffect(() => {
@@ -22,15 +22,15 @@ const GearSection = () => {
     return (
         <section id="gear">
             <div>
-                <div id="gear-copy" className='purple-bg' ref={gearRef}>
-                    <div id="gear-wrap">
+                <div className="section-copy purple-bg" ref={gearRef}>
+                    <div className='copy-wrap'>
                         <h2>GEAR UP WITH <span className="gold">WLDFNGZ</span>.</h2>
-                        <button>SHOP</button>
-                        <button>FOLLOW</button>
-                        <p>
+                        <button className='section-button'>SHOP</button>
+                        <button className='section-button'>FOLLOW</button>
+                        <p className='section-p'>
                             WLDFNGZ is the streetwear brand worn by Fang Gang. From digital collectibles to the real world, we’re biting the gap between the dopest metaverse fits and real life streetwear.
                         </p>
-                        <p>
+                        <p className='section-p'>
                             Every piece of apparel is crafted with care in New Fang City.
                         </p>
                     </div>

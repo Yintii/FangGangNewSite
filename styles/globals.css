@@ -354,36 +354,53 @@ input{
 }
 
 
-#meet-copy, #gear-copy{
+#join{
+    display:flex;
+    position: relative;
+    flex-flow:row nowrap;
+    justify-content: center;
+    width:80%;
+    margin:0 auto;
+}
+
+#join>img{
+    position: relative;
+    margin-top:10rem;
+    bottom:0px;
+}
+
+.section-copy{ 
     position: relative;
     width:80%;
     height:419px;
-    padding: 1rem;
     left:0px;
     border-top-right-radius: 25rem;
     border-bottom-right-radius: 25rem;
-    
 }
-#meet-wrap, #gear-wrap{
+.copy-wrap{
     padding:0rem 8rem;
 }
-
-#meet-wrap>h2, #gear-wrap>h2{
+#join .copy-wrap{
+    padding:unset;
+    margin: 10rem 0;    
+}
+.copy-wrap>h2{
     font-size:50px;
     margin-bottom:5px;
 }
-#meet-wrap>button, #gear-wrap>button{
+
+.section-button{
     border-radius: 30px;
     font-size: 25px;
-    padding:.75rem 3rem;
-    margin-right:1rem;
+    padding: .75rem 3rem;
+    margin-right: 1rem;
     background-color: #FFC657;
-    
 }
-#meet-wrap>p, #gear-wrap>p{
-    width:80%;
+.section-p{
+    width: 80%;
     font-size: 20px;
 }
+
 #fanggrid{
     align-self: end;
     width:1253px;
