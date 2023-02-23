@@ -11,12 +11,51 @@ html,body{
     overflow-x: hidden;
 
 }
+
+ul {
+    list-style: none;
+}
+
+nav {
+    margin: 2rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFF;
+}
+
+#nav-menu {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#nav-menu>li {
+    margin: 1rem;
+    font-size: 30px;
+}
+
+#nav-menu>li:nth-child(odd) {
+    color: #FFC657;
+    font-weight: 700;
+}
+
+#nav-buttons>button {
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: #FFC657;
+    font-size: 30px;
+    padding: 10px 35px
+}
+
 .hidden{
     display:none;
 }
 
-ul{
-    list-style: none;
+#brand {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
 }
 
 
@@ -28,42 +67,6 @@ ul{
     background-image: url('/images/groupphoto.png');
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-#brand{
-    display:flex;
-    flex-flow:row nowrap;
-    align-items: center;
-}
-
-nav{
-    margin: 2rem;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    color:#FFF;
-}
-
-#nav-menu{
-    display:flex;
-    flex-flow:row nowrap;
-}
-#nav-menu>li{
-    margin:1rem;
-    font-size:30px; 
-}
-#nav-menu>li:nth-child(odd){
-    color:#FFC657;
-    font-weight:700;
-}
-
-#nav-buttons>button{
-    padding:1rem;
-    border-radius: 15px;
-    background-color: #FFC657;
-    font-size:30px;
-    padding:10px 35px
 }
 
 #intro-content{
@@ -86,8 +89,8 @@ nav{
     top:-125px;
 }
 
-#meet, #gear{
-    background-color:black;
+#meet, #gear, #newFangCity{
+    background:linear-gradient(.75turn,#2C282E, #1D1B1E);
     padding:5rem 0;
     position: relative;
     width:100vw;
@@ -158,10 +161,16 @@ nav{
     margin-bottom:10px;
 }
 
+.fang-img-area,
+.px-fang-img-area,
+.wildfang-logo-area{
+    background-color: #FFC657;
+}
+
 .fang-img-area, 
 .px-fang-img-area,
-.wildfang-logo-area  {
-    background-color: #FFC657;
+.wildfang-logo-area,
+.barracade-img-area{
     border-radius: 100%;
     width:264px;
     height:264px;
@@ -172,7 +181,9 @@ nav{
     left:-150px;
     /* animation: pulse 4s infinite ease-in-out; */
 }
-
+.barracade-img-area {
+    scale:1.3;
+}
 .wildfang-logo-area>img{
     scale: 1.2;
 }
@@ -347,7 +358,9 @@ input{
     text-align: center;
 }
 
-#meet>div, #gear>div{
+#meet>div, 
+#gear>div, 
+#newFangCity>div{
     display: flex;
     flex-flow:row nowrap;
     align-items: center;
@@ -422,6 +435,16 @@ input{
     border-bottom-left-radius: 25rem;
 }
 
+#NFC{
+    align-self: end;
+    width: 1264px;
+    position: relative;
+    right: 0px;
+    top: -25px;
+    border-top-left-radius: 25rem;
+    border-bottom-left-radius: 25rem;
+}
+
 .gold{
     color:#FFC657
 }
@@ -435,6 +458,9 @@ input{
 }
 .purple-bg{
     background-color: #6950D0;
+}
+.black-bg{
+    background-color: #2C282E;
 }
 
 #fangrunner-runs-to-left{
@@ -472,13 +498,14 @@ input{
     margin:2rem auto;
 }
 
+
+
 .slideInLeft{
     animation-name:slideInFromLeft;
     animation-duration: 1s;
     animation-iteration-count:1;
     animation-timing-function:ease;
 }
-
 @keyframes slideInFromLeft{
     from{
         left:-1000px;
@@ -488,10 +515,10 @@ input{
     }
 }
 
+
 .slideInRight {
     animation: 1s slideInFromRight ease;
 }
-
 @keyframes slideInFromRight {
     from {
         right: -1000px;
@@ -502,10 +529,10 @@ input{
     }
 }
 
+
 .zoomingIn{
     animation: zoomIn 1s 1 forwards;
 }
-
 @keyframes zoomIn{
     0%{
         scale:0;
@@ -524,6 +551,7 @@ input{
     }
 }
 
+
 @keyframes pulse{
     0%{
         scale:1;
@@ -535,7 +563,6 @@ input{
         scale:1;
     }
 }
-
 @keyframes floatUpAndDown{
     0%{
 
@@ -547,8 +574,6 @@ input{
 
     }
 }
-
-
 @keyframes fangRunning{
     0%{
         right: -20%;

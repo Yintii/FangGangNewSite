@@ -13,6 +13,7 @@ import MeetSection from '@/components/Meeting'
 import PxlFangsSection from '@/components/PxlFangSection'
 import GearSection from '@/components/GearUpSection';
 import Join from '@/components/Join';
+import NewFangCity from '@/components/NewFangCity';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -61,6 +62,7 @@ export default function Home() {
             />
             <GearSection />
             <Join />
+            <NewFangCity />
         </main>
     </>
   )
