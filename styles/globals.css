@@ -89,13 +89,34 @@ nav {
     top:-125px;
 }
 
-#meet, #gear, #newFangCity{
+#meet,
+#gear,
+#newFangCity{
+flex-flow: column nowrap;
+}
+#AwooStudios{
+    flex-flow: row nowrap;
+    align-items: center;
+}
+#meet,
+#gear,
+#newFangCity,
+#AwooStudios,
+#ourPartners{
     background:linear-gradient(.75turn,#2C282E, #1D1B1E);
     padding:5rem 0;
     position: relative;
     width:100vw;
     display:flex;
+}
+#ourPartners{
     flex-flow:column nowrap;
+    
+}
+#ourPartners>div{
+    width:70%;
+    margin: 0 auto;
+        border-top: 1px solid white;
 }
 
 #pxlfangs{
@@ -402,6 +423,15 @@ input{
     margin-bottom:5px;
 }
 
+#ourPartners h2{
+    margin: 3rem 0;
+}
+
+#partners-area{
+    display: flex;
+    justify-content: space-between;
+}
+
 .section-button{
     border-radius: 30px;
     font-size: 25px;
@@ -498,7 +528,15 @@ input{
     margin:2rem auto;
 }
 
-
+#junshiAndPaca{
+    background-image: url('/images/fangWallpaper.png');
+    background-size: cover;
+    border-top-left-radius: 25rem;
+    border-bottom-left-radius: 25rem;
+    width:681px;
+    height:161px;
+    border:1px solid black;
+}
 
 .slideInLeft{
     animation-name:slideInFromLeft;

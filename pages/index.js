@@ -14,6 +14,8 @@ import PxlFangsSection from '@/components/PxlFangSection'
 import GearSection from '@/components/GearUpSection';
 import Join from '@/components/Join';
 import NewFangCity from '@/components/NewFangCity';
+import AwooStudios from '@/components/AwooStudios';
+import OurPartners from '@/components/OurPartners';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -63,6 +65,8 @@ export default function Home() {
             <GearSection />
             <Join />
             <NewFangCity />
+            <AwooStudios />
+            <OurPartners />
         </main>
     </>
   )
