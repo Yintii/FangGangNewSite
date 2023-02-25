@@ -538,6 +538,24 @@ input{
     border:1px solid black;
 }
 
+
+footer, #socials{
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#socials{
+    width: 20%;
+    padding: 2rem 4rem;
+}
+
+footer>img:last-child{
+    padding-right: 1rem;
+}
+
+
 .slideInLeft{
     animation-name:slideInFromLeft;
     animation-duration: 1s;

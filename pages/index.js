@@ -16,6 +16,7 @@ import Join from '@/components/Join';
 import NewFangCity from '@/components/NewFangCity';
 import AwooStudios from '@/components/AwooStudios';
 import OurPartners from '@/components/OurPartners';
+import Footer from '@/components/Footer';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -67,6 +68,7 @@ export default function Home() {
             <NewFangCity />
             <AwooStudios />
             <OurPartners />
+            <Footer />
         </main>
     </>
   )
