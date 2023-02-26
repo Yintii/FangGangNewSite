@@ -68,8 +68,8 @@ export default function Home() {
             <NewFangCity />
             <AwooStudios />
             <OurPartners />
-            <Footer />
         </main>
+        <Footer />
     </>
   )
 }

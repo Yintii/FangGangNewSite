@@ -12,7 +12,6 @@ const Footer = () => {
         </div>
         <img id='poap' src='/images/poap.png' />
         <img id='copyright' src='/images/copyright.png' width='272px' height='56px' />
-
     </footer>
   )
 }

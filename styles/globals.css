@@ -9,23 +9,63 @@ html,body{
     color:white;
     max-width:100vw;
     overflow-x: hidden;
-
 }
 
 ul {
     list-style: none;
 }
+ul, li{
+    margin: 0;
+    padding:0;
+}
+
+#brand {
+    width: 365px;
+}
+
+
+@media screen and (max-width: 767px){
+    #brand {
+        width: 270px;
+        z-index: 5;
+    }
+    #brand-wrap{
+        display: ;
+        
+    }
+    nav{
+        height: 70px;
+        text-align:center
+    }
+    #navigation{
+        display: flex;
+        position: absolute;
+        align-items: center;
+        top: 125px;
+        width: 100vw;
+        background-color: #6950D0;
+    }
+    nav, #nav-menu, #navigation, #nav-buttons{
+        flex-flow: column nowrap !important;
+    }
+    #nav-buttons{
+        display: flex;
+        margin: 2rem auto;
+        justify-content:center;
+    }
+}
 
 nav {
     margin: 2rem;
-    display: flex;
-    flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     color: #FFF;
 }
 
-#nav-menu {
+#nav-menu, 
+#navigation,
+nav,
+#claim-options {
     display: flex;
     flex-flow: row nowrap;
 }
@@ -52,11 +92,6 @@ nav {
     display:none;
 }
 
-#brand {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-}
 
 
 #intro{
@@ -318,8 +353,6 @@ flex-flow: column nowrap;
 }
 
 #claim-options{
-    display: flex;
-    flex-flow: row nowrap;
     width: 70%;
     margin:0 auto;
     justify-content: space-between;
