@@ -22,23 +22,34 @@ ul, li{
 #brand {
     width: 365px;
 }
+#hamburger-menu{
+    display:none;
+}
 
-
-@media screen and (max-width: 767px){
+@media screen and (max-width: 900px){
     #brand {
         width: 270px;
         z-index: 5;
     }
     #brand-wrap{
-        display: ;
-        
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        align-self: center;
     }
+    #hamburger-menu{
+        display:block;
+        height: 35px;
+        width: 60px;
+    }
+
     nav{
         height: 70px;
-        text-align:center
+        margin: 2rem 3rem 4rem 3rem !important;
     }
     #navigation{
-        display: flex;
+        display: none !important;
         position: absolute;
         align-items: center;
         top: 125px;

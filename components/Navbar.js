@@ -12,7 +12,7 @@ const NavComponent = () => {
                         src={"./images/fangganglogo.png"}
                         alt="FangGang Copyright Awoo Studios"
                     />
-                    <img src='./images/menu.png' />
+                    <img id='hamburger-menu' src='./images/menu.png' />
                 </div>
                 <div id='navigation'>
                     <ul id="nav-menu">
