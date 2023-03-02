@@ -3,26 +3,16 @@ import { useInView } from 'react-intersection-observer';
 
 const MeetSection = () => {
 
-    const [meetRef, meetInView] = useInView({ threshold: 0 })
     const [fangAvatarRef, fangAvatarRefInView] = useInView({ threshold: 0 });
-    const [newFangCityRef, newFangCityRefInView] = useInView({ threshold: 0 });
-
-    useEffect(() => {
-        meetInView ? document.querySelector('.section-copy').classList.add('slideInLeft') : null;
-    }, [meetInView]);
 
     useEffect(() => {
         fangAvatarRefInView ? document.querySelector(".fang-img-area").classList.add('zoomingIn') : null;
     }, [fangAvatarRefInView])
 
-    useEffect(() => {
-        newFangCityRefInView ? document.querySelector("#fanggrid").classList.add('slideInRight') : null;
-    }, [newFangCityRefInView])
-
     return (
         <section id="meet">
             <div>
-                <div className="section-copy purple-bg" ref={meetRef}>
+                <div className="section-copy purple-bg">
                     <div className='copy-wrap'>
                         <h2>MEET THE <span className="gold">FANG GANG</span>.</h2>
                         <button className='section-button'>JOIN</button>
@@ -40,7 +30,7 @@ const MeetSection = () => {
                     <img src={'./images/logoNoHash.png'} width="196px" height="179px" />
                 </div>
             </div>
-            <img id="fanggrid" ref={newFangCityRef} src={"./images/fanggrid.png"} />
+            <img id="fanggrid" src={"./images/fanggrid.png"} />
         </section>
     )
 }

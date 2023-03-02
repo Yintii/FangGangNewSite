@@ -3,26 +3,16 @@ import { useInView } from 'react-intersection-observer';
 
 const NewFangCity = () => {
 
-    const [TATRef, TATRefInView] = useInView({ threshold: 0 })
     const [barracadeLogoRef, barracadeLogoInView] = useInView({ threshold: 0 });
-    const [NFCRef, NFCRefInView] = useInView({ threshold: 0 });
 
     useEffect(() => {
-        TATRefInView ? document.querySelector('.section-copy').classList.add('slideInLeft') : null;
-    }, [TATRefInView]);
-
-    useEffect(() => {
-        barracadeLogoInView ? document.querySelector(".fang-img-area").classList.add('zoomingIn') : null;
+        barracadeLogoInView ? document.querySelector(".barracade-img-area").classList.add('zoomingIn') : null;
     }, [barracadeLogoInView])
-
-    useEffect(() => {
-        NFCRefInView ? document.querySelector("#NFC").classList.add('slideInRight') : null;
-    }, [NFCRefInView])
 
     return (
         <section id="newFangCity">
             <div>
-                <div className="section-copy purple-bg" ref={TATRef}>
+                <div className="section-copy purple-bg">
                     <div className='copy-wrap'>
                         <h2>TAKE A TRIP TO
                             <span className="gold"> NEW FANG CITY</span>.
@@ -38,10 +28,10 @@ const NewFangCity = () => {
                     </div>
                 </div>
                 <div className="barracade-img-area" ref={barracadeLogoRef}>
-                    <img src={'./images/barracade.png'} width="196px" height="179px" />
+                    <img src={'./images/tram.png'} width="196px" height="179px" />
                 </div>
             </div>
-            <img id="NFC" ref={NFCRef} src={"./images/newFangCity.png"} />
+            <img id="NFC" src={"./images/newFangCity.png"} />
         </section>
     )
 }

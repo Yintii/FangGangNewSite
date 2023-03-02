@@ -8,7 +8,6 @@ const OurPartners = () => {
             <div id="partners-area">
                 <img src="/images/nord.png" />
                 <img src="/images/boson.png" />
-                <img src="/images/gomint.png" />
                 <img src="/images/nbfc.png" />
                 <img src="/images/STBradio.png" />
             </div>

@@ -3,26 +3,18 @@ import { useInView } from 'react-intersection-observer';
 
 const GearSection = () => {
 
-    const [gearRef, gearRefInView] = useInView({ threshold: 0 })
     const [wildFangLogoRef, wildFangLogoInView] = useInView({ threshold: 0 });
-    const [modelFangsRef, modelFangsRefInView] = useInView({ threshold: 0 });
+
 
     useEffect(() => {
-        gearRefInView ? document.querySelector('.section-copy').classList.add('slideInLeft') : null;
-    }, [gearRefInView]);
-
-    useEffect(() => {
-        wildFangLogoInView ? document.querySelector(".fang-img-area").classList.add('zoomingIn') : null;
+        wildFangLogoInView ? document.querySelector(".wildfang-logo-area").classList.add('zoomingIn') : null;
     }, [wildFangLogoInView])
 
-    useEffect(() => {
-        modelFangsRefInView ? document.querySelector("#fangModels").classList.add('slideInRight') : null;
-    }, [modelFangsRefInView])
 
     return (
         <section id="gear">
             <div>
-                <div className="section-copy purple-bg" ref={gearRef}>
+                <div className="section-copy purple-bg">
                     <div className='copy-wrap'>
                         <h2>GEAR UP WITH <span className="gold">WLDFNGZ</span>.</h2>
                         <button className='section-button'>SHOP</button>
@@ -39,7 +31,7 @@ const GearSection = () => {
                     <img src={'./images/wildfangslogo.png'} height="135px" width="157px"/>
                 </div>
             </div>
-            <img id="fangModels" ref={modelFangsRef} src={"./images/fangmodels.png"} />
+            <img id="fangModels" src={"./images/fangmodels.png"} />
         </section>
     )
 }

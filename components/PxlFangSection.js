@@ -70,10 +70,6 @@ const PxlFangsSection = (props) => {
                     </div>
 
                 </div>
-                <div id="px-bottom">
-                    <img id="city-img" src="./images/pxlrunner.png" width="610px" />
-                    <img id="game-case" src="./images/game-case.png" width="246px" />
-                </div>
                 <img id="fangrunner-runs-to-left" src="./images/fangrun.gif" />
 
             </div>

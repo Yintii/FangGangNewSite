@@ -599,6 +599,11 @@ footer>img:last-child{
     padding-right: 1rem;
 }
 
+#cfw_discord{
+    position:relative;
+    display: flex;
+}
+
 
 .slideInLeft{
     animation-name:slideInFromLeft;
