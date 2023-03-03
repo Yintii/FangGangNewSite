@@ -3,11 +3,11 @@ import { useInView } from 'react-intersection-observer';
 
 const NewFangCity = () => {
 
-    const [barracadeLogoRef, barracadeLogoInView] = useInView({ threshold: 0 });
+    const [tramRef, tramRefInView] = useInView({ threshold: 0 });
 
     useEffect(() => {
-        barracadeLogoInView ? document.querySelector(".barracade-img-area").classList.add('zoomingIn') : null;
-    }, [barracadeLogoInView])
+        tramRefInView ? document.querySelector(".tram-img-area").classList.add('zoomingIn') : null;
+    }, [tramRefInView])
 
     return (
         <section id="newFangCity">
@@ -27,7 +27,7 @@ const NewFangCity = () => {
                         </p>
                     </div>
                 </div>
-                <div className="barracade-img-area" ref={barracadeLogoRef}>
+                <div className="tram-img-area" ref={tramRef}>
                     <img src={'./images/tram.png'} width="196px" height="179px" />
                 </div>
             </div>

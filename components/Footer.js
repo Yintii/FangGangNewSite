@@ -10,7 +10,7 @@ const Footer = () => {
             <img src='/images/opensea_logo.png' />
             <img src='/images/email_icon.png' />
         </div>
-        <img id='poap' src='/images/poap.png' />
+        <img id='poap' src='/images/fangster_footer.png' widht='269px' height='108px' />
         <img id='copyright' src='/images/copyright.png' width='272px' height='56px' />
     </footer>
   )
