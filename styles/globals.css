@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
 
 html,body{
-    margin:0;
     padding:0;
     box-sizing: border-box;
     background-color: #6950D0;
     font-family: 'Karla', sans-serif;
+    margin:0;
     color:white;
     max-width:100vw;
     overflow-x: hidden;
@@ -26,7 +26,12 @@ ul, li{
     display:none;
 }
 
-@media screen and (max-width: 900px){
+#navigation{
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media screen and (max-width: 1000px){
     #brand {
         width: 270px;
         z-index: 5;
@@ -45,9 +50,9 @@ ul, li{
     }
 
     nav{
-        height: 70px;
-        margin: 2rem 3rem 4rem 3rem !important;
+        margin: 2rem 3rem 4rem 3rem;
     }
+
     #navigation{
         display: none !important;
         position: absolute;
@@ -55,8 +60,8 @@ ul, li{
         top: 125px;
         width: 100vw;
         background-color: #6950D0;
-    }
-    nav, #nav-menu, #navigation, #nav-buttons{
+    } 
+    #nav-menu, #navigation, #nav-buttons{
         flex-flow: column nowrap !important;
     }
     #nav-buttons{
@@ -84,16 +89,15 @@ nav,
 #nav-menu>li {
     margin: 1rem;
     font-size: 30px;
+    font-weight: 700;
 }
 
 #nav-menu>li:nth-child(odd) {
     color: #FFC657;
-    font-weight: 700;
 }
 
 #nav-buttons>button {
     padding: 1rem;
-    border-radius: 15px;
     background-color: #FFC657;
     font-size: 30px;
     padding: 10px 35px
@@ -103,8 +107,6 @@ nav,
     display:none;
 }
 
-
-
 #intro{
     width: 100vw;
     height:645px;
@@ -112,7 +114,7 @@ nav,
     margin:0 auto;
     background-image: url('/images/groupphoto.png');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
 }
 
 #intro-content{
@@ -174,6 +176,8 @@ flex-flow: column nowrap;
 #px-wrapper{
     position: relative;
     background-image: linear-gradient(.35turn, #6950D0 75%, #76D8F9);
+    z-index: 5;
+    height: auto;
 }
 
 #px-top{
@@ -199,24 +203,16 @@ flex-flow: column nowrap;
     height: auto;
     
 }
-#px-bottom>img:last-child{
-    transform:rotate(10deg);
-    position: relative;
-    left:-7rem;
-    scale:1.1;
-    
-}
 
 #pxl-buttons>button{
     padding:12px 45px;
     margin: 0 .5rem 1rem 0;
-    border-radius:30px;
     font-size:25px;
 }
 
-#pxl-copy{
-    padding:5rem;
-    width:55%;
+#pxl-copy{ 
+    padding: 3rem 10rem 7rem 10rem;
+    width:50%;
 }
 
 #pxl-copy>p{
@@ -232,6 +228,7 @@ flex-flow: column nowrap;
 .px-fang-img-area,
 .wildfang-logo-area{
     background-color: #FFC657;
+    overflow: hidden;
 }
 
 .fang-img-area, 
@@ -239,46 +236,39 @@ flex-flow: column nowrap;
 .wildfang-logo-area,
 .tram-img-area{
     border-radius: 100%;
-    width:264px;
-    height:264px;
+    width:220px;
+    height:220px;
     display:flex;
-    align-items: center;
     justify-content: center;
     position: relative;
     left:-150px;
-    /* animation: pulse 4s infinite ease-in-out; */
 }
+
+.fang-img-area img, .px-fang-img-area img{
+    position: relative;
+    bottom:0;
+}
+
+
 .tram-img-area > img {
     scale:1.8;
 }
 .wildfang-logo-area>img{
     scale: 1.2;
 }
-
-.fang-img-area>img:first-child{
-    scale:1.3;
+.outter-img-wrap{
+    position:relative;
+    display: flex;
+    flex-flow: column nowrap;
 }
-.fang-img-area>img:last-child{
+.outter-img-wrap > .logo{
     position: absolute;
-    bottom:-1.4rem;
-    width:212px;
-    height:80px;
-    scale:1.3;   
-}
-
-.px-fang-img-area>img:first-child {
-    scale: .5;
-}
-
-.px-fang-img-area>img:last-child {
-    position: absolute;
-    bottom: -1.4rem;
     width: 212px;
     height: 80px;
-    scale: 1.3;
+    bottom:-1.55rem;
+    scale:1.2;
+    left:-150px;
 }
-
-
 
 #claim-drop-down, #game-drop-down{
     border-bottom-left-radius: 100px;
@@ -371,13 +361,22 @@ flex-flow: column nowrap;
     
 }
 #claim-options>button{
-    border-radius: 15px;
     color:white;
     background-color: #6950D0;
     font-size:30px;
     padding:1rem 5rem;
 }
 
+button, input[type=button]{
+    border:none;
+    box-shadow: none;
+    border-radius: 30px;
+}
+
+button:hover,
+input[type=button]:hover {
+    box-shadow:none;
+}
 
 .some-to-claim{
     background-color: #6950D0;
@@ -389,7 +388,6 @@ flex-flow: column nowrap;
 }
 
 #claim-options>div>button{
-    border-radius:20px;
     padding:.5rem 2rem;
     background-color: black;
     color:white;
@@ -477,7 +475,6 @@ input{
 }
 
 .section-button{
-    border-radius: 30px;
     font-size: 25px;
     padding: .75rem 3rem;
     margin-right: 1rem;
@@ -546,6 +543,71 @@ input{
     animation: fangRunning 10s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
+}
+
+#sidewalk{
+    width:100vw;
+    position:absolute;
+    bottom:-25px;
+}
+
+#icecream-fangster{
+    position: absolute;
+    bottom:-10px;
+    left: 4%;
+    z-index: 5;
+    transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+}
+
+#musicfang{
+    position: relative;
+    left:-45%;
+    width: 106px;
+    height: 70px;
+    transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+}
+
+#smallDiamond-left,
+#smallDiamond-middle,
+#smallDiamond-right,
+#bigDiamond-left,
+#bigDiamond-right,
+#brain,
+#pxl-clock {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+}
+
+#smallDiamond-left{
+    left: 1rem;
+    bottom: 30%;
+}
+#smallDiamond-middle {
+    right: 35%;
+    top: 40%;
+}
+#smallDiamond-right{
+    right: 5%;
+    bottom: 30%;
+}
+#bigDiamond-left{
+    left: 5rem;
+    bottom: 45%;
+}
+#bigDiamond-right {
+    right: 2%;
+    bottom: 45%;
+}
+#brain{
+    left: 3rem;
+    top: 10%;
+}
+#pxl-clock{
+    right:40%;
+    top:30%;
 }
 
 #pxl-arrow{
@@ -636,7 +698,7 @@ footer>img:last-child{
 
 
 .zoomingIn{
-    animation: zoomIn 1s 1 forwards;
+    animation: zoomIn s 1 forwards;
 }
 @keyframes zoomIn{
     0%{
@@ -698,4 +760,21 @@ footer>img:last-child{
     }
 }
 
+.toaster-pop-up{
+    animation: toasterPop 1s 1 forwards;
+}
 
+@keyframes toasterPop{
+    0%{
+        bottom: -500px;
+    }
+    50%{
+        bottom: 5px;
+    }
+    75%{
+        bottom: -5px;
+    }
+    100%{
+        bottom:0px;
+    }
+}

@@ -6,7 +6,7 @@ const MeetSection = () => {
     const [fangAvatarRef, fangAvatarRefInView] = useInView({ threshold: 0 });
 
     useEffect(() => {
-        fangAvatarRefInView ? document.querySelector(".fang-img-area").classList.add('zoomingIn') : null;
+        fangAvatarRefInView ? document.querySelector(".fang-img-area > img").classList.add('toaster-pop-up') : null;
     }, [fangAvatarRefInView])
 
     return (
@@ -25,9 +25,11 @@ const MeetSection = () => {
                         </p>
                     </div>
                 </div>
-                <div className="fang-img-area" ref={fangAvatarRef}>
-                    <img src={'./images/mascot.png'} width="196px" height="179px" />
-                    <img src={'./images/logoNoHash.png'} width="196px" height="179px" />
+                <div class="outter-img-wrap">
+                    <div className="fang-img-area" ref={fangAvatarRef}>
+                        <img src={'./images/mascot.png'} width="200px" height="195px" />
+                    </div>
+                    <img className='logo' src={'./images/logoNoHash.png'} width="212px" height="80px" />
                 </div>
             </div>
             <img id="fanggrid" src={"./images/fanggrid.png"} />

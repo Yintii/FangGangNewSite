@@ -29,7 +29,7 @@ const PxlFangsSection = (props) => {
     const [pxlFangAvatarRef, pxlFangAvatarRefInView] = useInView({ threshold: 0 });
 
     useEffect(() => {
-        pxlFangAvatarRefInView ? document.querySelector('.px-fang-img-area').classList.add('zoomingIn') : null
+        pxlFangAvatarRefInView ? document.querySelector('.px-fang-img-area > img').classList.add('toaster-pop-up') : null
     }, [pxlFangAvatarRefInView]);
 
     return (
@@ -64,15 +64,27 @@ const PxlFangsSection = (props) => {
                         </p>
 
                     </div>
-                     <div className="px-fang-img-area" ref={pxlFangAvatarRef}>
-                        <img src="./images/superpxlmascot.png" alt="pxlfang mascot" />
-                        <img src="./images/px-fang-copy-logo.png" alt="pxlfang mascot" />
+                    
+                    <div className='outter-img-wrap'>
+                        <img id="musicfang" src="./images/musicfang.gif" />
+                        <div className="px-fang-img-area" ref={pxlFangAvatarRef}>
+                            <img src="./images/superpxlmascot.png" alt="pxlfang mascot" width="200px" height="200px" />
+                        </div>
+                        <img class='logo' src="./images/px-fang-copy-logo.png" alt="pxlfang mascot" />
                     </div>
-
                 </div>
+                <img id="pxl-clock" src="./images/pxlclock.gif" />
+                <img id="brain" src="./images/brain.png" />
                 <img id="fangrunner-runs-to-left" src="./images/fangrun.gif" />
-
+                <img id="smallDiamond-left" src="./images/small-diamond.png" />
+                <img id="smallDiamond-middle" src="./images/small-diamond.png" />
+                <img id="smallDiamond-right" src="./images/small-diamond.png" />
+                <img id="bigDiamond-left" src="./images/big-diamond.gif" />
+                <img id="bigDiamond-right" src="./images/big-diamond.gif" />
+                <img id="icecream-fangster" src="./images/icecreamfang.gif" width="95px" height="106px"/>
+                <img id="sidewalk" src="./images/sidewalk.png" />
             </div>
+            
             <ClaimDrawer 
                 handleToggleClaimDrawer={handleToggleClaimDrawer}
                 claimDrawerActive={claimDrawerActive}
