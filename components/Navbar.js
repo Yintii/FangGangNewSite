@@ -8,7 +8,7 @@ const NavComponent = () => {
         <nav>
             <img
                 id="brand"
-                src={"./images/fangganglogo.png"}
+                src={"./images/logo_fanggang_navbar.png"}
                 alt="FangGang Copyright Awoo Studios"
             />
             <img id='hamburger-menu' src='./images/menu.png' />
@@ -21,7 +21,7 @@ const NavComponent = () => {
 
                 <div id="nav-buttons">
                     <button>
-                        Join
+                        JOIN
                     </button>
                     <button>
                         <FontAwesomeIcon icon={faTwitter} />

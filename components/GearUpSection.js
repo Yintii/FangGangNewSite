@@ -7,7 +7,7 @@ const GearSection = () => {
 
 
     useEffect(() => {
-        wildFangLogoInView ? document.querySelector(".wildfang-logo-area").classList.add('zoomingIn') : null;
+        wildFangLogoInView ? document.querySelector(".wildfang-logo-area > img").classList.add('zoomingIn') : null;
     }, [wildFangLogoInView])
 
 

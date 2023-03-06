@@ -19,7 +19,7 @@ const Join = () => {
             </div>
         </div> 
         <div id='cfw_discord'>
-            <img src="/images/CFW.png" width="284px" height="384px"/>
+            <img src="/images/CFW.png" className="floaty1" width="284px" height="384px"/>
             <img src="/images/discord_chat.png" width="359px" height="311px"/>
         </div>
     </section>
