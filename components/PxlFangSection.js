@@ -85,15 +85,17 @@ const PxlFangsSection = (props) => {
                 <img id="sidewalk" src="./images/sidewalk.png" />
             </div>
             
-            <ClaimDrawer 
-                handleToggleClaimDrawer={handleToggleClaimDrawer}
-                claimDrawerActive={claimDrawerActive}
-                web3={props}
-            />
-            <FangRunner 
-                handleToggleFangRunnerDrawer={handleToggleFangRunnerDrawer}
-                fangRunnerActive={fangRunnerActive}
-            />
+            <div id="drawers-wrapper">
+                <ClaimDrawer
+                    handleToggleClaimDrawer={handleToggleClaimDrawer}
+                    claimDrawerActive={claimDrawerActive}
+                    web3={props}
+                />
+                <FangRunner
+                    handleToggleFangRunnerDrawer={handleToggleFangRunnerDrawer}
+                    fangRunnerActive={fangRunnerActive}
+                />
+            </div>
         </section>
     )
 }

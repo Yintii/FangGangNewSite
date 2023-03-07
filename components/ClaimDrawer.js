@@ -136,7 +136,7 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
 
 
     return (
-        <div id="claim-drop-down" className={claimDrawerActive ? '' : ' hidden'}>
+        <div id="claim-drop-down" className={claimDrawerActive ? 'droppingDown' : 'hidden'}>
             <div id="claim">
                 <div id="claim-header">
                     <h2 className="black">CLAIM YOUR PXLFANGSTER.</h2>

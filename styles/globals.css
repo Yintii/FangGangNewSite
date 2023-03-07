@@ -313,6 +313,17 @@ flex-flow: column nowrap;
     left:-150px;
 }
 
+#drawers-wrapper{
+    overflow: hidden;
+    position: relative;
+}
+
+#claim-drop-down{
+    position:relative;
+    margin-top:-16px;
+    padding-top: 2rem;
+}
+
 #claim-drop-down, #game-drop-down{
     border-bottom-left-radius: 100px;
     border-bottom-right-radius: 100px;
@@ -393,8 +404,8 @@ flex-flow: column nowrap;
 
 #claim{
     text-align: center;
-    margin:5rem 0;
 }
+
 
 #claim-options{
     width: 70%;
@@ -863,5 +874,18 @@ footer, #socials{
 
     to {
         right: 0px;
+    }
+}
+
+.droppingDown{
+    animation: 1s dropDown ease-in;
+}
+
+@keyframes dropDown{
+    0%{
+        top: -800px;
+    }
+    100%{
+        top: 0px;
     }
 }
