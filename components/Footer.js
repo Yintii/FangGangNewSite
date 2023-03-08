@@ -27,7 +27,7 @@ const Footer = () => {
         <img id='poap' src='/images/fangster_footer.png' widht='269px' height='108px' />
         <div id='copyright'>
           <h4>
-          ©<span id="copyright-year">{year.getFullYear()} <img src="./images/awoo.png" /> STUDIOS</span>
+          ©<span id="copyright-year">{year.getFullYear()} <img src="./images/awoo.svg" /> STUDIOS</span>
           </h4>
         <span><Link href="/">Terms of Use and Conditions</Link></span><br/>
         <span><Link href="/">Purchase and License Agreement</Link></span>
