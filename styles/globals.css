@@ -12,6 +12,8 @@ html,body{
 }
 h1,h2,h3,h4,h5{
     font-family: 'Karla', sans-serif;
+    font-style: normal;
+    font-weight: 800;
 }
 a{
     color:white;
@@ -27,6 +29,7 @@ ul, li{
 
 #brand {
     width: 365px;
+    scale: 0.7;
 }
 #hamburger-menu{
     display:none;
@@ -718,6 +721,31 @@ footer, #socials{
     left:-160px;
     top: -40px;
 }
+
+#founders{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    position: relative;
+    width:50%;
+}
+#founders>img{
+    position: absolute;
+    z-index: 0;
+    right:0px;
+    border-bottom-left-radius: 5rem;
+    border-top-left-radius: 5rem;
+
+}
+
+#paca, #junshi{
+    display:flex;
+    flex-flow: column nowrap;
+    z-index: 1;
+}
+
+
+
 
 #copyright{
     margin: 2rem;

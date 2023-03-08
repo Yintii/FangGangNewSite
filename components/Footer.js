@@ -8,11 +8,21 @@ const Footer = () => {
   return (
     <footer>
         <div id='socials'>
-            <img src='/images/twitter_logo.png' />
-            <img src='/images/discord_logo.png' />
-            <img src='/images/instagram_logo.png' />
-            <img src='/images/opensea_logo.png' />
-            <img src='/images/email_icon.png' />
+        <a href='https://twitter.com/FangGangNFT' target="_blank">
+          <img src='/images/icon_twitter.svg' />
+        </a>
+        <a href='https://discord.gg/fanggang' target="_blank">
+          <img src='/images/icon_discord.svg' />
+        </a>
+        <a href='https://www.instagram.com/fanggangnfts/' target="_blank">
+            <img src='/images/icon_instagram.svg' />
+        </a>
+        <a href="https://opensea.io/collection/fanggangnft" target="_blank">
+            <img src='/images/icon_opensea.svg' />
+        </a>
+        <a href="mailto:fanggang@awoostudios.com">
+            <img src='/images/icon_mail.svg' />
+        </a>
         </div>
         <img id='poap' src='/images/fangster_footer.png' widht='269px' height='108px' />
         <div id='copyright'>

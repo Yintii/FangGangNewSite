@@ -17,7 +17,21 @@ const AwooStudios = () => {
                   </p>
             </div>
         </div>
-        <img src="/images/junshiAndPaca.png" />
+        <div id="founders">
+              <div id='paca'>
+                <a href="https://twitter.com/PacaNFT" target="_blank">
+                  <img src="/images/tag_paca.png" width="190px" height="126px" />
+                </a>
+                <img src="/images/fangster_paca.png" width="211px" height="214px" />
+              </div>
+              <div id='junshi'>
+              <a href="https://twitter.com/JunshiNFT" target="_blank">
+                  <img src="/images/tag_junshi.png" width="192px" height="98px" />
+                </a>
+                <img src="/images/fangster_junshi.png" width="211px" height="214px" />
+              </div>
+              <img src="/images/founder_bg.png" width="600px" height="161px"/>
+        </div>
     </section>
   )
 }
