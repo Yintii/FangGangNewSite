@@ -12,12 +12,41 @@ const PxlFangsSection = (props) => {
     const [fangRunnerActive, setFangRunnerActive] = useState(false);
 
     const handleToggleClaimDrawer = () => {
+        if(fangRunnerActive){
+            setFangRunnerActive(false);
+            setTimeout(()=>{
+                document.querySelector('#game-drop-down').classList.add('hidden');
+                setClaimDrawerActive(true);
+            }, 1000)
+        }else if(claimDrawerActive == false){
+            setClaimDrawerActive(true);
+        }
 
-
+        if(claimDrawerActive){
+            setClaimDrawerActive(false);
+            setTimeout(()=>{
+                document.querySelector('#claim-drop-down').classList.add('hidden')
+            },1000)
+        }
     }
 
     const handleToggleFangRunnerDrawer = () => {
+        if (claimDrawerActive) {
+            setClaimDrawerActive(false);
+            setTimeout(() => {
+                document.querySelector('#claim-drop-down').classList.add('hidden');
+                setFangRunnerActive(true);
+            }, 1000)
+        } else if (fangRunnerActive == false) {
+            setFangRunnerActive(true);
+        }
 
+        if(fangRunnerActive){
+            setFangRunnerActive(false);
+            setTimeout(()=>{
+                document.querySelector('#game-drop-down').classList.add('hidden');
+            },1000)
+        }
 
     }
 
@@ -29,10 +58,11 @@ const PxlFangsSection = (props) => {
     }, [pxlFangAvatarRefInView]);
 
 
-    useEffect(()=>{
-        document.querySelector('#game-drop-down').classList.add('hidden')
-        document.querySelector('#claim-drop-down').classList.add('hidden')
-    }, []);
+    useEffect(() => {
+        document.querySelector('#game-drop-down').classList.add('hidden');
+        document.querySelector('#claim-drop-down').classList.add('hidden');
+    },[])
+
 
     return (
         <section id="pxlfangs">
