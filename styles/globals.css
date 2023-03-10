@@ -321,7 +321,7 @@ flex-flow: column nowrap;
     position: relative;
 }
 
-#claim-drop-down{
+#claim-drop-down, #game-drop-down{
     position:relative;
     margin-top:-16px;
     padding-top: 2rem;
@@ -723,26 +723,31 @@ footer, #socials{
 }
 
 #founders{
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-evenly;
-    position: relative;
-    width:50%;
-}
-#founders>img{
-    position: absolute;
-    z-index: 0;
-    right:0px;
-    border-bottom-left-radius: 5rem;
-    border-top-left-radius: 5rem;
+    height: 350px;
+    display:flex;
+    justify-content: end;
+    align-items: end;
 
 }
+#founder-bg{
+    height:161px;
+    width:600px;
+    position: absolute;
+    background: url("/images/founder_bg.png");
+    border-radius: 198.5px 0px 0px 198.5px;
+}
+
 
 #paca, #junshi{
     display:flex;
     flex-flow: column nowrap;
     z-index: 1;
+
+
 }
+
+
+
 
 
 
@@ -917,3 +922,21 @@ footer, #socials{
         top: 0px;
     }
 }
+
+.closingUp{
+    animation: 1s closeUp ease-in;
+}
+
+@keyframes closeUp {
+    0% {
+        top: 0px;
+    }
+
+    100% {
+        top: -800px;
+    }
+}
+
+/* @keyframes founderUp{
+    0
+} */

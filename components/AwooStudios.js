@@ -25,12 +25,12 @@ const AwooStudios = () => {
                 <img src="/images/fangster_paca.png" width="211px" height="214px" />
               </div>
               <div id='junshi'>
-              <a href="https://twitter.com/JunshiNFT" target="_blank">
+                <a href="https://twitter.com/JunshiNFT" target="_blank">
                   <img src="/images/tag_junshi.png" width="192px" height="98px" />
                 </a>
                 <img src="/images/fangster_junshi.png" width="211px" height="214px" />
               </div>
-              <img src="/images/founder_bg.png" width="600px" height="161px"/>
+              <img id="founder-bg" src="/images/founder_bg.png" />
         </div>
     </section>
   )

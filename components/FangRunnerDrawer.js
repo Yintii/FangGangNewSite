@@ -43,7 +43,7 @@ function FangRunner({fangRunnerActive, handleToggleFangRunnerDrawer}) {
 
 
     return (
-        <div id="game-drop-down" className={fangRunnerActive ? '' : ' hidden'}>
+        <div id="game-drop-down" className={fangRunnerActive ? 'droppingDown' : 'closingUp'}>
             <h3>PLAY FANGRUNNER.</h3>
             <div className="game-container">
                 <iframe id="test" style={style} src="https://fanggang.io/fangrunnergame/" title="Fang Runner"></iframe>

@@ -12,17 +12,13 @@ const PxlFangsSection = (props) => {
     const [fangRunnerActive, setFangRunnerActive] = useState(false);
 
     const handleToggleClaimDrawer = () => {
-        if(fangRunnerActive){
-            setFangRunnerActive(false)
-        }
-        setClaimDrawerActive(!claimDrawerActive);
+
+
     }
 
     const handleToggleFangRunnerDrawer = () => {
-        if(claimDrawerActive){
-            setClaimDrawerActive(false)
-        }
-        setFangRunnerActive(!fangRunnerActive);
+
+
     }
 
 
@@ -31,6 +27,12 @@ const PxlFangsSection = (props) => {
     useEffect(() => {
         pxlFangAvatarRefInView ? document.querySelector('.px-fang-img-area > img').classList.add('toaster-pop-up') : null
     }, [pxlFangAvatarRefInView]);
+
+
+    useEffect(()=>{
+        document.querySelector('#game-drop-down').classList.add('hidden')
+        document.querySelector('#claim-drop-down').classList.add('hidden')
+    }, []);
 
     return (
         <section id="pxlfangs">

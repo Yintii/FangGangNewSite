@@ -25,7 +25,7 @@ const MeetSection = () => {
                         </p>
                     </div>
                 </div>
-                <div class="outter-img-wrap">
+                <div className="outter-img-wrap">
                     <div className="fang-img-area" ref={fangAvatarRef}>
                         <img src={'./images/mascot.png'} width="200px" height="195px" />
                     </div>
