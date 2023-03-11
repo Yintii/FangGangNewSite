@@ -14,11 +14,6 @@ const NavComponent = () => {
     }
 
 
-    useEffect(() => {
-        if(window.innerWidth <= 767){
-            console.log("the ref", navRef)
-        }
-    }, [window.innerWidth]);
 
     return (
         <nav>
