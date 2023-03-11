@@ -112,15 +112,16 @@ nav,
     justify-content: space-around;
 }
 
-#nav-menu>li {
+#nav-menu a {
     margin: 1rem;
     font-size: 30px;
     font-weight: 700;
 }
 
-#nav-menu>li:nth-child(odd) {
+#nav-menu a:nth-child(odd) {
     color: #FFC657;
 }
+
 
 #nav-buttons>button {
     padding: 1rem;
@@ -155,9 +156,6 @@ nav,
     background-size:cover;
 }
 
-#intro .gold{
-    ;
-}
 
 #intro-content{
     line-height: .5rem;
@@ -371,6 +369,12 @@ flex-flow: column nowrap;
     border-radius: 10px;
 }
 
+.modal-wrap::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 10px;
+}
+
+
 #current_fangs img{
     width:250px;
     height:250px;
@@ -537,7 +541,7 @@ input{
 }
 
 #fanggrid{
-    align-self: end;
+    align-self: flex-end;
     width:1253px;
     height:415px;
     position: relative;
@@ -548,7 +552,7 @@ input{
 }
 
 #fangModels {
-    align-self: end;
+    align-self: flex-end;
     width: 1264px;
     position: relative;
     right: 0px;
@@ -558,7 +562,7 @@ input{
 }
 
 #NFC{
-    align-self: end;
+    align-self: flex-end;
     width: 1264px;
     position: relative;
     right: 0px;
@@ -709,7 +713,7 @@ footer, #socials{
 }
 
 #poap{
-    align-self: end;
+    align-self: flex-end;
 }
 
 #cfw_discord{
@@ -725,8 +729,8 @@ footer, #socials{
 #founders{
     height: 350px;
     display:flex;
-    justify-content: end;
-    align-items: end;
+    justify-content: flex-end;
+    align-items: flex-end;
 
 }
 #founder-bg{
@@ -746,12 +750,6 @@ footer, #socials{
 
 }
 
-
-
-
-
-
-
 #copyright{
     margin: 2rem;
     text-align: right;
@@ -761,6 +759,57 @@ footer, #socials{
     font-size:35px;
     margin: 0;
 }
+
+#copyright>span:hover{
+    cursor: pointer;
+    color:#FFC657
+}
+.modal>button {
+    cursor: pointer;
+}
+
+#terms-modal{
+    position:fixed;
+    top:0;
+    background-color: rgba(100,100,100,0.5);
+    min-width: 100vw;
+    min-height: 100vh;
+    z-index: 10;
+}
+
+.modal{
+    z-index: 11;
+    max-width: 30vw;
+    min-height: 70vh;
+    max-height: 70vh;
+    padding: 3rem 4rem;
+    margin: 5rem auto;
+    background-color: #6950D0;
+    border-radius:1rem;
+}
+.modal>h2{
+    text-align: center;
+    border-bottom: 1px solid white;
+    padding-bottom: 1rem;
+}
+
+
+.modal-wrap{
+    width:80%;
+    height: 500px;
+    margin: 0 auto;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    
+}
+
+.modal-section > p{
+    width: 90%;
+    margin: 0 auto;
+    line-height: 1.25rem;
+}
+
+
 @keyframes pulse{
     0%{
         scale:1;
@@ -936,7 +985,3 @@ footer, #socials{
         top: -800px;
     }
 }
-
-/* @keyframes founderUp{
-    0
-} */

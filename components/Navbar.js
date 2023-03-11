@@ -13,11 +13,11 @@ const NavComponent = () => {
             />
             <img id='hamburger-menu' src='./images/menu.png' />
             <div id='navigation'>
-                <ul id="nav-menu">
-                    <li>FANG GANG</li>
-                    <li>PXLFANGS</li>
-                    <li>WLDFNGS</li>
-                </ul>
+                <div id="nav-menu">
+                    <Link href="#meet">FANG GANG</Link>
+                    <Link href="#pxlfangs">PXLFANGS</Link>
+                    <Link href="#gear">WLDFNGS</Link>
+                </div>
 
                 <div id="nav-buttons">
                     <button>
