@@ -102,7 +102,7 @@ const PxlFangsSection = (props) => {
                         <div className="px-fang-img-area" ref={pxlFangAvatarRef}>
                             <img src="./images/superpxlmascot.png" alt="pxlfang mascot" width="200px" height="200px" />
                         </div>
-                        <img class='logo' src="./images/px-fang-copy-logo.png" alt="pxlfang mascot" />
+                        <img className='logo' src="./images/px-fang-copy-logo.png" alt="pxlfang mascot" />
                     </div>
                 </div>
                 <img id="pxl-clock" src="./images/pxlclock.gif" />

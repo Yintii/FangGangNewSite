@@ -10,6 +10,26 @@ html,body{
     max-width:100vw;
     overflow-x: hidden;
 }
+
+@media screen and (min-width: 767px) {
+    .mobile{
+        display:none !important;
+    }
+}
+
+
+
+@media screen and (max-width: 767px){
+    .desktop{
+        display: none !important;
+    }
+    .mobile{
+        display:flex;
+    }
+
+}
+
+
 h1,h2,h3,h4,h5{
     font-family: 'Karla', sans-serif;
     font-style: normal;
@@ -525,7 +545,6 @@ input{
     padding:unset;
     width:95%;
     margin: 0 auto;
-
 }
 .copy-wrap>h2{
     font-size:50px;
@@ -552,6 +571,38 @@ input{
     font-size: 20px;
 }
 
+@media screen and (max-width: 767px) {
+    .section-copy{
+        border-top-right-radius: unset;
+        border-bottom-right-radius: unset;
+        right:0;
+        width:unset;
+    }
+    #meet>div{
+        display:flex;
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+    .copy-wrap>h2 {
+        font-size: 40px;
+        line-height: 2.2rem;
+        margin-bottom: 5px;
+    }
+    .copy-wrap{
+        padding: unset;
+        text-align: center;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+    .section-button {
+        margin-top: 3rem;
+    }
+    .fang-img-area, .outter-img-wrap>.logo{
+        left: unset;
+    }
+    
+}
 #fanggrid{
     align-self: flex-end;
     width:1253px;

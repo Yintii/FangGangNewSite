@@ -3,11 +3,25 @@ import { useInView } from 'react-intersection-observer';
 
 const MeetSection = () => {
 
-    const [fangAvatarRef, fangAvatarRefInView] = useInView({ threshold: 0 });
 
-    useEffect(() => {
-        fangAvatarRefInView ? document.querySelector(".fang-img-area > img").classList.add('toaster-pop-up') : null;
-    }, [fangAvatarRefInView])
+
+    const FangMascot = ({ placement }) => {
+        
+        const [fangAvatarRef, fangAvatarRefInView] = useInView({ threshold: 0 });
+        useEffect(() => {
+            fangAvatarRefInView ? document.querySelector(".fang-img-area > img").classList.add('toaster-pop-up') : null;
+        }, [fangAvatarRefInView])
+        return( 
+            <div className={placement == 'desktop' ? 'outter-img-wrap desktop' : 'outter-img-wrap mobile fang-mascot-mobile'} >
+                <div className="fang-img-area" ref={fangAvatarRef}>
+                    <img src={'./images/mascot.png'} width="200px" height="195px" />
+                </div>
+                <img className='logo' src={'./images/logoNoHash.png'} width="212px" height="80px" />
+            </div>
+        )
+    };
+
+
 
     return (
         <section id="meet">
@@ -15,8 +29,11 @@ const MeetSection = () => {
                 <div className="section-copy purple-bg">
                     <div className='copy-wrap'>
                         <h2>MEET THE <span className="gold">FANG GANG</span>.</h2>
-                        <button className='section-button'>JOIN</button>
-                        <button className='section-button'>VISIT</button>
+                        <FangMascot placement={'mobile'} />
+                        <div className="copy-btns">
+                            <button className='section-button'>JOIN</button>
+                            <button className='section-button'>VISIT</button>
+                        </div>
                         <p className='section-p'>
                             The Fang Gang comes out at night to throw parties, hang around in dark alleys and have fun on the streets of New Fang City.
                         </p>
@@ -25,12 +42,7 @@ const MeetSection = () => {
                         </p>
                     </div>
                 </div>
-                <div className="outter-img-wrap">
-                    <div className="fang-img-area" ref={fangAvatarRef}>
-                        <img src={'./images/mascot.png'} width="200px" height="195px" />
-                    </div>
-                    <img className='logo' src={'./images/logoNoHash.png'} width="212px" height="80px" />
-                </div>
+                <FangMascot placement={'desktop'}/>
             </div>
             <img id="fanggrid" src={"./images/fanggrid.png"} />
         </section>
