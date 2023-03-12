@@ -51,11 +51,25 @@ const PxlFangsSection = (props) => {
     }
 
 
-    const [pxlFangAvatarRef, pxlFangAvatarRefInView] = useInView({ threshold: 0 });
 
-    useEffect(() => {
-        pxlFangAvatarRefInView ? document.querySelector('.px-fang-img-area > img').classList.add('toaster-pop-up') : null
-    }, [pxlFangAvatarRefInView]);
+    const PxlMascot = ({ placement }) => {
+        const [pxlFangAvatarRef, pxlFangAvatarRefInView] = useInView({ threshold: 0 });
+        useEffect(() => {
+            pxlFangAvatarRefInView ? document.querySelector('.px-fang-img-area > img').classList.add('toaster-pop-up') : null
+        }, [pxlFangAvatarRefInView]);
+        return(
+            <div className={placement == 'desktop' ? 'outter-img-wrap desktop' : 'outter-img-wrap mobile'}>
+                <img id="musicfang" src="./images/musicfang.gif" />
+                <div className="px-fang-img-area" ref={pxlFangAvatarRef}>
+                    <img src="./images/superpxlmascot.png" alt="pxlfang mascot" width="200px" height="200px" />
+                </div>
+                <img className='logo' src="./images/px-fang-copy-logo.png" alt="pxlfang mascot" />
+            </div>
+        );
+    }
+
+
+
 
 
     useEffect(() => {
@@ -70,16 +84,17 @@ const PxlFangsSection = (props) => {
                 <div id="px-top">
                     <div id="pxl-copy">
                         <h1>RUN WITH THE <span className="gold">PXLFANGS</span>.</h1>
-                        <div id="pxl-buttons">
-                            <button className="gold-bg">JOIN</button>
+                        <PxlMascot placement={'mobile'} />
+                        <div className="copy-btns">
+                            <button className="gold-bg section-button">JOIN</button>
                             <button
-                                className="gold-bg"
+                                className="gold-bg section-button"
                                 onClick={() => handleToggleClaimDrawer()}
                             >
                                 CLAIM
                             </button>
                             <button 
-                                className="gold-bg"
+                                className="gold-bg section-button"
                                 onClick={()=> handleToggleFangRunnerDrawer()}
                             >
                                 PLAY
@@ -97,20 +112,14 @@ const PxlFangsSection = (props) => {
 
                     </div>
                     
-                    <div className='outter-img-wrap'>
-                        <img id="musicfang" src="./images/musicfang.gif" />
-                        <div className="px-fang-img-area" ref={pxlFangAvatarRef}>
-                            <img src="./images/superpxlmascot.png" alt="pxlfang mascot" width="200px" height="200px" />
-                        </div>
-                        <img className='logo' src="./images/px-fang-copy-logo.png" alt="pxlfang mascot" />
-                    </div>
+                    <PxlMascot placement={'desktop'}/>
                 </div>
                 <img id="pxl-clock" src="./images/pxlclock.gif" />
                 <img id="brain" src="./images/brain.png" />
                 <img id="fangrunner-runs-to-left" src="./images/fangrun.gif" />
-                <img id="smallDiamond-left" src="./images/small-diamond.png" />
-                <img id="smallDiamond-middle" src="./images/small-diamond.png" />
-                <img id="smallDiamond-right" src="./images/small-diamond.png" />
+                <img id="smallDiamond-left" className='desktop' src="./images/small-diamond.png" />
+                <img id="smallDiamond-middle" className='desktop'  src="./images/small-diamond.png" />
+                <img id="smallDiamond-right" className='desktop' src="./images/small-diamond.png" />
                 <img id="bigDiamond-left" src="./images/big-diamond.gif" />
                 <img id="bigDiamond-right" src="./images/big-diamond.gif" />
                 <img id="icecream-fangster" src="./images/icecreamfang.gif" width="95px" height="106px"/>

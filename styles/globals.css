@@ -274,10 +274,51 @@ flex-flow: column nowrap;
     border-bottom-left-radius: 100px;
     width:728px;
     height: auto;
-    
 }
 
-#pxl-buttons>button{
+@media screen and (max-width: 767px){
+    #px-top{
+        margin: 0;
+        text-align: center;
+    }
+
+    #pxl-copy{
+        padding: 0 !important;
+        width: 100% !important;
+        margin-bottom: 120px;
+        
+    }
+    .px-fang-img-area{
+        left: 0 !important;
+    }
+    .copy-btns{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .copy-btns button{
+        width:75px;
+    }
+    #musicfang{
+        left: unset !important;
+    }
+    .outter-img-wrap{
+        align-items: center;
+
+        max-width: 100vw;
+    }
+    #brain{
+        top:200px !important;
+    }
+    #pxl-clock{
+        right: 0px !important;
+    }
+    #bigDiamond-left{
+        left:0 !important;
+    }
+}
+
+.copy>button{
     padding:12px 45px;
     margin: 0 .5rem 1rem 0;
     font-size:25px;
@@ -597,6 +638,8 @@ input{
     }
     .section-button {
         margin-top: 3rem;
+        padding: 1rem;
+        font-size: 16px;
     }
     .fang-img-area, .outter-img-wrap>.logo{
         left: unset;
