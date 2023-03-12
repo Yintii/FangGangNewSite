@@ -50,8 +50,6 @@ const PxlFangsSection = (props) => {
 
     }
 
-
-
     const PxlMascot = ({ placement }) => {
         const [pxlFangAvatarRef, pxlFangAvatarRefInView] = useInView({ threshold: 0 });
         useEffect(() => {
@@ -123,7 +121,7 @@ const PxlFangsSection = (props) => {
                 <img id="bigDiamond-left" src="./images/big-diamond.gif" />
                 <img id="bigDiamond-right" src="./images/big-diamond.gif" />
                 <img id="icecream-fangster" src="./images/icecreamfang.gif" width="95px" height="106px"/>
-                <img id="sidewalk" src="./images/sidewalk.png" />
+                <img id="sidewalk" className='desktop' src="./images/sidewalk.png" />
             </div>
             
             <div id="drawers-wrapper">

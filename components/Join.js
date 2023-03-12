@@ -1,9 +1,20 @@
 const Join = () => {
+
+  const FloatyFang = ({ placement }) => {
+    return (
+        <div id='cfw_discord' className={placement == 'desktop' ? 'desktop' : 'mobile'}>
+            <img src="/images/CFW.png" className="floaty1" width="284px" height="384px" />
+            <img src="/images/discord_chat.png" width="359px" height="311px" />
+        </div>
+    )
+  } 
+
   return (
     <section id="join" className="purple-bg">
         <div className="section-copy">
             <div className="copy-wrap">
                   <h2>JOIN A CREATIVE <span className='gold'> COMMUNITY</span>.</h2>
+                  <FloatyFang placement={'mobile'} />
                   <button className="section-button">
                       CHAT
                   </button>
@@ -18,10 +29,7 @@ const Join = () => {
                   </p>
             </div>
         </div> 
-        <div id='cfw_discord'>
-            <img src="/images/CFW.png" className="floaty1" width="284px" height="384px"/>
-            <img src="/images/discord_chat.png" width="359px" height="311px"/>
-        </div>
+        <FloatyFang placement={'desktop'}/>
     </section>
   )
 }

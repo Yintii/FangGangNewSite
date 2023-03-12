@@ -206,16 +206,20 @@ nav,
         border-radius: 25px;
     }
     #intro-content>div>span {
+        line-height: 1.5rem;
+        font-size: 20px;
+    }
+    #intro-content h1{
+        font-size: 30px;
         line-height: 2rem;
     }
 }
 
 #meet,
-#gear,
 #newFangCity{
 flex-flow: column nowrap;
 }
-#AwooStudios{
+#AwooStudios,#gear{
     flex-flow: row nowrap;
     align-items: center;
 }
@@ -286,8 +290,13 @@ flex-flow: column nowrap;
         padding: 0 !important;
         width: 100% !important;
         margin-bottom: 120px;
-        
     }
+
+    #pxl-copy > p{
+        margin: 1rem 2rem;
+    }    
+
+
     .px-fang-img-area{
         left: 0 !important;
     }
@@ -296,9 +305,7 @@ flex-flow: column nowrap;
         flex-direction: row;
         justify-content: center;
     }
-    .copy-btns button{
-        width:75px;
-    }
+
     #musicfang{
         left: unset !important;
     }
@@ -553,12 +560,74 @@ input{
     text-align: center;
 }
 
+@media screen and (max-width: 767px) {
+    #claim-header>input[type=button]{
+        padding: 1rem !important;
+        margin-top: 1rem;
+    }
+    #claim-options{
+        flex-flow: column;
+    }
+    #claim-options button, #claim-options>div button{
+        margin-top: 1rem;
+    }
+    #pxl-arrow {
+        left: 35% !important;
+    }
+}
+
 #meet>div, 
 #gear>div, 
 #newFangCity>div{
     display: flex;
     flex-flow:row nowrap;
     align-items: center;
+}
+
+
+@media screen and (max-width: 767px){
+    .section-copy{
+        min-width: 100vw;
+        padding: 2rem 0 !important;
+    }
+    .fang-img-area,
+    .px-fang-img-area,
+    .wildfang-logo-area,
+    .tram-img-area{
+        left: unset !important;
+    }
+    button.section-button{
+        padding: 1rem 3rem;
+    }
+    .section-button{
+        margin-right: unset !important;
+        margin: 0 .5rem; 
+    }
+
+    #pxl-copy .copy-btns{
+        flex-flow: column;
+        width:80%;
+        margin: 0 auto;
+    }
+    #pxl-copy .copy-btns>button:not(:first-child){
+        margin-top: 1rem;
+    }
+    #join {
+        padding: unset !important;
+    }
+    #cfw_discord{
+        scale: 0.5;
+    }
+
+    #join button{
+        margin: -3rem 0 0 0;
+    }
+
+    .tram-img-area > img{
+        scale: 1.3;
+    }
+
+
 }
 
 #join{
@@ -569,6 +638,8 @@ input{
     padding:2rem 5rem; 
     background-image: linear-gradient(.35turn, #6950D0 75%, #76D8F9);
 }
+
+
 
 .section-copy{ 
     position: relative;
@@ -639,7 +710,7 @@ input{
     .section-button {
         margin-top: 3rem;
         padding: 1rem;
-        font-size: 16px;
+        font-size: 14px;
     }
     .fang-img-area, .outter-img-wrap>.logo{
         left: unset;
@@ -714,7 +785,7 @@ input{
 
 #icecream-fangster{
     position: absolute;
-    bottom:-10px;
+    bottom:-17px;
     left: 4%;
     z-index: 5;
     transform: scaleX(-1);
