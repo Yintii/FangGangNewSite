@@ -55,7 +55,7 @@ function FangRunner({fangRunnerActive, handleToggleFangRunnerDrawer}) {
                 By holding a Fangster you start your run with a shield power up. Stay on the look out for Fang Runner competitions during celebrations and other events.
             </p>
             <img
-                id="pxl-arrow"
+                className="pxl-arrow"
                 src="./images/pxlfangarrow.png"
                 width="103px"
                 height='69px'

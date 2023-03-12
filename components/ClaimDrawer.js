@@ -189,7 +189,7 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
 
             </div>
             <img
-                id="pxl-arrow"
+                className="pxl-arrow"
                 src="./images/pxlfangarrow.png"
                 width="103px"
                 height='69px'

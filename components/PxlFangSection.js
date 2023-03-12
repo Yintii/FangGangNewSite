@@ -124,7 +124,7 @@ const PxlFangsSection = (props) => {
                 <img id="sidewalk" className='desktop' src="./images/sidewalk.png" />
             </div>
             
-            <div id="drawers-wrapper">
+            <div className="drawers-wrapper">
                 <ClaimDrawer
                     handleToggleClaimDrawer={handleToggleClaimDrawer}
                     claimDrawerActive={claimDrawerActive}

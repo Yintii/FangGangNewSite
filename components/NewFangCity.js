@@ -1,7 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer';
 
+import BankDrawer from './BankDrawer';
+
 const NewFangCity = () => {
+
+    const [bankActive, setBankActive] = useState(false);
+
+    const handleBankToggle = () => {        
+        if(bankActive){
+            setBankActive(!bankActive);
+            setTimeout(() =>{
+                document.querySelector('#bank-drop-down').classList.add('hidden');
+            }, 1000)
+        }else{
+            setBankActive(!bankActive);
+            document.querySelector('#bank-drop-down').classList.add('hidden');
+        }
+        
+    }
 
 
     const Tram = ({ placement }) => {
@@ -18,6 +35,10 @@ const NewFangCity = () => {
         )
     } 
 
+    useEffect(()=>{
+        document.querySelector('#bank-drop-down').classList.add('hidden');
+    }, [])
+
     return (
         <section id="newFangCity">
             <div>
@@ -29,7 +50,12 @@ const NewFangCity = () => {
                         <Tram placement={'mobile'}/>
                         <div className='copy-btns'>
                             <button className='section-button'>VISIT</button>
-                            <button className='section-button'>$AWOO</button>
+                            <button 
+                                className='section-button'
+                                onClick={() => handleBankToggle()}
+                            >
+                            $AWOO
+                            </button>
                         </div>
                         <p className='section-p'>
                             Join the Fangsters on the streets of New Fang City. It’s our very own microverse where we connect, enjoy special events, hang out and spend the $AWOO ecosystem token on fun features.
@@ -42,6 +68,14 @@ const NewFangCity = () => {
                 <Tram placement={'desktop'} />
             </div>
             <img id="NFC" src={"./images/newFangCity.png"} />
+            <div className="drawers-wrapper">
+                <BankDrawer 
+                    bankActive={bankActive}
+                    handleBankToggle={handleBankToggle}
+                />
+            </div>
+
+
         </section>
     )
 }
