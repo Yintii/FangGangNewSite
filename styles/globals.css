@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;900&display=swap');
 
 html,body{
     box-sizing: border-box;
@@ -34,11 +35,17 @@ html,body{
 
 }
 
-
-h1,h2,h3,h4,h5{
-    font-family: 'Karla', sans-serif;
+h1,h2,h3,h4,h5, 
+#nav-menu a{
+    font-family: 'Poppins', sans-serif !important;
     font-style: normal;
-    font-weight: 800;
+    font-weight: 900;
+    line-height: 3rem;
+}
+#nav-buttons button, .copy-btns{
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
 }
 a{
     color:white;
@@ -53,8 +60,8 @@ ul, li{
 }
 
 #brand {
-    width: 365px;
-    scale: 0.7;
+    width: 195px;
+    height: 74px;
 }
 #hamburger-menu{
     display:none;
@@ -84,10 +91,8 @@ ul, li{
         width: 60px;
     }
 
-    nav{
-        margin: 2rem 3rem 4rem 3rem;
-    }
-    
+
+
     #desk-navigation{
         display:none !important;
     }
@@ -114,10 +119,11 @@ ul, li{
 }
 
 nav {
-    margin: 2rem;
+    margin: 1rem 2rem; 
     justify-content: space-between;
     align-items: center;
     color: #FFF;
+    height:116px;
 }
 
 #nav-menu, 
@@ -133,6 +139,7 @@ nav,
 #nav-buttons{
     width:250px;
     justify-content: space-around;
+    align-items: stretch;
 }
 
 #nav-menu a {
@@ -151,6 +158,8 @@ nav,
     font-weight: bold;
     padding: 10px 35px;
     border-radius: 20px;
+    display: flex;
+    align-items: center;
 }
 
 #nav-buttons a{
@@ -192,6 +201,7 @@ nav,
 #intro-content h1{
     font-size:50px;
     line-height: 3rem;
+    margin: 3rem 0 1rem 0;
 }
 
 #intro-wrap{
@@ -926,6 +936,7 @@ footer, #socials{
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    height: 125px;
 }
 
 #socials{
@@ -942,6 +953,7 @@ footer, #socials{
         flex-flow: column nowrap;
         justify-content: unset !important;
         align-items: unset !important;
+        height: unset !important;
     }
     #socials{
         width: unset !important;
@@ -1008,9 +1020,10 @@ footer, #socials{
 }
 
 #copyright h4{
-    font-size:35px;
+    font-size:32px;
     margin: 0;
 }
+
 
 #copyright>span:hover{
     cursor: pointer;
@@ -1050,9 +1063,8 @@ footer, #socials{
     width:80%;
     height: 500px;
     margin: 0 auto;
-    overflow: scroll;
+    overflow-y: scroll !important;
     scroll-behavior: smooth;
-    
 }
 
 .modal-section > p{

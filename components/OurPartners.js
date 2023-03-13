@@ -9,7 +9,6 @@ const OurPartners = () => {
                 <img src="/images/nord.png" />
                 <img src="/images/boson.png" />
                 <img src="/images/nbfc.png" />
-                <img src="/images/STBradio.png" />
             </div>
         </div>
       </div>

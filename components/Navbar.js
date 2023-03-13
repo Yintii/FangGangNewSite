@@ -31,7 +31,7 @@ const NavComponent = () => {
                 <div id="nav-menu">
                     <Link href="#meet">FANG GANG</Link>
                     <Link href="#pxlfangs">PXLFANGS</Link>
-                    <Link href="#gear">WLDFNGS</Link>
+                    <Link href="#gear">WLDFNGZ</Link>
                 </div>
 
                 <div id="nav-buttons">
