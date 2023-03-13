@@ -1,7 +1,6 @@
 function BankDrawer({ bankActive, handleBankToggle }) {
     return (
         <div id="bank-drop-down" className={bankActive ? 'droppingDown' : 'closingUp'}>
-
             <h3>STACK $AWOO, UNLOCK PERKS.</h3>
             <div className="copy-btns center-stuff">
                 <img src="/images/awootoken.gif" width="76px" />

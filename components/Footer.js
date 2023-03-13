@@ -43,7 +43,7 @@ const Footer = () => {
         <img id='poap' src='/images/fangster_footer.png' widht='269px' height='108px' />
         <div id='copyright'>
           <h4>
-            ©<span id="copyright-year">{year.getFullYear()} <img src="./images/awoo.svg" /> STUDIOS</span>
+            ©<span id="copyright-year">{year.getFullYear()} <br className='mobile' /> <img src="./images/awoo.svg" /> STUDIOS</span>
           </h4>
           <span onClick={() => setShowTos(true)}>Terms of Use and Conditions</span><br />
           <span onClick={() => setShowPandL(true)}>Purchase and License Agreement</span>

@@ -1,6 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useInView } from 'react-intersection-observer';
 
 const AwooStudios = () => {
+
+  const [pacaAndJunshiRef, pacaAndJunshiInView] = useInView({threshold: 0});
+
+  useEffect(() => {
+    if (pacaAndJunshiInView){
+      document.querySelector('#junAndPaca').classList.add('slideInRight')
+      document.querySelector('#pacaTag').classList.add('fadeIn')
+      document.querySelector('#junshiTag').classList.add('fadeIn')
+    }
+  }, [pacaAndJunshiInView]);
+
+  
   return (
     <section id="AwooStudios">
         <div className='section-copy'>
@@ -18,19 +31,15 @@ const AwooStudios = () => {
             </div>
         </div>
         <div id="founders">
-              <div id='paca'>
-                <a href="https://twitter.com/PacaNFT" target="_blank">
-                  <img src="/images/tag_paca.png" width="190px" height="126px" />
-                </a>
-                <img src="/images/fangster_paca.png" width="211px" height="214px" />
-              </div>
-              <div id='junshi'>
-                <a href="https://twitter.com/JunshiNFT" target="_blank">
-                  <img src="/images/tag_junshi.png" width="192px" height="98px" />
-                </a>
-                <img src="/images/fangster_junshi.png" width="211px" height="214px" />
-              </div>
-              <img id="founder-bg" src="/images/founder_bg.png" />
+          <div id="tags" className='center-stuff'>
+            <a id="pacaTag" href="https://twitter.com/PacaNFT" target="_blank">
+              <img src="/images/tag_paca.png" width="190px" height="126px" />
+            </a>
+            <a id="junshiTag" href="https://twitter.com/JunshiNFT" target="_blank">
+              <img src="/images/tag_junshi.png" width="192px" height="98px" />
+            </a>
+          </div>
+        <img id='junAndPaca' ref={pacaAndJunshiRef} src="./images/group.png" />
         </div>
     </section>
   )

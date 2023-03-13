@@ -27,7 +27,7 @@ const NavComponent = () => {
                 src={revealed ? './images/xmenu.png' : './images/menu.png'}
                 onClick={() => handleRevealNav()}
             />     
-            <div id='desk-navigation' >
+            <div id='desk-navigation'>
                 <div id="nav-menu">
                     <Link href="#meet">FANG GANG</Link>
                     <Link href="#pxlfangs">PXLFANGS</Link>
