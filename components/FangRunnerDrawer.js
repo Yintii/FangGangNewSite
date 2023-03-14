@@ -40,7 +40,9 @@ function FangRunner({fangRunnerActive, handleToggleFangRunnerDrawer}) {
     }
 
  
-
+    useEffect(() => {
+        document.getElementById('game-drop-down').scrollIntoView({ behavior: 'smooth' });
+    }, [fangRunnerActive])
 
     return (
         <div id="game-drop-down" className={fangRunnerActive ? 'droppingDown' : 'closingUp'}>

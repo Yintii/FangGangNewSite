@@ -47,7 +47,6 @@ const PxlFangsSection = (props) => {
                 document.querySelector('#game-drop-down').classList.add('hidden');
             },1000)
         }
-
     }
 
     const PxlMascot = ({ placement }) => {
@@ -109,11 +108,11 @@ const PxlFangsSection = (props) => {
                     <PxlMascot placement={'desktop'}/>
                 </div>
                 <img id="pxl-clock" src="./images/pxlclock.gif" />
-                <img id="brain" src="./images/brain.png" />
+                <img id="brain" src="./images/pxl_brain.gif" />
                 <img id="fangrunner-runs-to-left" src="./images/fangrun.gif" />
-                <img id="smallDiamond-left" className='desktop' src="./images/small-diamond.png" />
-                <img id="smallDiamond-middle" className='desktop'  src="./images/small-diamond.png" />
-                <img id="smallDiamond-right" className='desktop' src="./images/small-diamond.png" />
+                <img id="smallDiamond-left" src="./images/pxl_smalldiamond.gif" />
+                <img id="smallDiamond-middle" src="./images/pxl_smalldiamond.gif" />
+                <img id="smallDiamond-right" src="./images/pxl_smalldiamond.gif" />
                 <img id="bigDiamond-left" src="./images/big-diamond.gif" />
                 <img id="bigDiamond-right" src="./images/big-diamond.gif" />
                 <img id="icecream-fangster" src="./images/icecreamfang.gif" width="95px" height="106px"/>

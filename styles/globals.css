@@ -100,7 +100,7 @@ ul, li{
     #mobile-navigation{
         position: absolute;
         background-color: #6950D0;
-        top:165px;
+        top: 146px;
         left:0;
         right:0;
         z-index: 15;
@@ -333,6 +333,7 @@ flex-flow: column nowrap;
 
     #musicfang{
         left: unset !important;
+        top:5px;
     }
     .outter-img-wrap{
         align-items: center;
@@ -429,6 +430,11 @@ flex-flow: column nowrap;
     border-bottom-right-radius: 100px;
     background-color: #FFC657;
     margin-bottom: 3rem;
+}
+#claim-drop-down h2,
+#game-drop-down h2,
+#bank-drop-down h2{
+    margin-top: 5rem;
 }
 
 #bank-drop-down {

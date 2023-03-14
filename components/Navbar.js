@@ -6,14 +6,12 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 const NavComponent = () => {
 
     const [revealed, setRevealed] = useState(false);
-    
+
     const navRef = useRef();
 
     function handleRevealNav(){
         setRevealed(!revealed)
     }
-
-
 
     return (
         <nav>

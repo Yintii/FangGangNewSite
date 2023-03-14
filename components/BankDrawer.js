@@ -1,4 +1,11 @@
+import React, { useEffect } from 'react';
+
 function BankDrawer({ bankActive, handleBankToggle }) {
+    
+    useEffect(() => {
+        document.getElementById('bank-drop-down').scrollIntoView({ behavior: 'smooth' });
+    }, [bankActive])
+    
     return (
         <div id="bank-drop-down" className={bankActive ? 'droppingDown' : 'closingUp'}>
             <h3>STACK $AWOO, UNLOCK PERKS.</h3>

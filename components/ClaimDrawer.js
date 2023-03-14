@@ -134,6 +134,10 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
         setUnclaimedFangs(unclaimed);
     }, [userFangs.length])
 
+    useEffect(()  => {
+        document.getElementById('claim-drop-down').scrollIntoView({behavior: 'smooth'});
+    }, [claimDrawerActive])
+
 
     return (
         <div id="claim-drop-down" className={claimDrawerActive ? 'droppingDown' : 'closingUp'}>
