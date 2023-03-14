@@ -396,9 +396,6 @@ flex-flow: column nowrap;
 }
 
 
-.tram-img-area > img {
-    scale:1.8;
-}
 .wildfang-logo-area{
     overflow: visible;
 }
@@ -665,9 +662,6 @@ input{
         margin: -3rem 0 0 0;
     }
 
-    .tram-img-area > img{
-        scale: 1.3;
-    }
 
 
 }

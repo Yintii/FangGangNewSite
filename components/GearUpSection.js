@@ -41,8 +41,9 @@ const GearSection = () => {
                         </p>
                     </div>
                 </div>
+                <WldFngz placement={'desktop'} />
             </div>
-            <WldFngz placement={'desktop'}/>
+            
         </section>
     )
 }

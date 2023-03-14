@@ -39,7 +39,7 @@ const AwooStudios = () => {
               <img src="/images/tag_junshi.png" width="192px" height="98px" />
             </a>
           </div>
-        <img id='junAndPaca' ref={pacaAndJunshiRef} src="./images/group.png" />
+        <img id='junAndPaca' ref={pacaAndJunshiRef} src="./images/group.svg" />
         </div>
     </section>
   )

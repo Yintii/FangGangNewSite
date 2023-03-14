@@ -6,9 +6,9 @@ const OurPartners = () => {
           <div className='copy-wrap'>
             <h2>Our Partners.</h2>
             <div id="partners-area">
-                <img src="/images/nord.png" />
-                <img src="/images/boson.png" />
-                <img src="/images/nbfc.png" />
+                <img src="/images/nord.svg" />
+                <img src="/images/boson.svg" />
+                <img src="/images/nfc.svg" />
             </div>
         </div>
       </div>
