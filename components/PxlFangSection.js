@@ -66,10 +66,6 @@ const PxlFangsSection = (props) => {
         );
     }
 
-
-
-
-
     useEffect(() => {
         document.querySelector('#game-drop-down').classList.add('hidden');
         document.querySelector('#claim-drop-down').classList.add('hidden');

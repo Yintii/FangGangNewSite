@@ -930,12 +930,12 @@ footer, #socials{
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    height: 125px;
+
 }
 
 #socials{
     width: 20%;
-    padding: 2rem 4rem;
+    padding: 2rem 4rem 0 4rem;
 }
 
 #poap{
@@ -1009,7 +1009,7 @@ footer, #socials{
 
 
 #copyright{
-    margin: 2rem;
+    padding: 1rem;
     text-align: right;
 }
 
