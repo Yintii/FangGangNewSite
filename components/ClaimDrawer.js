@@ -95,6 +95,20 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
         }
     }
 
+    const handlePxlClaims = async () => {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(PXL_FANGS_CONTRACT_ADDRESS, PxlABI.abi, signer);
+
+        try {
+            await contract.claimToken(toggledForClaimTokens);
+            alert("Successfully Claimed pxl fangs")
+        } catch (error) {
+            console.error("There was an error during claim: ", error);
+        }
+
+    }
+  
     const RenderFangsters = () => {
         let fangsters = userFangs.map(fang => {
             if (fang.claimed) {
@@ -179,7 +193,7 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                             disabled={unclaimedFangs.length > 0 ? false : true}
                             className={
                                 unclaimedFangs.length == 0 || toggledForClaimTokens.length == 0 ? 'none-to-claim' : 'some-to-claim'}
-                            onClick={() => handleToggleClaimDrawer()}
+                            onClick={() => handlePxlClaims()}
                         >
                             CLAIM
                         </button>
