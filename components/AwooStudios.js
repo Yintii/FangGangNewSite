@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useInView } from 'react-intersection-observer';
 
+
 const AwooStudios = () => {
 
   const [pacaAndJunshiRef, pacaAndJunshiInView] = useInView({threshold: 0});
@@ -19,9 +20,11 @@ const AwooStudios = () => {
         <div className='section-copy'>
             <div className='copy-wrap'>
                 <h2>AWOO STUDIOS.</h2>
-                  <button className="section-button">
+                  <div className='copy-btns'>
+                    <a className="section-button">
                       DISCOVER
-                  </button>
+                    </a>
+                  </div>
                   <p className="section-p">
                       Awoo Studios is a Web3 native creative company. We’re focused on developing strong community experiences through unique IP, blockchain technology, gamification and streetwear.
                   </p>

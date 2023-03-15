@@ -79,21 +79,21 @@ const PxlFangsSection = (props) => {
                         <h1>RUN WITH THE <span className="gold">PXLFANGS</span>.</h1>
                         <PxlMascot placement={'mobile'} />
                         <div className="copy-btns">
-                            <button className="gold-bg section-button">JOIN</button>
-                            <button
+                            <a href="https://opensea.io/collection/pxlfangs" className="section-button">JOIN</a>
+                            <a
                                 className="gold-bg section-button"
                                 onClick={() => handleToggleClaimDrawer()}
                             >
                                 CLAIM
-                            </button>
-                            <button 
+                            </a>
+                            <a 
                                 className="gold-bg section-button"
                                 onClick={()=> handleToggleFangRunnerDrawer()}
                             >
                                 PLAY
-                            </button>
+                            </a>
                         </div>
-                        <p>
+                        <p className="raised">
                             To expand the Fangverse we introduced PxlFangs, a first of its kind pixelated side collection. Every Fangster has a PxlFangster attached, claimable for free.
                         </p>
                         <p>

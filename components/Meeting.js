@@ -31,8 +31,8 @@ const MeetSection = () => {
                         <h2>MEET THE <span className="gold">FANG GANG</span>.</h2>
                         <FangMascot placement={'mobile'} />
                         <div className="copy-btns">
-                            <button className='section-button'>JOIN</button>
-                            <button className='section-button'>VISIT</button>
+                            <a href="https://opensea.io/collection/fanggangnft" target="_blank" className='section-button'>JOIN</a>
+                            <a href="https://shop.awoostudios.com/pages/fang-gang" target="_blank" className='section-button'>VISIT</a>
                         </div>
                         <p className='section-p'>
                             The Fang Gang comes out at night to throw parties, hang around in dark alleys and have fun on the streets of New Fang City.

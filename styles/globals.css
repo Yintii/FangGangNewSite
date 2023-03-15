@@ -657,7 +657,14 @@ input{
     flex-flow:row nowrap;
     align-items: center;
 }
-
+        .copy-btns {
+            margin-top: 1rem !important;
+            
+        }
+        .copy-btns a {
+            color: black;
+            border-radius: 30px;
+        }
 
 @media screen and (max-width: 767px){
     .section-copy{
@@ -670,7 +677,7 @@ input{
     .tram-img-area{
         left: unset !important;
     }
-    button.section-button{
+    a.section-button{
         padding: 1rem 3rem;
     }
     .section-button{
@@ -683,9 +690,10 @@ input{
         width:80%;
         margin: 0 auto;
     }
-    #pxl-copy .copy-btns>button:not(:first-child){
+    #pxl-copy .copy-btns>a:not(:first-child){
         margin-top: 1rem;
     }
+
     #join {
         padding: unset !important;
     }
@@ -693,7 +701,7 @@ input{
         scale: 0.5;
     }
 
-    #join button{
+    #join a{
         margin: -3rem 0 0 0;
     }
 
@@ -872,9 +880,18 @@ input{
     -webkit-transform: scaleX(-1);
 }
 
+.raised{
+    z-index: 20;
+}
+
 #smallDiamond-left,
 #smallDiamond-middle,
-#smallDiamond-right,
+#smallDiamond-right{
+    position: absolute;
+    z-index: 0;
+    width:19px;
+    height:19px;
+}
 #bigDiamond-left,
 #bigDiamond-right,
 #brain,

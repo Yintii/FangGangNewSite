@@ -15,9 +15,11 @@ const Join = () => {
             <div className="copy-wrap">
                   <h2>JOIN A CREATIVE <span className='gold'> COMMUNITY</span>.</h2>
                   <FloatyFang placement={'mobile'} />
-                  <button className="section-button">
-                      CHAT
-                  </button>
+                <div className="copy-btns">
+                      <a href="https://discord.gg/fanggang" className="section-button">
+                          CHAT
+                      </a>
+                </div>
                   <p className="section-p">
                       A supportive network full of talented and enthusiastic contributors to web3. The Fang Gang community as a whole has established itself as one of the most welcoming ones.
                   </p>

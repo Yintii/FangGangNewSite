@@ -49,13 +49,13 @@ const NewFangCity = () => {
                         </h2>
                         <Tram placement={'mobile'}/>
                         <div className='copy-btns'>
-                            <button className='section-button'>VISIT</button>
-                            <button 
+                            <a href="https://newfangcity.com" target="_blank" className='section-button'>VISIT</a>
+                            <a 
                                 className='section-button'
                                 onClick={() => handleBankToggle()}
                             >
                             $AWOO
-                            </button>
+                            </a>
                         </div>
                         <p className='section-p'>
                             Join the Fangsters on the streets of New Fang City. It’s our very own microverse where we connect, enjoy special events, hang out and spend the $AWOO ecosystem token on fun features.
