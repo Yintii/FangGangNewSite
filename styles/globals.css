@@ -17,6 +17,10 @@ html,body{
     color:white;
 }
 
+.yellow-bg{
+    background-color: #FFC657;
+}
+
 @media screen and (min-width: 767px) {
     .mobile{
         display:none !important;
@@ -42,7 +46,7 @@ h1,h2,h3,h4,h5,
     font-weight: 900;
     line-height: 3rem;
 }
-#nav-buttons button, .copy-btns{
+#nav-buttons div, .copy-btns{
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -152,20 +156,45 @@ nav,
     color: #FFC657;
 }
 
-#nav-buttons>button, #nav-buttons>a {
-    background-color: #FFC657;
+#nav-buttons>div, #nav-buttons>a {
     font-size: 30px;
     font-weight: bold;
     padding: 10px 35px;
     border-radius: 20px;
     display: flex;
     align-items: center;
+    color: black;
 }
 
 #nav-buttons a{
     color:black;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
+
+.mascot-head{
+    border-radius: 50px;
+    height:60px;
+    width: 60px;
+    margin: .25rem;
+}
+
+#split-join-btn{
+    display:flex;
+    justify-content: center;
+}
+#split-join-btn:hover{
+    padding: 0 !important;
+}
+
+.wrapper-100{
+    display: flex;
+        align-items: center;
+            justify-content: space-evenly;
+    width: 100%;
+}
 
 #hero-image-mobile{
     width:100%;
@@ -1191,7 +1220,7 @@ footer, #socials{
 }
 
 .floaty1{
-    animation: isFloaty1 10s infinite linear forwards;
+    animation: isFloaty1 5s infinite linear forwards;
 }
 
 @keyframes isFloaty1{
@@ -1199,21 +1228,9 @@ footer, #socials{
         left: -160px;
         top: -40px;
     }
-    20%{
-        left: -150px;
-        top: -20px;
-    }
-    40% {
+    50%{
         left: -165px;
-        top: -35px;
-    }
-    60% {
-        left: -175px;
-        top: -55px;
-    }
-    80% {
-        left: -180px;
-        top: -65px;
+        top: -45px;
     }
     100% {
         left: -160px;

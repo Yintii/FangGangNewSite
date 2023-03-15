@@ -7,10 +7,21 @@ const NavComponent = () => {
 
     const [revealed, setRevealed] = useState(false);
 
-    const navRef = useRef();
+    const joinTextRef = useRef(null);
+    const fangBtnRef  = useRef(null);
+    const pxlBtnRef   = useRef(null);
+    const bgRef       = useRef(null);
 
     function handleRevealNav(){
         setRevealed(!revealed)
+    }
+
+    function toggleJoin(){
+        joinTextRef.current.classList.toggle('hidden')
+        fangBtnRef.current.classList.toggle('hidden')
+        pxlBtnRef.current.classList.toggle('hidden')
+        bgRef.current.classList.toggle('yellow-bg')
+
     }
 
     return (
@@ -33,10 +44,22 @@ const NavComponent = () => {
                 </div>
 
                 <div id="nav-buttons">
-                    <button>
-                        JOIN
-                    </button>
-                    <a href="https://twitter.com/FangGangNFT" target="_blank"><FontAwesomeIcon icon={faTwitter} /></a>
+                    <div 
+                        id="split-join-btn"
+                        className='yellow-bg'
+                        ref={bgRef}
+                        onMouseEnter={toggleJoin}
+                        onMouseLeave={toggleJoin}
+                    >
+                        <div ref={joinTextRef}>JOIN</div>
+                        <a ref={fangBtnRef} href="https://opensea.io/collection/fanggangnft" className='hidden yellow-bg mascot-head' target="_blank">
+                            <img src='./images/mascot_fanggang_head.png' width="45px" height="41px" />
+                        </a>
+                        <a ref={pxlBtnRef} href="https://opensea.io/collection/pxlfangs" className='hidden yellow-bg mascot-head' target="_blank">
+                            <img src='./images/mascot_pxlfangs_head.png' width="43px" height="39px" />
+                        </a>
+                    </div>
+                    <a className='yellow-bg' href="https://twitter.com/FangGangNFT" target="_blank"><FontAwesomeIcon icon={faTwitter} /></a>
                 </div>
             </div>
             <div id='mobile-navigation' className={revealed ? '' : 'hidden'} >
