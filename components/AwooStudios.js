@@ -21,7 +21,7 @@ const AwooStudios = () => {
             <div className='copy-wrap'>
                 <h2>AWOO STUDIOS.</h2>
                   <div className='copy-btns'>
-                    <a className="section-button">
+            <a className="section-button" href="https://linktr.ee/awoostudios" target="_blank">
                       DISCOVER
                     </a>
                   </div>

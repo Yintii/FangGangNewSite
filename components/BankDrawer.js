@@ -3,11 +3,14 @@ import React, { useEffect } from 'react';
 function BankDrawer({ bankActive, handleBankToggle }) {
     
     useEffect(() => {
-        document.getElementById('bank-drop-down').scrollIntoView({ behavior: 'smooth' });
+        bankActive ? document.getElementById('bank-drop-down').scrollIntoView({ behavior: 'smooth' }) : null;
     }, [bankActive])
     
     return (
         <div id="bank-drop-down" className={bankActive ? 'droppingDown' : 'closingUp'}>
+            <div className='drawer-x-btn' onClick={() => handleBankToggle()}>
+                <span>x</span>
+            </div>
             <h3>STACK $AWOO, UNLOCK PERKS.</h3>
             <div className="copy-btns center-stuff">
                 <img src="/images/awootoken.gif" width="76px" />

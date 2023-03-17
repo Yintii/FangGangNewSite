@@ -2,10 +2,10 @@ import React from 'react'
 
 export const PurchaseAndLicensing = ({ hidden, setShowPandL }) => {
     return (
-        <div id="terms-modal" className={hidden ? '' : 'hidden'}>
+        <div id="pandl-modal" className={hidden ? '' : 'hidden'}>
             <div className="modal">
                 <h2>NFT PURCHASE AND LICENSE AGREEMENT</h2>
-                <button onClick={() => setShowPandL(false)}>close</button>
+                <button onClick={() => setShowPandL(false)}>x</button>
                 <div className="modal-wrap">
                     <div className="modal-section">
                         <h3>1. AWOO STUDIOS</h3>

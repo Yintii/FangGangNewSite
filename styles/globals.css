@@ -79,7 +79,6 @@ ul, li{
 
 @media screen and (max-width: 1100px){
     #brand {
-        width: 270px;
         z-index: 5;
     }
     #brand-wrap{
@@ -91,11 +90,9 @@ ul, li{
     }
     #hamburger-menu{
         display:block;
-        height: 35px;
-        width: 60px;
+        height: 25px;
+        width: 40px;
     }
-
-
 
     #desk-navigation{
         display:none !important;
@@ -118,7 +115,19 @@ ul, li{
         display: flex;
         flex-flow: row nowrap !important;
         margin: 2rem auto;
+        width: 50%;
         justify-content:center;
+    }
+}
+
+@media screen and (max-width:767px) {
+    #nav-buttons {
+            display: flex;
+            flex-flow: column nowrap !important;
+            justify-content: center;
+        }
+    #nav-buttons a{
+        margin: .5rem 0;
     }
 }
 
@@ -267,16 +276,24 @@ flex-flow: column nowrap;
     align-items: center;
 }
 #meet,
-#gear,
 #newFangCity,
 #AwooStudios,
 #ourPartners{
     background:linear-gradient(.75turn,#2C282E, #1D1B1E);
-    padding:5rem 0;
+    padding:2rem 0;
     position: relative;
     width:100vw;
     display:flex;
 }
+
+#gear{
+    background: linear-gradient(.75turn, #2C282E, #1D1B1E);
+    padding: 5rem 0 3.5rem; 
+    position: relative;
+    width: 100vw;
+    display: flex;
+}
+
 #ourPartners{
     flex-flow:column nowrap;
     
@@ -362,7 +379,6 @@ flex-flow: column nowrap;
 
     #musicfang{
         left: unset !important;
-        top:5px;
     }
     .outter-img-wrap{
         align-items: center;
@@ -564,6 +580,7 @@ flex-flow: column nowrap;
 }
 
 #claim{
+    position: relative;
     text-align: center;
 }
 
@@ -614,6 +631,33 @@ input[type=button]:hover {
 #claim-header>h2{
     font-size:50px;
 }
+
+.drawer-x-btn{
+    display: inline-flex;
+    position: absolute;
+    top:4rem;
+    right: 4rem;
+    font-size: 70px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+    #claim-header>h2{
+        font-size:40px;
+    }
+    .drawer-x-btn{
+    top:2rem;
+    right: 1rem;
+    font-size: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+}
+
 #claim-header>input[type=button]{
     background-color: #6950D0;
     color:white; 
@@ -646,7 +690,7 @@ input{
         margin-top: 1rem;
     }
     .pxl-arrow {
-        left: 35% !important;
+        left: 38vw !important;
     }
 }
 
@@ -657,14 +701,14 @@ input{
     flex-flow:row nowrap;
     align-items: center;
 }
-        .copy-btns {
-            margin-top: 1rem !important;
-            
-        }
-        .copy-btns a {
-            color: black;
-            border-radius: 30px;
-        }
+.copy-btns {
+    margin-top: 1rem !important;
+}
+.copy-btns a {
+    color: black;
+    border-radius: 30px;
+    cursor: pointer;
+}
 
 @media screen and (max-width: 767px){
     .section-copy{
@@ -862,6 +906,12 @@ input{
     bottom:-25px;
 }
 
+@media screen and (max-width: 767px){
+    #sidewalk{
+        bottom: unset;
+    }
+}
+
 #icecream-fangster{
     position: absolute;
     bottom:-17px;
@@ -874,6 +924,7 @@ input{
 #musicfang{
     position: relative;
     left:-45%;
+    top: 5px;
     width: 106px;
     height: 70px;
     transform: scaleX(-1);
@@ -933,6 +984,7 @@ input{
 .pxl-arrow{
     position:relative;
     left:45%;
+    cursor: pointer;
     top:40px;
     animation: floatUpAndDown 2s infinite ;
 }
@@ -1075,11 +1127,8 @@ footer, #socials{
     cursor: pointer;
     color:#FFC657
 }
-.modal>button {
-    cursor: pointer;
-}
 
-#terms-modal{
+#terms-modal, #pandl-modal{
     position:fixed;
     top:0;
     background-color: rgba(100,100,100,0.5);
@@ -1087,8 +1136,15 @@ footer, #socials{
     min-height: 100vh;
     z-index: 10;
 }
+.modal button{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
 
 .modal{
+    position: relative;
     z-index: 11;
     max-width: 30vw;
     min-height: 70vh;
@@ -1107,7 +1163,7 @@ footer, #socials{
 
 .modal-wrap{
     width:80%;
-    height: 500px;
+    height: 400px;
     margin: 0 auto;
     overflow-y: scroll !important;
     scroll-behavior: smooth;

@@ -41,11 +41,14 @@ function FangRunner({fangRunnerActive, handleToggleFangRunnerDrawer}) {
 
  
     useEffect(() => {
-        document.getElementById('game-drop-down').scrollIntoView({ behavior: 'smooth' });
+        fangRunnerActive ? document.getElementById('game-drop-down').scrollIntoView({ behavior: 'smooth' }) : null;
     }, [fangRunnerActive])
 
     return (
         <div id="game-drop-down" className={fangRunnerActive ? 'droppingDown' : 'closingUp'}>
+            <div className='drawer-x-btn' onClick={() => handleToggleFangRunnerDrawer()}>
+                <span>x</span>
+            </div>
             <h3>PLAY FANGRUNNER.</h3>
             <div className="game-container">
                 <iframe id="test" style={style} src="https://fanggang.io/fangrunnergame/" title="Fang Runner"></iframe>

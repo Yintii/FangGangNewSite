@@ -149,12 +149,15 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
     }, [userFangs.length])
 
     useEffect(()  => {
-        document.getElementById('claim-drop-down').scrollIntoView({behavior: 'smooth'});
+        claimDrawerActive ? document.getElementById('claim-drop-down').scrollIntoView({behavior: 'smooth'}) : null;
     }, [claimDrawerActive])
 
 
     return (
         <div id="claim-drop-down" className={claimDrawerActive ? 'droppingDown' : 'closingUp'}>
+            <div className='drawer-x-btn' onClick={() => handleToggleClaimDrawer()}>
+                <span>x</span>
+            </div>
             <div id="claim">
                 <div id="claim-header">
                     <h2 className="black">CLAIM YOUR PXLFANGSTER.</h2>

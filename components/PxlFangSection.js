@@ -116,7 +116,7 @@ const PxlFangsSection = (props) => {
                 <img id="bigDiamond-left" src="./images/big-diamond.gif" />
                 <img id="bigDiamond-right" src="./images/big-diamond.gif" />
                 <img id="icecream-fangster" src="./images/icecreamfang.gif" width="95px" height="106px"/>
-                <img id="sidewalk" className='desktop' src="./images/sidewalk.png" />
+                <img id="sidewalk" src="./images/sidewalk.png" />
             </div>
             
             <div className="drawers-wrapper">

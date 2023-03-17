@@ -62,6 +62,9 @@ const NavComponent = () => {
                     <a className='yellow-bg' href="https://twitter.com/FangGangNFT" target="_blank"><FontAwesomeIcon icon={faTwitter} /></a>
                 </div>
             </div>
+
+
+
             <div id='mobile-navigation' className={revealed ? '' : 'hidden'} >
                 <div id="nav-menu">
                     <Link href="#meet">FANG GANG</Link>
@@ -70,12 +73,20 @@ const NavComponent = () => {
                 </div>
 
                 <div id="nav-buttons">
-                    <button>
+                    <a href="https://opensea.io/collection/fanggangnft" className='yellow-bg' target="_blank">
+                        <img src='./images/mascot_fanggang_head.png' width="45px" height="41px" />
                         JOIN
-                    </button>
-                    <a href="https://twitter.com/FangGangNFT" target="_blank"><FontAwesomeIcon icon={faTwitter} /></a>
+                    </a>
+                    <a  href="https://opensea.io/collection/pxlfangs" className='yellow-bg' target="_blank">
+                        <img src='./images/mascot_pxlfangs_head.png' width="43px" height="39px" />
+                         JOIN
+                    </a>
+                    <a href="https://twitter.com/FangGangNFT" className='yellow-bg' target="_blank"><FontAwesomeIcon icon={faTwitter} /></a>
                 </div>
             </div>
+
+
+
         </nav>
     )
 }
