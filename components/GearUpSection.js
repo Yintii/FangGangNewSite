@@ -43,6 +43,7 @@ const GearSection = () => {
                 </div>
                 <WldFngz placement={'desktop'} />
             </div>
+            <img id='fangModels' src='./images/fangmodels.png' />
             
         </section>
     )
