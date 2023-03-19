@@ -926,8 +926,7 @@ input{
     position: relative;
     left:-45%;
     top: 5px;
-    width: 106px;
-    height: 70px;
+
     transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
 }

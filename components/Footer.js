@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image'
 import React, { useState } from 'react'
 
 import { Tos } from './Tos';
@@ -25,25 +26,25 @@ const Footer = () => {
       <footer>
         <div id='socials'>
           <a href='https://twitter.com/FangGangNFT' target="_blank">
-            <img src='/images/icon_twitter.svg' />
+            <Image src='/images/icon_twitter.svg' width={43} height={35} />
           </a>
           <a href='https://discord.gg/fanggang' target="_blank">
-            <img src='/images/icon_discord.svg' />
+            <Image src='/images/icon_discord.svg' width={43} height={35} />
           </a>
           <a href='https://www.instagram.com/fanggangnfts/' target="_blank">
-            <img src='/images/icon_instagram.svg' />
+            <Image src='/images/icon_instagram.svg' width={43} height={35} />
           </a>
           <a href="https://opensea.io/collection/fanggangnft" target="_blank">
-            <img src='/images/icon_opensea.svg' />
+            <Image src='/images/icon_opensea.svg' width={43} height={35} />
           </a>
           <a href="mailto:fanggang@awoostudios.com">
-            <img src='/images/icon_mail.svg' />
+            <Image src='/images/icon_mail.svg' width={43} height={35} />
           </a>
         </div>
-        <img id='poap' src='/images/fangster_footer.png' widht='269px' height='108px' />
+        <Image id='poap' src='/images/fangster_footer.png' width={269} height={108} />
         <div id='copyright'>
           <h4>
-            ©<span id="copyright-year">{year.getFullYear()} <br className='mobile' /> <img src="./images/awoostudios.svg" /></span>
+            ©<span id="copyright-year">{year.getFullYear()} <br className='mobile' /> <Image src="./images/awoostudios.svg" width={184} height={23} /></span>
           </h4>
           <span onClick={() => setShowTos(true)}>Terms of Use and Conditions</span><br />
           <span onClick={() => setShowPandL(true)}>Purchase and License Agreement</span>

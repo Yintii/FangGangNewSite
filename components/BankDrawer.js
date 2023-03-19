@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-
+import Image from 'next/image'
 function BankDrawer({ bankActive, handleBankToggle }) {
     
     useEffect(() => {
@@ -13,18 +13,23 @@ function BankDrawer({ bankActive, handleBankToggle }) {
             </div>
             <h3>STACK $AWOO, UNLOCK PERKS.</h3>
             <div className="copy-btns center-stuff">
-                <img src="/images/awootoken.gif" width="76px" />
+                <Image src="/images/awootoken.gif" width={76} height={76} />
                 <button className="section-button text-white purple-bg">LEARN MORE</button>
             </div>
             <p>
                 Simply by holding a Fangster or PxlFangster you are passively earningthe $AWOO ecosystem token. This token can be used on fun features such as upgrading your PxlFangsters or during special events.
             </p>
-            <img id="bank-image" src="./images/newfangcity_bank.png" />
-            <img
+            <Image 
+                id="bank-image" 
+                src="/images/newfangcity_bank.png" 
+                width={1029}
+                height={483}    
+            />
+            <Image
                 className="bank-arrow"
-                src="./images/pxlfangarrow.png"
-                width="103px"
-                height='69px'
+                src="/images/pxlfangarrow.png"
+                width={103}
+                height={69}
                 onClick={() => handleBankToggle()}
             />
         </div>

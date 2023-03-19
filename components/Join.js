@@ -1,10 +1,12 @@
+import Image from "next/image"
+
 const Join = () => {
 
   const FloatyFang = ({ placement }) => {
     return (
         <div id='cfw_discord' className={placement == 'desktop' ? 'desktop' : 'mobile'}>
-            <img src="/images/CFW.png" className="floaty1" width="284px" height="384px" />
-            <img src="/images/discord_chat.png" width="359px" height="311px" />
+            <Image src="/images/CFW.png" className="floaty1" width={284} height={384} />
+            <Image src="/images/discord_chat.png" width={359} height={311} />
         </div>
     )
   } 

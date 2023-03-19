@@ -1,27 +1,27 @@
 import React, { useEffect } from 'react'
+import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
 const MeetSection = () => {
 
+    const FangMascot = ({ placement }) => {        
 
-
-    const FangMascot = ({ placement }) => {
-        
         const [fangAvatarRef, fangAvatarRefInView] = useInView({ threshold: 0 });
+
         useEffect(() => {
             fangAvatarRefInView ? document.querySelector(".fang-img-area > img").classList.add('toaster-pop-up') : null;
+            console.log('Meet')
         }, [fangAvatarRefInView])
+        
         return( 
-            <div className={placement == 'desktop' ? 'outter-img-wrap desktop' : 'outter-img-wrap mobile fang-mascot-mobile'} >
+            <div className={placement == 'desktop' ? 'outter-img-wrap desktop' : 'outter-img-wrap mobile'} >
                 <div className="fang-img-area" ref={fangAvatarRef}>
-                    <img src={'./images/mascot.png'} width="200px" height="195px" />
+                    <Image src='/images/mascot.png' width={200} height={195} />
                 </div>
-                <img className='logo' src={'./images/logoNoHash.png'} width="212px" height="80px" />
+                <Image className='logo' src='/images/logoNoHash.png' width={212} height={80} />
             </div>
         )
     };
-
-
 
     return (
         <section id="meet">
@@ -44,7 +44,7 @@ const MeetSection = () => {
                 </div>
                 <FangMascot placement={'desktop'}/>
             </div>
-            <img id="fanggrid" src={"./images/fanggrid.png"} />
+            <Image id="fanggrid" src="/images/fanggrid.png" width={1253} height={415} />
         </section>
     )
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
 
@@ -56,11 +57,16 @@ const PxlFangsSection = (props) => {
         }, [pxlFangAvatarRefInView]);
         return(
             <div className={placement == 'desktop' ? 'outter-img-wrap desktop' : 'outter-img-wrap mobile'}>
-                <img id="musicfang" src="./images/musicfang.gif" />
+                <Image id="musicfang" src="/images/musicfang.gif" width={106} height={70} />
                 <div className="px-fang-img-area" ref={pxlFangAvatarRef}>
-                    <img src="./images/superpxlmascot.png" alt="pxlfang mascot" width="200px" height="200px" />
+                    <Image src="/images/superpxlmascot.png" alt="pxlfang mascot" width={200} height={200} />
                 </div>
-                <img className='logo' src="./images/px-fang-copy-logo.png" alt="pxlfang mascot" />
+                <Image 
+                    className='logo' 
+                    src="/images/px-fang-copy-logo.png" 
+                    alt="pxlfang mascot" 
+                    width={212} height={80} 
+                />
             </div>
         );
     }
@@ -107,16 +113,16 @@ const PxlFangsSection = (props) => {
                     
                     <PxlMascot placement={'desktop'}/>
                 </div>
-                <img id="pxl-clock" src="./images/pxlclock.gif" />
-                <img id="brain" src="./images/pxl_brain.gif" />
-                <img id="fangrunner-runs-to-left" src="./images/fangrun.gif" />
-                <img id="smallDiamond-left" src="./images/pxl_smalldiamond.gif" />
-                <img id="smallDiamond-middle" src="./images/pxl_smalldiamond.gif" />
-                <img id="smallDiamond-right" src="./images/pxl_smalldiamond.gif" />
-                <img id="bigDiamond-left" src="./images/big-diamond.gif" />
-                <img id="bigDiamond-right" src="./images/big-diamond.gif" />
-                <img id="icecream-fangster" src="./images/icecreamfang.gif" width="95px" height="106px"/>
-                <img id="sidewalk" src="./images/sidewalk.png" />
+                <Image id="pxl-clock"               src="/images/pxlclock.gif"         width={38}    height={38}  />
+                <Image id="brain"                   src="/images/pxl_brain.gif"        width={38}    height={38}  />
+                <Image id="fangrunner-runs-to-left" src="/images/fangrun.gif"          width={150}   height={150} />
+                <Image id="smallDiamond-left"       src="/images/pxl_smalldiamond.gif" width={19}    height={19}  />
+                <Image id="smallDiamond-middle"     src="/images/pxl_smalldiamond.gif" width={19}    height={19}  />
+                <Image id="smallDiamond-right"      src="/images/pxl_smalldiamond.gif" width={19}    height={19}  />
+                <Image id="bigDiamond-left"         src="/images/big-diamond.gif"      width={38}    height={38}  />
+                <Image id="bigDiamond-right"        src="/images/big-diamond.gif"      width={38}    height={38}  />
+                <Image id="icecream-fangster"       src="/images/icecreamfang.gif"     width={95}    height={106} />
+                <Image id="sidewalk"                src="/images/sidewalk.png"         width={1441}  height={25}  />
             </div>
             
             <div className="drawers-wrapper">

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { ethers } from 'ethers'
 
 import PxlABI from '../artifacts/contracts/PxlFangs.sol/PxlFangs.json'
@@ -15,6 +16,11 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
     const [toggledForClaimTokens, setToggledForClaimedTokens] = useState([]);
     const [unclaimedFangs, setUnclaimedFangs] = useState([]);
     
+
+    const fangLoader = ({ src }) => {
+        return `https://fanggang.s3.us-east-2.amazonaws.com/img/${src}`;
+    } 
+
 
     async function getFangstersFromWallet() {
         if (!isConnected) {
@@ -117,17 +123,26 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                         <div className='already-claimed'>
                             <p className='claimed-text'>CLAIMED</p>
                         </div>
-                        <img src={fang.rawMetadata.image} />
+                        <Image 
+                            key={`fang-${fang.tokenId}`}
+                            loader={fangLoader}
+                            src={`${fang.tokenId}.png`}
+                            width={250}
+                            height={250}
+                        />
                     </div>
                 )
             } else {
                 return (
                     <>
-                        <img
+                        <Image
                             key={`fang-${fang.tokenId}`}
                             onClick={() => toggleForClaim(fang.tokenId)}
-                            src={fang.rawMetadata.image}
+                            src={`${fang.tokenId}.png`}
+                            loader={fangLoader}
                             className={toggledForClaimTokens.includes(fang.tokenId) ? 'selected-for-claim' : 'claimable'}
+                            width={250}
+                            height={250}
                         />
                     </>
                 )
@@ -209,11 +224,11 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
             <div id="play" hidden>
 
             </div>
-            <img
+            <Image
                 className="pxl-arrow"
-                src="./images/pxlfangarrow.png"
-                width="103px"
-                height='69px'
+                src="/images/pxlfangarrow.png"
+                width={103}
+                height={69}
                 onClick={() => handleToggleClaimDrawer()}
             />
         </div>

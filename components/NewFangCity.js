@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
 import BankDrawer from './BankDrawer';
@@ -30,7 +31,7 @@ const NewFangCity = () => {
 
         return(
             <div className={ placement == 'desktop' ? 'desktop tram-img-area' : 'mobile tram-img-area'} ref={tramRef}>
-                <img src={'./images/tram.svg'} height='256px' width="196px" />
+                <Image src='/images/tram.svg' height={256} width={196} />
             </div>
         )
     } 
@@ -67,7 +68,7 @@ const NewFangCity = () => {
                 </div>
                 <Tram placement={'desktop'} />
             </div>
-            <img id="NFC" src={"./images/newFangCity.png"} />
+            <Image id="NFC" src="/images/newFangCity.png" width={1264} height={419} />
             <div className="drawers-wrapper">
                 <BankDrawer 
                     bankActive={bankActive}

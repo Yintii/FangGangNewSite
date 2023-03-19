@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
 
@@ -36,13 +37,13 @@ const AwooStudios = () => {
         <div id="founders">
           <div id="tags" className='center-stuff'>
             <a id="pacaTag" href="https://twitter.com/PacaNFT" target="_blank">
-              <img src="/images/tag_paca.png" width="190px" height="126px" />
+              <Image src="/images/tag_paca.png" width={190} height={126} />
             </a>
             <a id="junshiTag" href="https://twitter.com/JunshiNFT" target="_blank">
-              <img src="/images/tag_junshi.png" width="192px" height="98px" />
+              <Image src="/images/tag_junshi.png" width={192} height={98} />
             </a>
           </div>
-        <img id='junAndPaca' ref={pacaAndJunshiRef} src="./images/group.svg" />
+        <Image id='junAndPaca' ref={pacaAndJunshiRef} src="/images/group.svg" width={608} height={214}/>
         </div>
     </section>
   )

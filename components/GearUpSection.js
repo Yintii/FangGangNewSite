@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
 const GearSection = () => {
@@ -14,7 +15,7 @@ const GearSection = () => {
         }, [wildFangLogoInView])
         return(
             <div ref={wildFangLogoRef} className={placement == 'desktop' ? 'wildfang-logo-area desktop' : 'mobile wildfang-logo-area'} >
-                <img src={'./images/wildfangslogo.png'} height="135px" width="157px" />
+                <Image src='/images/wildfangslogo.png' height={135} width={157} />
             </div>
         )
     }
@@ -43,7 +44,7 @@ const GearSection = () => {
                 </div>
                 <WldFngz placement={'desktop'} />
             </div>
-            <img id='fangModels' src='./images/fangmodels.png' />
+            <Image id='fangModels' src='/images/fangmodels.png' width={1264} height={419} />
             
         </section>
     )
