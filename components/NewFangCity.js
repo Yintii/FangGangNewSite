@@ -31,7 +31,7 @@ const NewFangCity = () => {
 
         return(
             <div className={ placement == 'desktop' ? 'desktop tram-img-area' : 'mobile tram-img-area'} ref={tramRef}>
-                <Image src='/images/tram.svg' height={256} width={196} />
+                <Image src='/images/Tram.svg' height={256} width={196} />
             </div>
         )
     } 

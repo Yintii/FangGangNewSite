@@ -221,9 +221,6 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
 
                 }
             </div>
-            <div id="play" hidden>
-
-            </div>
             <Image
                 className="pxl-arrow"
                 src="/images/pxlfangarrow.png"
