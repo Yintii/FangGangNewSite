@@ -1,4 +1,6 @@
 import React from 'react'
+import Image from 'next/image'
+
 
 const OurPartners = () => {
   return (
@@ -6,9 +8,9 @@ const OurPartners = () => {
           <div className='copy-wrap'>
             <h2>Our Partners.</h2>
             <div id="partners-area">
-                <img src="/images/nord.svg" />
-                <img src="/images/boson.svg" />
-                <img src="/images/nfc.svg" />
+                <Image src="/images/nord.svg" width={180} height={41} />
+                <Image src="/images/boson.svg" width={188} height={41}/>
+                <Image src="/images/nfc.svg" width={107} height={41} />
             </div>
         </div>
       </div>
