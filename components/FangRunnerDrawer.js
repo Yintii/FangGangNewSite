@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 
 
@@ -7,9 +7,11 @@ function FangRunner({fangRunnerActive, handleToggleFangRunnerDrawer}) {
     const ratio = .566;
     const [style, setStyle] = useState({})
 
+
     useEffect(() => {
         window.addEventListener("resize", resize);
         resize();
+
     }, []);
 
     function resize() {
@@ -27,7 +29,7 @@ function FangRunner({fangRunnerActive, handleToggleFangRunnerDrawer}) {
         }
 
         setStyle({
-            border: "1px solid #000",
+            border: 'none',
             margin: "0 auto",
             borderRadius: '50px',
             marginTop: '2rem',
@@ -51,7 +53,7 @@ function FangRunner({fangRunnerActive, handleToggleFangRunnerDrawer}) {
             </div>
             <h3>PLAY FANGRUNNER.</h3>
             <div className="game-container">
-                <iframe id="test" style={style} src="https://fanggang.io/fangrunnergame/" title="Fang Runner"></iframe>
+                <iframe style={style} src="https://fanggang.io/fangrunnergame/" title="Fang Runner"></iframe>
             </div>
             <p>
                 Run your way through New Fang City while avoiding flippers and paper hands to collect as many precious diamonds as possible! 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
@@ -12,19 +12,22 @@ const PxlFangsSection = (props) => {
     const [claimDrawerActive, setClaimDrawerActive] = useState(false);
     const [fangRunnerActive, setFangRunnerActive] = useState(false);
 
+    const pxldivRef = useRef(null);
+
     const handleToggleClaimDrawer = () => {
         if(fangRunnerActive){
             setFangRunnerActive(false);
             setTimeout(()=>{
                 document.querySelector('#game-drop-down').classList.add('hidden');
                 setClaimDrawerActive(true);
-            }, 1000)
+            }, 1000);
         }else if(claimDrawerActive == false){
             setClaimDrawerActive(true);
         }
 
         if(claimDrawerActive){
             setClaimDrawerActive(false);
+            pxldivRef.current.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
             setTimeout(()=>{
                 document.querySelector('#claim-drop-down').classList.add('hidden')
             },1000)
@@ -44,6 +47,7 @@ const PxlFangsSection = (props) => {
 
         if(fangRunnerActive){
             setFangRunnerActive(false);
+            pxldivRef.current.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
             setTimeout(()=>{
                 document.querySelector('#game-drop-down').classList.add('hidden');
             },1000)
@@ -56,7 +60,7 @@ const PxlFangsSection = (props) => {
             pxlFangAvatarRefInView ? document.querySelector('.px-fang-img-area > img').classList.add('toaster-pop-up') : null
         }, [pxlFangAvatarRefInView]);
         return(
-            <div className={placement == 'desktop' ? 'outter-img-wrap desktop' : 'outter-img-wrap mobile'}>
+            <div ref={pxldivRef} className={placement == 'desktop' ? 'outter-img-wrap desktop' : 'outter-img-wrap mobile'}>
                 <Image id="musicfang" src="/images/musicfang.gif" width={106} height={70} />
                 <div className="px-fang-img-area" ref={pxlFangAvatarRef}>
                     <Image src="/images/superpxlmascot.png" alt="pxlfang mascot" width={200} height={200} />
@@ -85,7 +89,7 @@ const PxlFangsSection = (props) => {
                         <h1>RUN WITH THE <span className="gold">PXLFANGS</span>.</h1>
                         <PxlMascot placement={'mobile'} />
                         <div className="copy-btns">
-                            <a href="https://opensea.io/collection/pxlfangs" className="section-button">JOIN</a>
+                            <a href="https://opensea.io/collection/pxlfangs" target="_blank" class="section-button">JOIN</a>
                             <a
                                 className="gold-bg section-button"
                                 onClick={() => handleToggleClaimDrawer()}

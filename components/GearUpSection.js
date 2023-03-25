@@ -14,8 +14,10 @@ const GearSection = () => {
             wildFangLogoInView ? document.querySelector(".wildfang-logo-area > img").classList.add('zoomingIn') : null;
         }, [wildFangLogoInView])
         return(
+            <div className='outter-img-wrap'>
             <div ref={wildFangLogoRef} className={placement == 'desktop' ? 'wildfang-logo-area desktop' : 'mobile wildfang-logo-area'} >
                 <Image src='/images/wildfangslogo.png' height={135} width={157} />
+            </div>
             </div>
         )
     }

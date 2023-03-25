@@ -43,7 +43,15 @@ const AwooStudios = () => {
               <Image src="/images/tag_junshi.png" width={192} height={98} />
             </a>
           </div>
-        <Image id='junAndPaca' ref={pacaAndJunshiRef} src="/images/group.svg" width={608} height={214}/>
+        <div id='junAndPaca' ref={pacaAndJunshiRef} >
+          <div id="founder-wrap">
+            <Image id="paca" src="/images/fangster_paca.png" width={212} height={212} />
+            <Image id="junshi" src="/images/fangster_junshi.png" width={212} height={212} />
+          </div>
+          <div id="bg-mask">
+            <Image id="founder-bg" src="/images/founder_bg.png" width={608} height={161} />
+          </div>
+        </div>
         </div>
     </section>
   )

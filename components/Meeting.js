@@ -10,8 +10,7 @@ const MeetSection = () => {
 
         useEffect(() => {
             fangAvatarRefInView ? document.querySelector(".fang-img-area > img").classList.add('toaster-pop-up') : null;
-            console.log('Meet')
-        }, [fangAvatarRefInView])
+        }, [fangAvatarRefInView]);
         
         return( 
             <div className={placement == 'desktop' ? 'outter-img-wrap desktop' : 'outter-img-wrap mobile'} >
@@ -32,13 +31,13 @@ const MeetSection = () => {
                         <FangMascot placement={'mobile'} />
                         <div className="copy-btns">
                             <a href="https://opensea.io/collection/fanggangnft" target="_blank" className='section-button'>JOIN</a>
-                            <a href="https://shop.awoostudios.com/pages/fang-gang" target="_blank" className='section-button'>VISIT</a>
+                            <a href="https://shop.awoostudios.com/pages/fang-gang" target="_blank" className='section-button'>SHOP</a>
                         </div>
                         <p className='section-p'>
                             The Fang Gang comes out at night to throw parties, hang around in dark alleys and have fun on the streets of New Fang City.
                         </p>
                         <p className='section-p'>
-                            What started as a character built for digital collectibles has grown to be somuch more. They love streetwear, a tight-knit community, music and art. All of which has been established within the Awoo Studios ecosystem.
+                            What started as a character built for digital collectibles has grown to be so much more. They love streetwear, a tight-knit community, music and art. All of which has been established within the Awoo Studios ecosystem.
                         </p>
                     </div>
                 </div>

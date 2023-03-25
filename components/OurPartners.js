@@ -6,7 +6,7 @@ const OurPartners = () => {
   return (
       <div id="ourPartners" >
           <div className='copy-wrap'>
-            <h2>Our Partners.</h2>
+            <h2>OUR PARTNERS.</h2>
             <div id="partners-area">
                 <Image src="/images/nord.svg" width={180} height={41} />
                 <Image src="/images/boson.svg" width={188} height={41}/>
