@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { FangBtn } from './FangBtn';
 
 const NavComponent = () => {
 
@@ -80,6 +81,7 @@ const NavComponent = () => {
                         </a>
                     </div>
                     <a className='yellow-bg' href="https://twitter.com/FangGangNFT" target="_blank"><FontAwesomeIcon icon={faTwitter} /></a>
+                    <FangBtn label="test" linkTo="https://google.com" />
                 </div>
             </div>
 

@@ -1,32 +1,32 @@
-import React, { useRef } from 'react'
-import '@/styles/FangBtn.module.css'
+import React, { useState } from 'react'
 
 export const FangBtn = (props) => {
 
+   const [rippleVisible, setRippleVisible] = useState(false);
 
-   const rippleBtn = useRef(null);
-   const ripple = useRef(null);
 
     function handleClick(){
-        props.passedFunction()
-        ripple.style.display = 'flex';
-        ripple.classList.add('rippleGrower');
+        setRippleVisible(true);
         setTimeout(() => {
-            ripple.style.display = 'none';
-            ripple.classList.remove('rippleGrower');
-        }, 500)
+            setRippleVisible(false);
+        }, 500);
     }
 
   return (
-    <>
-          <button className="ripple-btn" ref={rippleBtn} onClick={() => handleClick()} >
-              <label>{props.label}</label>
-              <div ref={ripple} className='ripple1'>
+        <a 
+        className={`ripple-btn yellow-bg`}
+        onClick={() => handleClick()} 
+        href={props?.linkTo}
+        >
+            <label>{props.label}</label>
+            {rippleVisible && (
+              <div className={`ripple1 rippleGrower`}>
                   <div className='ripple2'>
-                      <div className='ripple3'></div>
+                      <div className='ripple3 yellow-bg'></div>
                   </div>
               </div>
-          </button >
-    </>
+            )}
+        </a>
+    
   )
 }
