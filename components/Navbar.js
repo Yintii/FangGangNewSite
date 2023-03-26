@@ -15,6 +15,16 @@ const NavComponent = () => {
 
     function handleRevealNav(){
         setRevealed(!revealed)
+        if (revealed) {
+            setRevealed(!revealed);
+            document.querySelector('#mobile-navigation').classList.add('droppingDown')
+            setTimeout(() => {
+                document.querySelector('#mobile-navigation').classList.add('hidden');
+            }, 1000)
+        } else {
+            setRevealed(!revealed);
+            document.querySelector('#mobile-navigation').classList.add('hidden');
+        }
     }
 
     function toggleJoin(){
@@ -22,8 +32,12 @@ const NavComponent = () => {
         fangBtnRef.current.classList.toggle('hidden')
         pxlBtnRef.current.classList.toggle('hidden')
         bgRef.current.classList.toggle('yellow-bg')
-
     }
+
+
+    useEffect(() => {
+        document.querySelector('#mobile-navigation').classList.add('hidden');
+    }, []);
 
     return (
         <nav>
@@ -35,9 +49,10 @@ const NavComponent = () => {
                 height={74}
             />
             <Image 
-                id='hamburger-menu' 
+                id='hamburger-menu'
+                className='yellow-bg'
                 onClick={() => handleRevealNav()}
-                src={revealed ? '/images/xmenu.png' : '/images/menu.png'}
+                src={revealed ? '/images/menu-x.svg' : '/images/menu.svg'}
                 width={50}
                 height={20}
             />     
@@ -70,7 +85,7 @@ const NavComponent = () => {
 
 
 
-            <div id='mobile-navigation' className={revealed ? '' : 'hidden'} >
+            <div id='mobile-navigation' className={revealed ? 'droppingDownNav' : 'closingUpNav'} >
                 <div id="nav-menu">
                     <Link href="#meet">FANG GANG</Link>
                     <Link href="#pxlfangs">PXLFANGS</Link>
@@ -79,14 +94,16 @@ const NavComponent = () => {
 
                 <div id="nav-buttons">
                     <a href="https://opensea.io/collection/fanggangnft" className='yellow-bg' target="_blank">
+                        JOIN FANG GANG
+
                         <Image src='/images/mascot_fanggang_head.png' width={45} height={41} />
-                        JOIN
                     </a>
                     <a  href="https://opensea.io/collection/pxlfangs" className='yellow-bg' target="_blank">
+                        JOIN PXLFANGS
                         <Image src='/images/mascot_pxlfangs_head.png' width={43} height={39} />
-                         JOIN
+
                     </a>
-                    <a href="https://twitter.com/FangGangNFT" className='yellow-bg' target="_blank"><FontAwesomeIcon icon={faTwitter} /></a>
+                    <a href="https://twitter.com/FangGangNFT" className='yellow-bg' target="_blank">FOLLOW US<FontAwesomeIcon id="twitter-icon" icon={faTwitter} /></a>
                 </div>
             </div>
 

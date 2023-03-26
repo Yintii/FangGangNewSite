@@ -9,7 +9,9 @@ const MeetSection = () => {
         const [fangAvatarRef, fangAvatarRefInView] = useInView({ threshold: 0 });
 
         useEffect(() => {
-            fangAvatarRefInView ? document.querySelector(".fang-img-area > img").classList.add('toaster-pop-up') : null;
+            console.log('fang in view: ', fangAvatarRefInView)
+            fangAvatarRefInView ? document.querySelector(".fang-img-area img").classList.add('toaster-pop-up') : null;
+            fangAvatarRefInView ? document.querySelector("#meet > div > div.outter-img-wrap > div > img").classList.add('toaster-pop-up') : null;
         }, [fangAvatarRefInView]);
         
         return( 

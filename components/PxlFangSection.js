@@ -58,6 +58,7 @@ const PxlFangsSection = (props) => {
         const [pxlFangAvatarRef, pxlFangAvatarRefInView] = useInView({ threshold: 0 });
         useEffect(() => {
             pxlFangAvatarRefInView ? document.querySelector('.px-fang-img-area > img').classList.add('toaster-pop-up') : null
+            pxlFangAvatarRefInView ? document.querySelector('#px-top > div.outter-img-wrap.desktop > div > img').classList.add('toaster-pop-up') : null
         }, [pxlFangAvatarRefInView]);
         return(
             <div ref={pxldivRef} className={placement == 'desktop' ? 'outter-img-wrap desktop' : 'outter-img-wrap mobile'}>

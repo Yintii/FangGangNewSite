@@ -15,6 +15,17 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
     const [userFangs, setUserFangs] = useState([]);
     const [toggledForClaimTokens, setToggledForClaimedTokens] = useState([]);
     const [unclaimedFangs, setUnclaimedFangs] = useState([]);
+
+    const [isClaimable, setIsClaimable] = useState(null);
+
+
+    const AvailableFangsterText = () => {
+        return <h3 className='available-text'>PxlFangster {fangsterToCheckClaim} is available for claim!</h3>
+    }
+
+    const UnavailableFangsterText = () => {
+        return <h3 className='unavailable-text'>PxlFangster {fangsterToCheckClaim} is no longer available for claim.</h3>
+    }
     
 
     const fangLoader = ({ src }) => {
@@ -49,6 +60,9 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
     }
 
 
+
+    //need to edit this to show a better message
+    //[need to edit]
     async function checkFangster() {
 
         if (fangsterToCheckClaim > 8887 || fangsterToCheckClaim < 0) {
@@ -63,12 +77,10 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
         console.log(acc);
         const claimed = await contract.claimed(fangsterToCheckClaim);
 
-
-        // console.log(claimed)
         if (claimed) {
-            alert('already claimed');
+            setIsClaimable(false);
         } else {
-            alert('Ready to be claimed');
+            setIsClaimable(true);
         }
     }
 
@@ -189,6 +201,16 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                         value="CHECK CLAIM STATUS"
                         onClick={() => checkFangster()}
                     />
+                    {isClaimable &&
+                        <AvailableFangsterText />
+                    }
+
+                    {!isClaimable && isClaimable != null &&
+                        <UnavailableFangsterText />
+                    }
+
+
+
                 </div>
                 <div id="current_fangs" style={{ display: userFangs ? 'flex' : 'none' }}>
                     <RenderFangsters />
