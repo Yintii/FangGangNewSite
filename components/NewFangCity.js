@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
 import BankDrawer from './BankDrawer';
+import { FangBtn } from './FangBtn';
 
 const NewFangCity = () => {
 
@@ -51,12 +52,12 @@ const NewFangCity = () => {
                         <Tram placement={'mobile'}/>
                         <div className='copy-btns'>
                             <a href="https://newfangcity.com" target="_blank" className='section-button'>VISIT</a>
-                            <a 
-                                className='section-button'
-                                onClick={() => handleBankToggle()}
-                            >
-                            $AWOO
-                            </a>
+                            <FangBtn 
+                                label="$AWOO"
+                                passedFunction={() => handleBankToggle()}
+                                growerType="rippleGrower"
+                                extraClasses="section-button"
+                            />
                         </div>
                         <p className='section-p'>
                             Join the Fangsters on the streets of New Fang City. It’s our very own microverse where we connect, enjoy special events, hang out and spend the $AWOO ecosystem token on fun features.

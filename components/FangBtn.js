@@ -6,6 +6,7 @@ export const FangBtn = (props) => {
 
 
     function handleClick(){
+        props.passedFunction ? props.passedFunction() : null;
         setRippleVisible(true);
         setTimeout(() => {
             setRippleVisible(false);
@@ -14,15 +15,22 @@ export const FangBtn = (props) => {
 
   return (
         <a 
-        className={`ripple-btn yellow-bg`}
+          className={`ripple-btn ${props.extraClasses}`}
         onClick={() => handleClick()} 
         href={props?.linkTo}
+        target="_blank"
         >
             <label>{props.label}</label>
             {rippleVisible && (
-              <div className={`ripple1 rippleGrower`}>
-                  <div className='ripple2'>
-                      <div className='ripple3 yellow-bg'></div>
+              <div className={`ripple1 ${props.growerType}`}> 
+                  <div 
+                    className='ripple2' style={{ backgroundColor: props.variant == 'lg-purple' ? '#FFC657' : ''}}>
+                      <div 
+                        className='ripple3' 
+                        style={{ 
+                            backgroundColor: props.variant == 'lg-blk' ? "black" : props.variant == 'lg-purple' ? '#6950D0' : '#FFC657'
+                        }}>   
+                        </div>
                   </div>
               </div>
             )}

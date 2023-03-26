@@ -18,7 +18,11 @@ const Join = () => {
                   <h2>JOIN A CREATIVE <span className='gold'> COMMUNITY</span>.</h2>
                   <FloatyFang placement={'mobile'} />
                 <div className="copy-btns">
-                      <a href="https://discord.gg/fanggang" className="section-button">
+                      <a 
+                        href="https://discord.gg/fanggang" 
+                        className="section-button"
+                        target="_blank"
+                      >
                           CHAT
                       </a>
                 </div>

@@ -80,8 +80,11 @@ const NavComponent = () => {
                             <Image src='/images/mascot_pxlfangs_head.png' width={43} height={39} />
                         </a>
                     </div>
-                    <a className='yellow-bg' href="https://twitter.com/FangGangNFT" target="_blank"><FontAwesomeIcon icon={faTwitter} /></a>
-                    <FangBtn label="test" linkTo="https://google.com" />
+                    <FangBtn 
+                        label={<FontAwesomeIcon icon={faTwitter} />} 
+                        linkTo="https://twitter.com/FangGangNFT"
+                        extraClasses="yellow-bg"
+                    />
                 </div>
             </div>
 

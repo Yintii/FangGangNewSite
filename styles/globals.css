@@ -491,7 +491,14 @@ flex-flow: column nowrap;
 
 }
 
-
+.purple-drawer-btn{
+    background-color: #6950D0;
+    color: white;
+    font-size: 30px;
+    padding: 2rem;
+    margin: 0 .5rem;
+    text-align: center;
+}
 .wildfang-logo-area{
     overflow: visible;
 }
@@ -680,14 +687,13 @@ flex-flow: column nowrap;
     height: 55px;
 }
 
-button, input[type=button], input[type=number]{
+button, input[type=number]{
     border:none;
     box-shadow: none;
     border-radius: 30px;
 }
 
-button:hover,
-input[type=button]:hover {
+button:hover {
     box-shadow:none;
 }
 
@@ -700,13 +706,16 @@ input[type=button]:hover {
     cursor: not-allowed;
 }
 
-#claim-options>div>button{
+.claim-options-btn{
     background-color: black;
-    color:white;
-    margin:0 1rem;
-    font-size:30px;
+    font-size: 25px !important;
+    color: white;
+    margin: 0 1rem;
+    padding: 0.5rem;
+    font-size: 30px;
     cursor: pointer;
 }
+
 
 h2{
     font-size:36px;
@@ -735,11 +744,6 @@ h2{
 }
 }
 
-#claim-header>input[type=button]{
-    background-color: #6950D0;
-    color:white; 
-    padding:2rem;
-}
 input[type=number] {
     width: 20%;
     padding: 2rem;
@@ -755,15 +759,15 @@ input{
     text-align: center;
 }
 
+#claim-options>div {
+    display: flex;
+}
+
 @media screen and (max-width: 767px) {
-    #claim-header>input[type=button]{
-        padding: 1rem !important;
-        margin-top: 1rem;
-    }
     #claim-options{
         flex-flow: column;
     }
-    #claim-options button, #claim-options>div button{
+    #claim-options>div{
         margin-top: 1rem;
     }
     .pxl-arrow {
@@ -1558,5 +1562,33 @@ footer, #socials{
 
     to {
         transform: scale(25);
+    }
+}
+
+.rippleGrowerMd {
+    animation: rippleGrowMd .5s linear forwards;
+}
+
+@keyframes rippleGrowMd {
+    from {
+        transform: scale(0.1);
+    }
+
+    to {
+        transform: scale(50);
+    }
+}
+
+.rippleGrowerLg {
+    animation: rippleGrowLg .5s linear forwards;
+}
+
+@keyframes rippleGrowLg {
+    from {
+        transform: scale(0.1);
+    }
+
+    to {
+        transform: scale(100);
     }
 }

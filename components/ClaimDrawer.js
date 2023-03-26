@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ethers } from 'ethers'
 
 import PxlABI from '../artifacts/contracts/PxlFangs.sol/PxlFangs.json'
+import { FangBtn } from './FangBtn';
 
 const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
 
@@ -73,8 +74,7 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         const contract = new ethers.Contract(PXL_FANGS_CONTRACT_ADDRESS, PxlABI.abi, signer);
-        const [acc] = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        console.log(acc);
+        
         const claimed = await contract.claimed(fangsterToCheckClaim);
 
         if (claimed) {
@@ -196,10 +196,12 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                         min={0}
                         max={8887}
                     />
-                    <input
-                        type="button"
-                        value="CHECK CLAIM STATUS"
-                        onClick={() => checkFangster()}
+                    <FangBtn 
+                        label="CHECK CLAIM STATUS"
+                        passedFunction={() => checkFangster()}
+                        extraClasses="purple-drawer-btn"
+                        growerType="rippleGrowerLg"
+                        variant="lg-purple"
                     />
                     {isClaimable &&
                         <AvailableFangsterText />
@@ -218,16 +220,20 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                 {userFangs && (
                     <div id="claim-options">
                         <div>
-                            <button
-                                onClick={() => handleSelectMax()}
-                            >
-                                SELECT MAX ({unclaimedFangs.length})
-                            </button>
-                            <button
-                                onClick={() => handleUnselectAll()}
-                            >
-                                UNSELECT ALL
-                            </button>
+                            <FangBtn 
+                                label={`SELECT MAX (${unclaimedFangs.length})`}
+                                passedFunction={() => handleSelectMax()}
+                                extraClasses="claim-options-btn"
+                                growerType='rippleGrowerMd'
+                                variant="lg-blk"
+                            />
+                            <FangBtn 
+                                label="UNSELECT ALL"
+                                passedFunction={() => handleUnselectAll()}
+                                extraClasses="claim-options-btn"
+                                growerType={'rippleGrowerMd'}
+                                variant="lg-blk"
+                            />
                         </div>
                         <button
                             disabled={unclaimedFangs.length > 0 ? false : true}

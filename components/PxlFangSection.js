@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
+import { FangBtn } from './FangBtn';
 
 import ClaimDrawer from './ClaimDrawer';
 import FangRunner from './FangRunnerDrawer';
@@ -91,18 +92,18 @@ const PxlFangsSection = (props) => {
                         <PxlMascot placement={'mobile'} />
                         <div className="copy-btns">
                             <a href="https://opensea.io/collection/pxlfangs" target="_blank" class="section-button">JOIN</a>
-                            <a
-                                className="gold-bg section-button"
-                                onClick={() => handleToggleClaimDrawer()}
-                            >
-                                CLAIM
-                            </a>
-                            <a 
-                                className="gold-bg section-button"
-                                onClick={()=> handleToggleFangRunnerDrawer()}
-                            >
-                                PLAY
-                            </a>
+                            <FangBtn 
+                                label="CLAIM"
+                                extraClasses='section-button'
+                                growerType="rippleGrower"
+                                passedFunction={() => handleToggleClaimDrawer()}
+                            />
+                            <FangBtn 
+                                label="PLAY"
+                                extraClasses="section-button"
+                                growerType="rippleGrower"
+                                passedFunction={() => handleToggleFangRunnerDrawer()}
+                            />
                         </div>
                         <p className="raised">
                             To expand the Fangverse we introduced PxlFangs, a first of its kind pixelated side collection. Every Fangster has a PxlFangster attached, claimable for free.
