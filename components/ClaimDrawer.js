@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ethers } from 'ethers'
 
 import PxlABI from '../artifacts/contracts/PxlFangs.sol/PxlFangs.json'
+import FangABI from '../artifacts/contracts/FangGang.sol/FangGang.json'
 import { FangBtn } from './FangBtn';
 
 const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
@@ -41,12 +42,16 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
             const data = await alchemy.nft.getNftsForOwner(address)
             let fangsters = data
                 .ownedNfts
-                .filter(nft => nft.contract.address == FANG_GANG_CONTRACT_ADDRESS)
+                .filter(nft => nft.contract.address == FANG_GANG_CONTRACT_ADDRESS);
+
+
 
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const signer = provider.getSigner();
+            const fgcontract = new ethers.Contract(FANG_GANG_CONTRACT_ADDRESS, FangABI.abi, signer);
             const contract = new ethers.Contract(PXL_FANGS_CONTRACT_ADDRESS, PxlABI.abi, signer);
-
+            
+ 
             let _data = fangsters.map(async (fang) => {
                 let claimed = await contract.claimed(fang.tokenId);
                 return { ...fang, claimed }
@@ -56,6 +61,8 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
             //uncomment to see data on fangs
             // fangsters.forEach(fang => console.log(fang));
             setUserFangs(fangsters);
+
+
         }
 
     }
