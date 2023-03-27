@@ -9,9 +9,10 @@ const AwooStudios = () => {
 
   useEffect(() => {
     if (pacaAndJunshiInView){
-      document.querySelector('#junAndPaca').classList.add('slideInRight')
       document.querySelector('#pacaTag').classList.add('fadeIn')
       document.querySelector('#junshiTag').classList.add('fadeIn')
+      document.querySelector('#paca').classList.add('toaster-pop-up')
+      document.querySelector('#junshi').classList.add('toaster-pop-up')
     }
   }, [pacaAndJunshiInView]);
 
@@ -44,12 +45,15 @@ const AwooStudios = () => {
             </a>
           </div>
         <div id='junAndPaca' ref={pacaAndJunshiRef} >
-          <div id="founder-wrap">
-            <Image id="paca" src="/images/fangster_paca.png" width={212} height={212} />
-            <Image id="junshi" src="/images/fangster_junshi.png" width={212} height={212} />
-          </div>
+
           <div id="bg-mask">
-            <Image id="founder-bg" src="/images/founder_bg.png" width={608} height={161} />
+
+            <div id="founder-wrap">
+              <Image id="paca" src="/images/fangster_paca.png" width={212} height={212} />
+              <Image id="junshi" src="/images/fangster_junshi.png" width={212} height={212} />
+            </div>
+
+            <Image id="cbg" src="/images/cbg.svg" width={608} height={166} />
           </div>
         </div>
         </div>

@@ -1,11 +1,17 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
 
 export const Tos = ({hidden, setShowTos}) => {
   return (
     <div id="terms-modal" className={hidden ? '' : 'hidden'}>
         <div className="modal">
               <h2>Terms of Use and Conditions</h2>
-              <button onClick={() => setShowTos(false)}>x</button>
+              <Image 
+                onClick={() => setShowTos(false)} 
+                src="/images/menu-x.svg"
+                width={25}
+                height={25}
+              />
             <div className="modal-wrap">
                   <div className="modal-section">
                     <h3>Terms of Use</h3>

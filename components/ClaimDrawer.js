@@ -65,7 +65,7 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
     //need to edit this to show a better message
     //[need to edit]
     async function checkFangster() {
-
+        if (fangsterToCheckClaim == null || fangsterToCheckClaim == '') return
         if (fangsterToCheckClaim > 8887 || fangsterToCheckClaim < 0) {
             alert("you've entered an invalid id, please try something between 0 and 8887");
             return;
@@ -179,11 +179,15 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
         claimDrawerActive ? document.getElementById('claim-drop-down').scrollIntoView({behavior: 'smooth'}) : null;
     }, [claimDrawerActive])
 
+    useEffect(() => {
+        setIsClaimable(null);
+    }, [fangsterToCheckClaim])
+
 
     return (
         <div id="claim-drop-down" className={claimDrawerActive ? 'droppingDown' : 'closingUp'}>
             <div className='drawer-x-btn' onClick={() => handleToggleClaimDrawer()}>
-                <span>x</span>
+                <Image src="/images/menu-x.svg" width={25} height={25} />
             </div>
             <div id="claim">
                 <div id="claim-header">

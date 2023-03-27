@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-
+import { useState, useEffect} from 'react';
+import Image from 'next/image';
 
 
 function FangRunner({fangRunnerActive, handleToggleFangRunnerDrawer}) {
@@ -49,7 +49,7 @@ function FangRunner({fangRunnerActive, handleToggleFangRunnerDrawer}) {
     return (
         <div id="game-drop-down" className={fangRunnerActive ? 'droppingDown' : 'closingUp'}>
             <div className='drawer-x-btn' onClick={() => handleToggleFangRunnerDrawer()}>
-                <span>x</span>
+                <Image src="/images/menu-x.svg" width={25} height={25} />
             </div>
             <h3>PLAY FANGRUNNER.</h3>
             <div className="game-container">

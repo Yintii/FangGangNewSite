@@ -160,6 +160,7 @@ nav {
     height:116px;
 }
 
+
 #nav-menu, 
 #desk-navigation,
 nav,
@@ -172,12 +173,16 @@ nav,
 }
 
 #bg-mask{
-    position:absolute;
+    position:relative;
     overflow: hidden;
-    width: 608px;
-    height: 161px;
     bottom:0;
+    display: flex;
+    height: 200px;
 }
+#cbg{
+    align-self: flex-end;
+}
+
 
 
 
@@ -461,6 +466,21 @@ flex-flow: column nowrap;
     width:50%;
 }
 
+#cbg{
+    bottom:0;
+}
+#paca, #junshi{
+    position: absolute;
+    bottom: 0;
+}
+#paca{
+    left:12%;
+}
+#junshi{
+    right: 12%;
+}
+
+
 #pxl-copy>p{
     font-size:20px;
 }
@@ -528,6 +548,8 @@ flex-flow: column nowrap;
     overflow: hidden;
     position: relative;
 }
+
+
 
 #claim-drop-down, #game-drop-down, #bank-drop-down{
     position:relative;
@@ -1202,13 +1224,7 @@ footer, #socials{
     flex-flow: column nowrap;
     z-index: 1;
 }
-#founder-bg{
-    height:161px;
-    width:600px;
-    position: absolute;
-    background: url("/images/founder_bg.png");
-    border-radius: 198.5px 0px 0px 198.5px;
-}
+
 
 #tags{
     width:100%;
@@ -1253,7 +1269,7 @@ footer, #socials{
     min-width: 100vw;
     z-index: 10;
 }
-.modal button{
+.modal img{
     position: absolute;
     top: 1rem;
     right: 1rem;

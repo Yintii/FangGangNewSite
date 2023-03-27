@@ -1,11 +1,17 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
 
 export const PurchaseAndLicensing = ({ hidden, setShowPandL }) => {
     return (
         <div id="pandl-modal" className={hidden ? '' : 'hidden'}>
             <div className="modal">
                 <h2>NFT PURCHASE AND LICENSE AGREEMENT</h2>
-                <button onClick={() => setShowPandL(false)}>x</button>
+                <Image 
+                    onClick={() => setShowPandL(false)}
+                    src="/images/menu-x.svg"
+                    width={25}
+                    height={25}
+                />
                 <div className="modal-wrap">
                     <div className="modal-section">
                         <h3>1. AWOO STUDIOS</h3>

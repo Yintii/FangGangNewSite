@@ -9,7 +9,7 @@ function BankDrawer({ bankActive, handleBankToggle }) {
     return (
         <div id="bank-drop-down" className={bankActive ? 'droppingDown' : 'closingUp'}>
             <div className='drawer-x-btn' onClick={() => handleBankToggle()}>
-                <span>x</span>
+                <Image src="/images/menu-x.svg" width={25} height={25} />
             </div>
             <h3>STACK $AWOO, UNLOCK PERKS.</h3>
             <p>

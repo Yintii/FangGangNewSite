@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
@@ -9,9 +9,12 @@ const NewFangCity = () => {
 
     const [bankActive, setBankActive] = useState(false);
 
+    const nfcDivRef = useRef(null);
+
     const handleBankToggle = () => {        
         if(bankActive){
             setBankActive(!bankActive);
+            nfcDivRef.current.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
             setTimeout(() =>{
                 document.querySelector('#bank-drop-down').classList.add('hidden');
             }, 1000)
@@ -44,7 +47,7 @@ const NewFangCity = () => {
     return (
         <section id="newFangCity">
             <div>
-                <div className="section-copy purple-bg">
+                <div ref={nfcDivRef} className="section-copy purple-bg">
                     <div className='copy-wrap'>
                         <h2>TAKE A TRIP TO
                             <span className="gold"> NEW FANG CITY</span>.
