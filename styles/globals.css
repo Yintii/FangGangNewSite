@@ -366,10 +366,12 @@ flex-flow: column nowrap;
     #partners-area{
         display: flex;
         flex-flow: column nowrap;
+        align-items: center;
     }
     #partners-area img{
         margin-top:2rem;
         height: 42px;
+        margin-right: 0 !important;
     }
 }
 
@@ -469,7 +471,7 @@ flex-flow: column nowrap;
 }
 #paca, #junshi{
     position: absolute;
-    bottom: 0;
+    bottom: 2px !important;
 }
 #paca{
     left:12%;
@@ -482,6 +484,16 @@ flex-flow: column nowrap;
 #pxl-copy>p{
     font-size:20px;
 }
+ 
+@media screen and (max-width: 767px){
+    #paca{
+        left:4%;
+    }
+    #junshi{
+        right:0%;
+    }
+}
+
 
 #pxl-copy>h1{
     font-size:50px;
@@ -749,7 +761,7 @@ h2{
 .drawer-x-btn{
     display: inline-flex;
     position: absolute;
-    top:5.5rem;
+    top:5.5qrem;
     right: 4rem;
     font-size: 70px;
     justify-content: center;
@@ -760,7 +772,7 @@ h2{
 
 @media screen and (max-width: 767px) {
     .drawer-x-btn{
-    top:2rem;
+    top:3.5rem;
     right: 1rem;
     font-size: 40px;
     justify-content: center;
@@ -792,8 +804,15 @@ input{
     #claim-options{
         flex-flow: column;
     }
+    #claim-header input{
+        width:80vw;
+        margin: 1rem auto;
+    }
     #claim-options>div{
-        margin-top: 1rem;
+        margin: 1rem;
+    }
+    #claim-options>div>a {
+        padding: 2rem;
     }
     .pxl-arrow {
         left: 38vw !important;
@@ -838,7 +857,7 @@ input{
     #pxl-copy .copy-btns{
         flex-flow: column;
         width:80%;
-        margin: 0 auto;
+        margin: 0 auto !important;
     }
     #pxl-copy .copy-btns>a:not(:first-child){
         margin-top: 1rem;
@@ -883,6 +902,11 @@ input{
     margin: 0 10rem; 
 }
 
+#AwooStudios .copy-wrap, #newFangCity{
+    margin: unset !important;
+    padding: 1rem;
+}
+
 
 #AwooStudios{
     align-items: center;
@@ -892,9 +916,7 @@ input{
 #join .copy-wrap{
     margin: 0 4rem !important;
 }
-#AwooStudios .copy-wrap{
-    margin: 0 0 0 7rem !important;
-}
+
 
 .copy-wrap>h2{
     margin-bottom:5px;
@@ -912,6 +934,12 @@ input{
 
 #partners-area img{
     margin-right: 48px;
+}
+
+@media screen and (max-width: 767px) {
+    #partners-area{
+    
+    }
 }
 
 .section-button{
@@ -1177,8 +1205,9 @@ footer, #socials{
         height: unset !important;
     }
     #socials{
-        width: unset !important;
+        width: 80vw !important;
         order: 1;
+        margin: 1rem;
     }
     #poap{
         align-self: center;
