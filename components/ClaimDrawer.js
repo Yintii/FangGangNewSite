@@ -47,11 +47,18 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
 
 
             const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const [add] = await provider.send("eth_requestAccounts", []);
             const signer = provider.getSigner();
             const fgcontract = new ethers.Contract(FANG_GANG_CONTRACT_ADDRESS, FangABI.abi, signer);
             const contract = new ethers.Contract(PXL_FANGS_CONTRACT_ADDRESS, PxlABI.abi, signer);
+
             
- 
+            
+            let fangs = await fgcontract.tokensOfOwner(add);
+
+            console.log("fangs from contract methods: ", fangs);
+
+
             let _data = fangsters.map(async (fang) => {
                 let claimed = await contract.claimed(fang.tokenId);
                 return { ...fang, claimed }

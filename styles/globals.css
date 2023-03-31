@@ -907,6 +907,15 @@ input{
     padding: 1rem;
 }
 
+@media  screen and (max-width: 767px) {
+    #newFangCity{
+        padding: unset !important;
+    }
+
+    #newFangCity .copy-wrap{
+        margin: 0 !important;
+    }
+}
 
 #AwooStudios{
     align-items: center;
