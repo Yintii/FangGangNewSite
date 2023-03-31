@@ -761,7 +761,7 @@ h2{
 .drawer-x-btn{
     display: inline-flex;
     position: absolute;
-    top:5.5qrem;
+    top:5.5rem;
     right: 4rem;
     font-size: 70px;
     justify-content: center;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { ethers } from 'ethers'
+import { ethers, BigNumber } from 'ethers'
 
 import PxlABI from '../artifacts/contracts/PxlFangs.sol/PxlFangs.json'
 import FangABI from '../artifacts/contracts/FangGang.sol/FangGang.json'
@@ -9,7 +9,7 @@ import { FangBtn } from './FangBtn';
 const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
 
     const {
-        isConnected, alchemy, address, connect,
+        isConnected, alchemy,  address, connect,
         FANG_GANG_CONTRACT_ADDRESS, PXL_FANGS_CONTRACT_ADDRESS,
     } = web3;
 
@@ -39,10 +39,10 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
         if (!isConnected) {
             connect();
         } else {
-            const data = await alchemy.nft.getNftsForOwner(address)
-            let fangsters = data
-                .ownedNfts
-                .filter(nft => nft.contract.address == FANG_GANG_CONTRACT_ADDRESS);
+            // const data = await alchemy.nft.getNftsForOwner(address)
+            // let fangsters = data
+            //     .ownedNfts
+            //     .filter(nft => nft.contract.address == FANG_GANG_CONTRACT_ADDRESS);
 
 
 
@@ -50,23 +50,27 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
             const [add] = await provider.send("eth_requestAccounts", []);
             const signer = provider.getSigner();
             const fgcontract = new ethers.Contract(FANG_GANG_CONTRACT_ADDRESS, FangABI.abi, signer);
-            const contract = new ethers.Contract(PXL_FANGS_CONTRACT_ADDRESS, PxlABI.abi, signer);
+            const pxcontract = new ethers.Contract(PXL_FANGS_CONTRACT_ADDRESS, PxlABI.abi, signer);
 
-            
             
             let fangs = await fgcontract.tokensOfOwner(add);
 
-            console.log("fangs from contract methods: ", fangs);
 
-
-            let _data = fangsters.map(async (fang) => {
-                let claimed = await contract.claimed(fang.tokenId);
-                return { ...fang, claimed }
+            let fangIds = fangs.map(fang => {
+               return BigNumber.from(fang._hex).toString();
             })
 
-            fangsters = await Promise.all(_data);
+            console.log("fangs from contract methods: ", fangIds);
+
+
+            let _data = fangIds.map(async (id) => {
+                let claimed = await pxcontract.claimed(id);
+                return { id, claimed }
+            })
+
+            let fangsters = await Promise.all(_data);
             //uncomment to see data on fangs
-            // fangsters.forEach(fang => console.log(fang));
+            fangsters.forEach(fang => console.log(fang));
             setUserFangs(fangsters);
 
 
@@ -145,14 +149,14 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
         let fangsters = userFangs.map(fang => {
             if (fang.claimed) {
                 return (
-                    <div key={`fang-${fang.tokenId}`}>
+                    <div key={`fang-${fang.id}`}>
                         <div className='already-claimed'>
                             <p className='claimed-text'>CLAIMED</p>
                         </div>
                         <Image 
-                            key={`fang-${fang.tokenId}`}
+                            key={`fang-${fang.id}`}
                             loader={fangLoader}
-                            src={`${fang.tokenId}.png`}
+                            src={`${fang.id}.png`}
                             width={250}
                             height={250}
                         />
@@ -162,11 +166,11 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                 return (
                     <>
                         <Image
-                            key={`fang-${fang.tokenId}`}
-                            onClick={() => toggleForClaim(fang.tokenId)}
+                            key={`fang-${fang.id}`}
+                            onClick={() => toggleForClaim(fang.id)}
                             src={`${fang.tokenId}.png`}
                             loader={fangLoader}
-                            className={toggledForClaimTokens.includes(fang.tokenId) ? 'selected-for-claim' : 'claimable'}
+                            className={toggledForClaimTokens.includes(fang.id) ? 'selected-for-claim' : 'claimable'}
                             width={250}
                             height={250}
                         />
