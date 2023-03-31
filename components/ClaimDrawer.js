@@ -168,7 +168,7 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                         <Image
                             key={`fang-${fang.id}`}
                             onClick={() => toggleForClaim(fang.id)}
-                            src={`${fang.tokenId}.png`}
+                            src={`${fang.id}.png`}
                             loader={fangLoader}
                             className={toggledForClaimTokens.includes(fang.id) ? 'selected-for-claim' : 'claimable'}
                             width={250}
