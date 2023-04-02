@@ -9,7 +9,7 @@ const NewFangCity = () => {
 
     const [bankActive, setBankActive] = useState(false);
 
-    const nfcDivRef = useRef(null);
+    
 
     const handleBankToggle = () => {        
         if(bankActive){
@@ -27,27 +27,35 @@ const NewFangCity = () => {
 
 
     const Tram = ({ placement }) => {
-        const [tramRef, tramRefInView] = useInView({ threshold: 0 });
-
-        useEffect(() => {
-            tramRefInView ? document.querySelector(".tram-img-area").classList.add('zoomingIn') : null;
-        }, [tramRefInView])
-
         return(
-            <div className={ placement == 'desktop' ? 'desktop tram-img-area' : 'mobile tram-img-area'} ref={tramRef}>
+            <div className={ placement == 'desktop' ? 'desktop tram-img-area' : 'mobile tram-img-area'}>
                 <Image src='/images/Tram.svg' height={256} width={196} />
             </div>
         )
     } 
+
+
+    const [nfcRef, nfcRefInView] = useInView({ threshold: 0 });
+
+    useEffect(() => {
+        if (nfcRefInView) {
+            document.querySelector("#nfc-wrap").classList.add('seperate-up')
+            document.querySelector("#NFC").classList.add('seperate-down')
+        } else {
+            document.querySelector("#nfc-wrap").classList.remove('seperate-up')
+            document.querySelector("#NFC").classList.remove('seperate-down')
+        }
+
+    }, [nfcRefInView])
 
     useEffect(()=>{
         document.querySelector('#bank-drop-down').classList.add('hidden');
     }, [])
 
     return (
-        <section id="newFangCity">
-            <div>
-                <div ref={nfcDivRef} className="section-copy purple-bg">
+        <section id="newFangCity" ref={nfcRef}>
+            <div id="nfc-wrap">
+                <div className="section-copy purple-bg">
                     <div className='copy-wrap'>
                         <h2>TAKE A TRIP TO
                             <span className="gold"> NEW FANG CITY</span>.
@@ -79,8 +87,6 @@ const NewFangCity = () => {
                     handleBankToggle={handleBankToggle}
                 />
             </div>
-
-
         </section>
     )
 }

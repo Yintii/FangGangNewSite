@@ -9,8 +9,9 @@ import { FangBtn } from './FangBtn';
 const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
 
     const {
-        isConnected, alchemy,  address, connect,
-        FANG_GANG_CONTRACT_ADDRESS, PXL_FANGS_CONTRACT_ADDRESS,
+        isConnected, connect,
+        FANG_GANG_CONTRACT_ADDRESS, 
+        PXL_FANGS_CONTRACT_ADDRESS
     } = web3;
 
     const [fangsterToCheckClaim, setFangsterToCheckClaim] = useState('');
@@ -39,13 +40,6 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
         if (!isConnected) {
             connect();
         } else {
-            // const data = await alchemy.nft.getNftsForOwner(address)
-            // let fangsters = data
-            //     .ownedNfts
-            //     .filter(nft => nft.contract.address == FANG_GANG_CONTRACT_ADDRESS);
-
-
-
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const [add] = await provider.send("eth_requestAccounts", []);
             const signer = provider.getSigner();

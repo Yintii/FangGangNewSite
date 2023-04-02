@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 
 const GearSection = () => {
 
+    const [gearRef, gearRefInView] = useInView({ threshold: 0 });
 
 
 
@@ -22,11 +23,21 @@ const GearSection = () => {
         )
     }
 
+    useEffect(()=>{
+        if(gearRefInView){
+            document.querySelector("#gear > div").classList.add("seperate-up")
+            document.querySelector("#fangModels").classList.add("seperate-down")
+        }else{
+            document.querySelector("#gear > div").classList.remove("seperate-up")
+            document.querySelector("#fangModels").classList.remove("seperate-down")
+        }
+    }, [gearRefInView])
+
 
 
 
     return (
-        <section id="gear">
+        <section id="gear" ref={gearRef}>
             <div>
                 <div className="section-copy purple-bg">
                     <div className='copy-wrap'>

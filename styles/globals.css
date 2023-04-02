@@ -821,14 +821,18 @@ input{
 
 #meet>div, 
 #gear>div, 
-#newFangCity>div{
+#newFangCity>div{    
     display: flex;
+    position: relative;
+    bottom: -25px;
     flex-flow:row nowrap;
     align-items: center;
 }
+
 .copy-btns {
     margin: 1rem 0 3rem 0 !important;
 }
+
 .copy-btns a {
     color: black;
     border-radius: 30px;
@@ -902,7 +906,7 @@ input{
     margin: 0 10rem; 
 }
 
-#AwooStudios .copy-wrap, #newFangCity{
+#AwooStudios .copy-wrap{
     margin: unset !important;
     padding: 1rem;
 }
@@ -1021,6 +1025,8 @@ input{
     border-top-left-radius: 25rem;
     border-bottom-left-radius: 25rem;
 }
+
+
 
 #NFC{
     align-self: flex-end;
@@ -1559,10 +1565,6 @@ footer, #socials{
 }
 
 
-
-
-
-
 /*Fang btn special css*/
 
 .ripple-btn {
@@ -1647,5 +1649,34 @@ footer, #socials{
 
     to {
         transform: scale(100);
+    }
+}
+
+.seperate-up{
+    animation: moveUp 1s ease-in-out forwards;
+}
+
+
+@keyframes moveUp{
+    0%{
+        top:0px
+    }
+    100%{
+        top:-25px;
+    }
+}
+
+.seperate-down {
+    animation: moveDown 1s ease-in-out forwards;
+}
+
+
+@keyframes moveDown {
+    0% {
+        top: -75px;
+    }
+
+    100% {
+        top:-25px;
     }
 }

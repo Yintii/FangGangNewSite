@@ -4,8 +4,9 @@ import { useInView } from 'react-intersection-observer';
 
 const MeetSection = () => {
 
-    const FangMascot = ({ placement }) => {        
+    const [meetRef, meetRefInView] = useInView({ threshold: 0 });
 
+    const FangMascot = ({ placement }) => {        
         const [fangAvatarRef, fangAvatarRefInView] = useInView({ threshold: 0 });
 
         useEffect(() => {
@@ -24,8 +25,19 @@ const MeetSection = () => {
         )
     };
 
+
+    useEffect(() => {
+        if(meetRefInView){
+            document.querySelector("#meet > div").classList.add('seperate-up');
+            document.querySelector("#fanggrid").classList.add('seperate-down');
+        }else{
+            document.querySelector("#meet > div").classList.remove('seperate-up');
+            document.querySelector("#fanggrid").classList.remove('seperate-down');
+        }
+    }, [meetRefInView])
+
     return (
-        <section id="meet">
+        <section id="meet" ref={meetRef}>
             <div>
                 <div className="section-copy purple-bg">
                     <div className='copy-wrap'>
