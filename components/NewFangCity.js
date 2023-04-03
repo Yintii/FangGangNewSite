@@ -39,11 +39,11 @@ const NewFangCity = () => {
 
     useEffect(() => {
         if (nfcRefInView) {
-            document.querySelector("#nfc-wrap").classList.add('seperate-up')
-            document.querySelector("#NFC").classList.add('seperate-down')
+            document.querySelector("#nfc-wrap").classList.add('seperate-down')
+            document.querySelector("#NFC").classList.add('seperate-up')
         } else {
-            document.querySelector("#nfc-wrap").classList.remove('seperate-up')
-            document.querySelector("#NFC").classList.remove('seperate-down')
+            document.querySelector("#nfc-wrap").classList.remove('seperate-down')
+            document.querySelector("#NFC").classList.remove('seperate-up')
         }
 
     }, [nfcRefInView])

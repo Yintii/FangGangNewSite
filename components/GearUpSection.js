@@ -25,11 +25,11 @@ const GearSection = () => {
 
     useEffect(()=>{
         if(gearRefInView){
-            document.querySelector("#gear > div").classList.add("seperate-up")
-            document.querySelector("#fangModels").classList.add("seperate-down")
+            document.querySelector("#gear > div").classList.add("seperate-down")
+            document.querySelector("#fangModels").classList.add("seperate-up")
         }else{
-            document.querySelector("#gear > div").classList.remove("seperate-up")
-            document.querySelector("#fangModels").classList.remove("seperate-down")
+            document.querySelector("#gear > div").classList.remove("seperate-down")
+            document.querySelector("#fangModels").classList.remove("seperate-up")
         }
     }, [gearRefInView])
 

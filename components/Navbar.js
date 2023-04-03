@@ -29,10 +29,14 @@ const NavComponent = () => {
     }
 
     function toggleJoin(){
-        joinTextRef.current.classList.toggle('hidden')
-        fangBtnRef.current.classList.toggle('hidden')
-        pxlBtnRef.current.classList.toggle('hidden')
-        bgRef.current.classList.toggle('yellow-bg')
+        joinTextRef.current.classList.toggle('shrinkAway')
+        setTimeout(()=>{
+            joinTextRef.current.classList.toggle('hidden')
+            fangBtnRef.current.classList.toggle('hidden')
+            pxlBtnRef.current.classList.toggle('hidden')
+            
+        },500)
+
     }
 
 

@@ -239,15 +239,22 @@ nav,
 #split-join-btn{
     display:flex;
     justify-content: center;
+    transform: scale(1);
+    opacity: 1;
 }
 #split-join-btn:hover{
     padding: 0 !important;
+    margin-right: 0 !important;
+
+}
+#split-join-btn a {
+    width:100px;
 }
 
 .wrapper-100{
     display: flex;
-        align-items: center;
-            justify-content: space-evenly;
+    align-items: center;
+    justify-content: space-evenly;
     width: 100%;
 }
 
@@ -469,9 +476,11 @@ flex-flow: column nowrap;
 #cbg{
     bottom:0;
 }
+
+
 #paca, #junshi{
     position: absolute;
-    bottom: 2px !important;
+    bottom: 2px;
 }
 #paca{
     left:12%;
@@ -1011,7 +1020,7 @@ input{
     height:415px;
     position: relative;
     right:0px;
-    top:-25px;
+    top:-15px;
     border-top-left-radius: 25rem;
     border-bottom-left-radius: 25rem;
 }
@@ -1021,7 +1030,7 @@ input{
     width: 1264px;
     position: relative;
     right: 0px;
-    top: -25px;
+    top: -15px;
     border-top-left-radius: 25rem;
     border-bottom-left-radius: 25rem;
 }
@@ -1033,7 +1042,7 @@ input{
     width: 1264px;
     position: relative;
     right: 0px;
-    top: -25px;
+    top: -15px;
     border-top-left-radius: 25rem;
     border-bottom-left-radius: 25rem;
 }
@@ -1507,6 +1516,21 @@ footer, #socials{
     }
 }
 
+.fadeOut {
+    animation: fadingOut 1s ease-in 1s 1 forwards;
+}
+
+
+@keyframes fadingOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
 .droppingDownNav{
     animation: 1s dropDownNav ease-in;
 }
@@ -1662,7 +1686,7 @@ footer, #socials{
         top:0px
     }
     100%{
-        top:-25px;
+        top:-45px;
     }
 }
 
@@ -1677,6 +1701,22 @@ footer, #socials{
     }
 
     100% {
-        top:-25px;
+        top:-15px;
+    }
+}
+
+.shrinkAway{
+    animation: zoomAway 0.5s ease-in forwards;
+}
+
+@keyframes zoomAway{
+    0%{
+        transform: scale(1);
+    }
+    99%{
+        transform: scale(0.001);
+    }
+    100%{
+        display:none;
     }
 }

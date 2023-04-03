@@ -28,11 +28,11 @@ const MeetSection = () => {
 
     useEffect(() => {
         if(meetRefInView){
-            document.querySelector("#meet > div").classList.add('seperate-up');
-            document.querySelector("#fanggrid").classList.add('seperate-down');
+            document.querySelector("#meet > div").classList.add('seperate-down');
+            document.querySelector("#fanggrid").classList.add('seperate-up');
         }else{
-            document.querySelector("#meet > div").classList.remove('seperate-up');
-            document.querySelector("#fanggrid").classList.remove('seperate-down');
+            document.querySelector("#meet > div").classList.remove('seperate-down');
+            document.querySelector("#fanggrid").classList.remove('seperate-up');
         }
     }, [meetRefInView])
 
