@@ -723,9 +723,12 @@ flex-flow: column nowrap;
     font-size:30px;
 }
 
-#claim-options>button:last-child{
+#claim-options>a{
     width: 254px !important;
     height: 79px !important;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
 }
 
 #claim-options>button {
@@ -1455,19 +1458,18 @@ footer, #socials{
 }
 
 @keyframes isFloaty1{
-    0%{
-        left: -160px;
-        top: -40px;
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
     }
-    50%{
-        left: -165px;
-        top: -45px;
-    }
-    100% {
-        left: -160px;
-        top: -40px;
-    }
-}
 
 .slideInLeft {
     animation-name: slideInFromLeft;

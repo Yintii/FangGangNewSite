@@ -64,7 +64,7 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
 
             let fangsters = await Promise.all(_data);
             //uncomment to see data on fangs
-            fangsters.forEach(fang => console.log(fang));
+            // fangsters.forEach(fang => console.log(fang));
             setUserFangs(fangsters);
 
 
@@ -73,9 +73,6 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
     }
 
 
-
-    //need to edit this to show a better message
-    //[need to edit]
     async function checkFangster() {
         if (fangsterToCheckClaim == null || fangsterToCheckClaim == '') return
         if (fangsterToCheckClaim > 8887 || fangsterToCheckClaim < 0) {
@@ -102,7 +99,7 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
     }
 
     const handleSelectMax = () => {
-        let all = unclaimedFangs.map(each => each.tokenId)
+        let all = unclaimedFangs.map(each => each.id)
         setToggledForClaimedTokens(all);
     }
 
@@ -141,6 +138,7 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
   
     const RenderFangsters = () => {
         let fangsters = userFangs.map(fang => {
+            fang.claimed ? console.log(fang.id + ' is claimed') : console.log(fang.id + ' is not claimed');
             if (fang.claimed) {
                 return (
                     <div key={`fang-${fang.id}`}>
@@ -153,6 +151,7 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                             src={`${fang.id}.png`}
                             width={250}
                             height={250}
+                            alt={`Fangster ${fang.id}`}
                         />
                     </div>
                 )
@@ -180,6 +179,7 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
     useEffect(() => {
         getFangstersFromWallet();
     }, [isConnected])
+
 
 
     useEffect(() => {
@@ -251,15 +251,13 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                                 variant="lg-blk"
                             />
                         </div>
-                        <button
-                            disabled={unclaimedFangs.length > 0 ? false : true}
-                            className={
+                        <FangBtn 
+                            label="CLAIM"
+                            disabled={unclaimedFangs.length > 0 ? false : true} 
+                            extraClasses={
                                 unclaimedFangs.length == 0 || toggledForClaimTokens.length == 0 ? 'none-to-claim' : 'some-to-claim'}
-                            onClick={() => handlePxlClaims()}
-                        >
-                            CLAIM
-                        </button>
-
+                            passedFunction={() => handlePxlClaims()}
+                        />
                     </div>
                 )
 

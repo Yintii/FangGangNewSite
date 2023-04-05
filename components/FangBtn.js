@@ -7,6 +7,7 @@ export const FangBtn = (props) => {
 
     function handleClick(){
         props.passedFunction ? props.passedFunction() : null;
+        if(props.disabled) return
         setRippleVisible(true);
         setTimeout(() => {
             setRippleVisible(false);
@@ -15,7 +16,7 @@ export const FangBtn = (props) => {
 
   return (
         <a 
-          className={`ripple-btn ${props.extraClasses}`}
+        className={`ripple-btn ${props.extraClasses}`}
         onClick={() => handleClick()} 
         href={props?.linkTo}
         target="_blank"

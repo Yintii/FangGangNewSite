@@ -9,8 +9,6 @@ const NewFangCity = () => {
 
     const [bankActive, setBankActive] = useState(false);
 
-    
-
     const handleBankToggle = () => {        
         if(bankActive){
             setBankActive(!bankActive);
