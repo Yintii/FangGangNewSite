@@ -9,10 +9,10 @@ const NavComponent = () => {
 
     const [revealed, setRevealed] = useState(false);
 
-    const joinTextRef = useRef(null);
-    const fangBtnRef  = useRef(null);
-    const pxlBtnRef   = useRef(null);
-    const bgRef       = useRef(null);
+    const joinDropDownRef = useRef(null);
+    const fangBtnRef      = useRef(null);
+    const pxlBtnRef       = useRef(null);
+
 
     function handleRevealNav(){
         setRevealed(!revealed)
@@ -29,14 +29,12 @@ const NavComponent = () => {
     }
 
     function toggleJoin(){
-        joinTextRef.current.classList.toggle('shrinkAway')
-        setTimeout(()=>{
-            joinTextRef.current.classList.toggle('hidden')
-            fangBtnRef.current.classList.toggle('hidden')
-            pxlBtnRef.current.classList.toggle('hidden')
-            
-        },500)
+        if(joinDropDownRef.current.style.display == 'none'){
+            joinDropDownRef.current.style.display = 'block';
+        }else{
+            joinDropDownRef.current.style.display = 'none'
 
+        }
     }
 
 
@@ -72,23 +70,31 @@ const NavComponent = () => {
                     <div 
                         id="split-join-btn"
                         className='yellow-bg'
-                        ref={bgRef}
-                        onMouseEnter={toggleJoin}
-                        onMouseLeave={toggleJoin}
+                        onClick={toggleJoin}
                     >
-                        <div ref={joinTextRef}>JOIN</div>
-                        <a ref={fangBtnRef} href="https://opensea.io/collection/fanggangnft" className='hidden yellow-bg mascot-head' target="_blank">
-                            <Image src='/images/mascot_fanggang_head.png' width={45} height={41} />
-                        </a>
-                        <a ref={pxlBtnRef} href="https://opensea.io/collection/pxlfangs" className='hidden yellow-bg mascot-head' target="_blank">
-                            <Image src='/images/mascot_pxlfangs_head.png' width={43} height={39} />
-                        </a>
+                        <div>JOIN</div>
+
                     </div>
                     <FangBtn 
                         label={<FontAwesomeIcon icon={faTwitter} />} 
                         linkTo="https://twitter.com/FangGangNFT"
                         extraClasses="yellow-bg"
                     />
+                </div>
+                <div
+                    id="join-drop-down"
+                    className='yellow-bg'
+                    ref={joinDropDownRef}
+                    style={{display: 'none'}}
+                >
+
+                    <a ref={fangBtnRef} href="https://opensea.io/collection/fanggangnft" className='mascot-head' target="_blank">
+                        <Image src='/images/mascot_fanggang_head.png' width={45} height={41} />Fang Gang
+                    </a>
+                    <a ref={pxlBtnRef} href="https://opensea.io/collection/pxlfangs" className='mascot-head' target="_blank">
+                        <Image src='/images/mascot_pxlfangs_head.png' width={43} height={39} /> PxlFangs
+                    </a>
+
                 </div>
             </div>
 
@@ -104,20 +110,15 @@ const NavComponent = () => {
                 <div id="nav-buttons">
                     <a href="https://opensea.io/collection/fanggangnft" className='yellow-bg' target="_blank">
                         JOIN FANG GANG
-
                         <Image src='/images/mascot_fanggang_head.png' width={45} height={41} />
                     </a>
                     <a  href="https://opensea.io/collection/pxlfangs" className='yellow-bg' target="_blank">
                         JOIN PXLFANGS
                         <Image src='/images/mascot_pxlfangs_head.png' width={43} height={39} />
-
                     </a>
                     <a href="https://twitter.com/FangGangNFT" className='yellow-bg' target="_blank">FOLLOW US<FontAwesomeIcon id="twitter-icon" icon={faTwitter} /></a>
                 </div>
             </div>
-
-
-
         </nav>
     )
 }

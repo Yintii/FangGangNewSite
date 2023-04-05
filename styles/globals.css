@@ -148,9 +148,6 @@ ul, li{
     }
 }
 
-@media screen and (max-width:767px) {
-
-}
 
 nav {
     margin: 0rem 2rem; 
@@ -233,7 +230,6 @@ nav,
     border-radius: 50px;
     height:60px;
     width: 60px;
-    margin: .25rem;
 }
 
 #split-join-btn{
@@ -241,14 +237,49 @@ nav,
     justify-content: center;
     transform: scale(1);
     opacity: 1;
+    position: relative;
 }
+
+#join-drop-down{
+    position:absolute;
+    right: 100px;
+    top:100px;
+    width: 176px;
+    height: 113px;
+    display: none;
+    border-radius: 20px;
+    z-index: 20;
+}
+
+#join-wrap{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+
+
+#join-drop-down a{
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    white-space: pre;
+    width:100%;
+    height:50%;
+    color:black;
+}
+
+
 #split-join-btn:hover{
     padding: 0 !important;
     margin-right: 0 !important;
 
 }
 #split-join-btn a {
-    width:100px;
+    font-size: 18px;
+    white-space: pre;
 }
 
 .wrapper-100{
@@ -1707,18 +1738,3 @@ footer, #socials{
     }
 }
 
-.shrinkAway{
-    animation: zoomAway 0.5s ease-in forwards;
-}
-
-@keyframes zoomAway{
-    0%{
-        transform: scale(1);
-    }
-    99%{
-        transform: scale(0.001);
-    }
-    100%{
-        display:none;
-    }
-}

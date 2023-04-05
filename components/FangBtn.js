@@ -6,12 +6,12 @@ export const FangBtn = (props) => {
 
 
     function handleClick(){
-        props.passedFunction ? props.passedFunction() : null;
-        if(props.disabled) return
-        setRippleVisible(true);
-        setTimeout(() => {
-            setRippleVisible(false);
-        }, 500);
+      if (props.disabled) return  
+      props.passedFunction ? props.passedFunction() : null;
+      setRippleVisible(true);
+      setTimeout(() => {
+          setRippleVisible(false);
+      }, 500);
     }
 
   return (
