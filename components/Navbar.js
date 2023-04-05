@@ -89,7 +89,7 @@ const NavComponent = () => {
                 >
 
                     <a ref={fangBtnRef} href="https://opensea.io/collection/fanggangnft" className='mascot-head' target="_blank">
-                        <Image src='/images/mascot_fanggang_head.png' width={45} height={41} />Fang Gang
+                        <Image src='/images/mascot_fanggang_head.png' width={45} height={41} /> Fang Gang
                     </a>
                     <a ref={pxlBtnRef} href="https://opensea.io/collection/pxlfangs" className='mascot-head' target="_blank">
                         <Image src='/images/mascot_pxlfangs_head.png' width={43} height={39} /> PxlFangs
