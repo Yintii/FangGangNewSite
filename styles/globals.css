@@ -1036,9 +1036,13 @@ input{
 
 
 #join .copy-wrap{
-    margin: 0 4rem !important;
+    margin: 0 4rem;
 }
-
+@media screen and (max-width: 767px) {
+#join .copy-wrap {
+        margin: unset!important;
+    }
+}
 
 .copy-wrap>h2{
     margin-bottom:5px;
