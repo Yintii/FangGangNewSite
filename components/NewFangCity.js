@@ -11,12 +11,12 @@ const NewFangCity = () => {
 
     const [nfcRef, nfcRefInView] = useInView({ threshold: 0 });
 
-    const nfcDivRef = useRef(null);
+    const nfcWrapRef = useRef(null);
 
     const handleBankToggle = () => {        
         if(bankActive){
             setBankActive(!bankActive);
-            nfcDivRef.current.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+            nfcWrapRef.current.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
             setTimeout(() =>{
                 document.querySelector('#bank-drop-down').classList.add('hidden');
             }, 1000)
@@ -54,8 +54,8 @@ const NewFangCity = () => {
     }, [])
 
     return (
-        <section id="newFangCity" ref={nfcDivRef}>
-            <div id="nfc-wrap" ref={nfcRef}>
+        <section id="newFangCity" ref={nfcRef} >
+            <div id="nfc-wrap" ref={nfcWrapRef} >
                 <div className="section-copy purple-bg">
                     <div className='copy-wrap'>
                         <h2>TAKE A TRIP TO
