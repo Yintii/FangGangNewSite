@@ -1029,6 +1029,9 @@ input{
     #newFangCity .copy-wrap{
         margin: 0 !important;
     }
+    .section-p{
+        width:80% !important;
+    }
 }
 
 #AwooStudios{
