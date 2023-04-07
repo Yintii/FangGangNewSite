@@ -117,7 +117,7 @@ const NavComponent = () => {
                         JOIN PXLFANGS
                         <Image src='/images/mascot_pxlfangs_head.png' width={43} height={39} />
                     </a>
-                    <a href="https://twitter.com/FangGangNFT" className='yellow-bg' target="_blank">FOLLOW US<FontAwesomeIcon id="twitter-icon" icon={faTwitter} /></a>
+                    <a href="https://twitter.com/FangGangNFT" className='yellow-bg' target="_blank">FOLLOW US<FontAwesomeIcon id="twitter-icon" icon={faTwitter} size="2x"/></a>
                 </div>
             </div>
         </nav>

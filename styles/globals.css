@@ -351,10 +351,12 @@ nav,
 @media screen and (max-width: 767px){
     #nav-buttons a {
             font-size: 16px !important;
-            margin: .5rem;
-            width:250px !important;
+            margin: 0.5rem;
+            padding: 0 1rem;
+            width: 210px !important;
             display: flex !important;
-            justify-content: space-evenly !important;
+            justify-content: space-between;
+            white-space: pre;
         }
     
         #nav-buttons {
@@ -637,6 +639,9 @@ flex-flow: column nowrap;
 #game-drop-down h2,
 #bank-drop-down h2{
     margin-top: 5rem;
+}
+#bank-drop-down h2 {
+    text-align: center;
 }
 
 #bank-drop-down p{
@@ -1236,7 +1241,7 @@ input{
 .game-container{
     display:flex;
 }
-#game-drop-down>h3, #bank-drop-down>h3{
+#game-drop-down>h3{
     color:black;
     text-align: center;
     font-size:50px;

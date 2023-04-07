@@ -11,7 +11,7 @@ function BankDrawer({ bankActive, handleBankToggle }) {
             <div className='drawer-x-btn' onClick={() => handleBankToggle()}>
                 <Image src="/images/menu-x.svg" width={25} height={25} />
             </div>
-            <h3>STACK $AWOO, UNLOCK PERKS.</h3>
+            <h2>STACK $AWOO, UNLOCK PERKS.</h2>
             <p>
                 Simply by holding a Fangster or PxlFangster you are passively earning the $AWOO ecosystem token. This token can be used on fun features such as upgrading your PxlFangsters or during special events.
             </p>
