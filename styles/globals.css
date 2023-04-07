@@ -184,7 +184,7 @@ nav,
 
 
 #nav-buttons{
-    width:210px;
+    width:250px;
     justify-content: space-around;
     align-items: stretch;
 }
@@ -220,9 +220,13 @@ nav,
     align-items: center;
     display: flex;
     justify-content: center;
-    width: 78px; 
-    height: 55px;
+    width: 114px; 
+    height: 41px;
 
+}
+
+#nav-buttons a:first-child {
+    font-size:20px;
 }
 
 

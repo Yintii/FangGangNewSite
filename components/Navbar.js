@@ -67,14 +67,13 @@ const NavComponent = () => {
                 </div>
 
                 <div id="nav-buttons">
-                    <div 
+                    <FangBtn 
+                        label="JOIN"
                         id="split-join-btn"
-                        className='yellow-bg'
-                        onClick={toggleJoin}
-                    >
-                        <div>JOIN</div>
-
-                    </div>
+                        extraClasses="yellow-bg"
+                        passedFunction={() => toggleJoin()}
+                        growerType="rippleGrower"
+                    />
                     <FangBtn 
                         label={<FontAwesomeIcon icon={faTwitter} />} 
                         linkTo="https://twitter.com/FangGangNFT"

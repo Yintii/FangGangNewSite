@@ -15,7 +15,8 @@ export const FangBtn = (props) => {
     }
 
   return (
-        <a 
+        <a
+        id={props.id}
         className={`ripple-btn ${props.extraClasses}`}
         onClick={() => handleClick()} 
         href={props?.linkTo}
