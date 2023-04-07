@@ -526,6 +526,7 @@ flex-flow: column nowrap;
 #paca, #junshi{
     position: absolute;
     bottom: 2px;
+    transform-orgin: bottom center;
 }
 #paca{
     left:12%;
@@ -541,11 +542,19 @@ flex-flow: column nowrap;
  
 @media screen and (max-width: 767px){
     #paca{
-        left:4%;
+        left:6%;
     }
     #junshi{
         right:0%;
     }
+    #junshi,#paca{
+        transform-origin: bottom center;
+        transform: scale(0.9);
+    }
+    #cbg{
+        height: 130px;
+    }
+
 }
 
 
@@ -1268,6 +1277,8 @@ footer, #socials{
 #poap{
     align-self: flex-end;
 }
+
+
 
 @media screen and (max-width: 767px) {
     footer{
