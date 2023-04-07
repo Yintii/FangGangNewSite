@@ -569,10 +569,6 @@ flex-flow: column nowrap;
     right: 12%;
 }
 
-
-#pxl-copy>p{
-    font-size:20px;
-}
  
 @media screen and (max-width: 767px){
     #paca{
