@@ -9,6 +9,10 @@ const NewFangCity = () => {
 
     const [bankActive, setBankActive] = useState(false);
 
+    const [nfcRef, nfcRefInView] = useInView({ threshold: 0 });
+
+    const nfcDivRef = useRef(null);
+
     const handleBankToggle = () => {        
         if(bankActive){
             setBankActive(!bankActive);
@@ -33,7 +37,6 @@ const NewFangCity = () => {
     } 
 
 
-    const [nfcRef, nfcRefInView] = useInView({ threshold: 0 });
 
     useEffect(() => {
         if (nfcRefInView) {
@@ -51,8 +54,8 @@ const NewFangCity = () => {
     }, [])
 
     return (
-        <section id="newFangCity" ref={nfcRef}>
-            <div id="nfc-wrap">
+        <section id="newFangCity" ref={nfcDivRef}>
+            <div id="nfc-wrap" ref={nfcRef}>
                 <div className="section-copy purple-bg">
                     <div className='copy-wrap'>
                         <h2>TAKE A TRIP TO
