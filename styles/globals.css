@@ -1013,7 +1013,7 @@ input{
 }
 
 #AwooStudios .copy-wrap{
-    margin: unset !important;
+ 
     padding: 1rem;
 }
 
@@ -1034,10 +1034,14 @@ input{
     align-items: center;
 }
 
+#Awoo-studios .copy-wrap{
+    margin: 0 10rem !important; 
+}
 
 #join .copy-wrap{
     margin: 0 4rem;
 }
+
 @media screen and (max-width: 767px) {
 #join .copy-wrap {
         margin: unset!important;
