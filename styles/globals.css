@@ -13,6 +13,10 @@ html,body{
     overflow-x: hidden;
 }
 
+.no-break-wrap{
+    white-space: pre;
+}
+
 .text-white{
     color:white;
 }
@@ -57,6 +61,27 @@ h1,h2,h3,h4,h5,
     font-style: normal;
     font-weight: 500;
 }
+
+@media screen and (max-width: 1050px) {
+    .copy-wrap{
+        margin: 0 5rem !important;
+    }
+    .copy-btns a{
+        margin: .5rem;
+    }
+}
+
+@media screen and (max-width: 805px) {
+    .copy-wrap {
+        margin: 0 2rem !important;
+    }
+
+    .copy-btns a {
+        margin: .5rem;
+    }
+}
+
+
 a{
     color:white;
     text-decoration: none;
@@ -119,9 +144,7 @@ ul, li{
         align-items: space-evenly !important;
     }
 
-    #nav-buttons a img, #twitter-icon{
-        margin: 0 1rem;    
-    }
+
 
     #desk-navigation{
         display:none !important;
@@ -421,6 +444,10 @@ flex-flow: column nowrap;
 }
 
 @media screen and (max-width: 767px) {
+    #ourPartners>div {
+        width: unset;
+    }
+
     #partners-area{
         display: flex;
         flex-flow: column nowrap;
@@ -491,8 +518,9 @@ flex-flow: column nowrap;
     }
     .copy-btns{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
+        margin-top:2rem !important;
     }
 
     #musicfang{
@@ -526,13 +554,13 @@ flex-flow: column nowrap;
 
 #cbg{
     bottom:0;
+    
 }
 
 
 #paca, #junshi{
     position: absolute;
     bottom: 2px;
-    transform-orgin: bottom center;
 }
 #paca{
     left:12%;
@@ -905,7 +933,7 @@ input{
 }
 
 .copy-btns {
-    margin: 1rem 0 3rem 0 !important;
+    margin: 1rem 0 3rem 0;
 }
 
 .copy-btns a {
@@ -918,6 +946,10 @@ input{
     .section-copy{
         min-width: 100vw;
         padding: 2rem 0 !important;
+    }
+    .section-p{
+        width:100% !important;
+        
     }
     .fang-img-area,
     .px-fang-img-area,
@@ -935,8 +967,11 @@ input{
 
     #pxl-copy .copy-btns{
         flex-flow: column;
-        width:80%;
+        width:50%;
         margin: 0 auto !important;
+    }
+    #pxl-copy .copy-btns>a:first-child{
+        margin-top: 4rem;
     }
     #pxl-copy .copy-btns>a:not(:first-child){
         margin-top: 1rem;
@@ -1303,27 +1338,33 @@ footer, #socials{
 
 
 
+@media screen and (max-width: 1075px) {
+    footer {
+            flex-flow: column nowrap;
+            justify-content: unset !important;
+            align-items: unset !important;
+            height: unset !important;
+        }
+    
+        #socials {
+            width: 60vw !important;
+            order: 1;
+            margin: 2rem auto;
+            padding: unset;
+        }
+    
+        #poap {
+            align-self: center;
+            order: 3;
+        }
+    
+        #copyright {
+            order: 2;
+            text-align: center !important;
+            margin: 0 !important;
+        }
+}
 @media screen and (max-width: 767px) {
-    footer{
-        flex-flow: column nowrap;
-        justify-content: unset !important;
-        align-items: unset !important;
-        height: unset !important;
-    }
-    #socials{
-        width: 80vw !important;
-        order: 1;
-        margin: 1rem;
-    }
-    #poap{
-        align-self: center;
-        order:3;
-    }
-    #copyright{
-        order: 2;
-        text-align: center !important;
-        margin:0 !important;
-    }
     #AwooStudios{
         display: flex;
         flex-flow: column nowrap !important;
@@ -1405,9 +1446,16 @@ footer, #socials{
 }
 .modal img{
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top:0;
+    right:0;
+    padding: 1rem;
     cursor: pointer;
+    background-color: #ccc;
+}
+
+.modal img:hover{
+    background-color: #FFC657;
+
 }
 
 .modal{

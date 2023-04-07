@@ -59,11 +59,11 @@ const NewFangCity = () => {
                 <div className="section-copy purple-bg">
                     <div className='copy-wrap'>
                         <h2>TAKE A TRIP TO
-                            <span className="gold"> NEW FANG CITY</span>.
+                            <span className="gold no-break-wrap"> NEW FANG CITY</span>.
                         </h2>
                         <Tram placement={'mobile'}/>
                         <div className='copy-btns'>
-                            <a href="https://newfangcity.com" target="_blank" className='section-button'>VISIT</a>
+                            <a href="https://newfangcity.com" target="_blank" className='section-button ripple-btn'>VISIT</a>
                             <FangBtn 
                                 label="$AWOO"
                                 passedFunction={() => handleBankToggle()}

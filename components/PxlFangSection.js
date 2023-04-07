@@ -91,7 +91,7 @@ const PxlFangsSection = (props) => {
                         <h1>RUN WITH THE <span className="gold">PXLFANGS</span>.</h1>
                         <PxlMascot placement={'mobile'} />
                         <div className="copy-btns">
-                            <a href="https://opensea.io/collection/pxlfangs" target="_blank" className="section-button">JOIN</a>
+                            <a href="https://opensea.io/collection/pxlfangs" target="_blank" className="section-button ripple-btn">JOIN</a>
                             <FangBtn 
                                 label="CLAIM"
                                 extraClasses='section-button'

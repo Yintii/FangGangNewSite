@@ -44,8 +44,8 @@ const GearSection = () => {
                         <h2>GEAR UP WITH <span className="gold">WLDFNGZ</span>.</h2>
                         <WldFngz placement={'mobile'} />
                         <div className="copy-btns">
-                            <a href="https://shop.awoostudios.com/pages/wldfngz" target="_blank" className='section-button'>SHOP</a>
-                            <a href="https://www.instagram.com/wldfngz/" target="_blank" className='section-button'>FOLLOW</a>
+                            <a href="https://shop.awoostudios.com/pages/wldfngz" target="_blank" className='section-button ripple-btn'>SHOP</a>
+                            <a href="https://www.instagram.com/wldfngz/" target="_blank" className='section-button ripple-btn'>FOLLOW</a>
                         </div>
                         <p className='section-p'>
                             WLDFNGZ is the streetwear brand worn by Fang Gang. From digital collectibles to the real world, we’re biting the gap between the dopest metaverse fits and real life streetwear.
