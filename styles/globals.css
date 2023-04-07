@@ -1288,6 +1288,7 @@ footer, #socials{
     #copyright{
         order: 2;
         text-align: center !important;
+        margin:0 !important;
     }
     #AwooStudios{
         display: flex;
