@@ -28,15 +28,7 @@ function FangRunner({fangRunnerActive, handleToggleFangRunnerDrawer}) {
             width = height / ratio;
         }
 
-        setStyle({
-            border: 'none',
-            margin: "0 auto",
-            borderRadius: '50px',
-            marginTop: '2rem',
-            marginBottom: '2rem',
-            width: "80%",
-            height: "670px"
-        });
+
         document.body.style.overflowX = "hidden";
         document.body.style.overflowY = "scroll";
     }
