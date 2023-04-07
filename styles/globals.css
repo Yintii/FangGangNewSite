@@ -227,9 +227,12 @@ nav,
 
 
 .mascot-head{
-    border-radius: 50px;
     height:60px;
     width: 60px;
+}
+
+.mascot-head:first-child{
+    border-bottom: 1px solid black;
 }
 
 #split-join-btn{
@@ -251,7 +254,7 @@ nav,
     z-index: 20;
 }
 
-#joiin
+
 
 #join-wrap{
     display:flex;
@@ -260,13 +263,18 @@ nav,
     position: relative;
 }
 
+#join-drop-wrap{
+    height: 100%;
+    width: 85%;
+    margin: 0 auto;
+}
 
 
 #join-drop-down a{
     display: flex;
     font-size: 18px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     white-space: pre;
     width:100%;
     height:50%;
