@@ -8,9 +8,12 @@ export const FangBtn = (props) => {
     function handleClick(){
       if (props.disabled) return  
       props.passedFunction ? props.passedFunction() : null;
+    }
+
+    function handleHover(){
       setRippleVisible(true);
       setTimeout(() => {
-          setRippleVisible(false);
+        setRippleVisible(false);
       }, 500);
     }
 
@@ -18,7 +21,8 @@ export const FangBtn = (props) => {
         <a
         id={props.id}
         className={`ripple-btn ${props.extraClasses}`}
-        onClick={() => handleClick()} 
+        onClick={() => handleClick()}
+        onMouseOver={() => handleHover()}
         href={props?.linkTo}
         target="_blank"
         >

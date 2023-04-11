@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
+import { FangBtn } from './FangBtn';
 
 
 const AwooStudios = () => {
@@ -23,9 +24,12 @@ const AwooStudios = () => {
             <div className='copy-wrap'>
                 <h2>AWOO STUDIOS.</h2>
                   <div className='copy-btns'>
-            <a className="section-button" href="https://linktr.ee/awoostudios" target="_blank">
-                      DISCOVER
-                    </a>
+            <FangBtn
+              label="DISCOVER"
+              linkTo="https://linktr.ee/awoostudios"
+              extraClasses='section-button ripple-btn'
+              growerType="rippleGrower"
+            />
                   </div>
                   <p className="section-p">
                       Awoo Studios is a Web3 native creative company. We’re focused on developing strong community experiences through unique IP, blockchain technology, gamification and streetwear.

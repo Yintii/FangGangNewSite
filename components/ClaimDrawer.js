@@ -20,14 +20,18 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
     const [unclaimedFangs, setUnclaimedFangs] = useState([]);
 
     const [isClaimable, setIsClaimable] = useState(null);
-
+    const [invalidFangster, setInvalidFangster] = useState(false);
 
     const AvailableFangsterText = () => {
-        return <h3 className='available-text'>PxlFangster {fangsterToCheckClaim} is available for claim!</h3>
+        return <h3 className='available-text'>Fangster {fangsterToCheckClaim} can still claim a PxlFangster.</h3>
     }
 
     const UnavailableFangsterText = () => {
-        return <h3 className='unavailable-text'>PxlFangster {fangsterToCheckClaim} is no longer available for claim.</h3>
+        return <h3 className='unavailable-text'>Fangster {fangsterToCheckClaim} has already claimed its PxlFangster.</h3>
+    }
+
+    const InvalidFangsterText = () => {
+        return <h3 className='unavailable-text'>You've entered an invalid Fangster ID. <br /> Please try something between 0 and 8887.</h3>
     }
     
 
@@ -76,7 +80,7 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
     async function checkFangster() {
         if (fangsterToCheckClaim == null || fangsterToCheckClaim == '') return
         if (fangsterToCheckClaim > 8887 || fangsterToCheckClaim < 0) {
-            alert("you've entered an invalid id, please try something between 0 and 8887");
+            setInvalidFangster(true)
             return;
         }
 
@@ -193,6 +197,7 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
 
     useEffect(() => {
         setIsClaimable(null);
+        setInvalidFangster(null);
     }, [fangsterToCheckClaim])
 
 
@@ -227,6 +232,9 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                         <UnavailableFangsterText />
                     }
 
+                    {invalidFangster &&
+                        <InvalidFangsterText/>
+                    }
 
 
                 </div>

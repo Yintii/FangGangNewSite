@@ -78,6 +78,7 @@ const NavComponent = () => {
                         label={<FontAwesomeIcon icon={faTwitter} />} 
                         linkTo="https://twitter.com/FangGangNFT"
                         extraClasses="yellow-bg"
+                        growerType="rippleGrower"
                     />
                 </div>
                 <div

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
+import { FangBtn } from './FangBtn';
 
 const MeetSection = () => {
 
@@ -44,8 +45,18 @@ const MeetSection = () => {
                         <h2>MEET THE <span className="gold no-break-wrap">FANG GANG</span>.</h2>
                         <FangMascot placement={'mobile'} />
                         <div className="copy-btns">
-                            <a href="https://opensea.io/collection/fanggangnft" target="_blank" className='section-button ripple-btn'>JOIN</a>
-                            <a href="https://shop.awoostudios.com/pages/fang-gang" target="_blank" className='section-button ripple-btn'>SHOP</a>
+                            <FangBtn 
+                                label="JOIN"
+                                linkTo="https://opensea.io/collection/fanggangnft"
+                                extraClasses="section-button ripple-btn"
+                                growerType="rippleGrower"
+                            />
+                            <FangBtn 
+                                label="SHOP"
+                                linkTo="https://shop.awoostudios.com/pages/fang-gang"
+                                extraClasses="section-button ripple-btn"
+                                growerType="rippleGrower"
+                            />
                         </div>
                         <p className='section-p'>
                             The Fang Gang comes out at night to throw parties, hang around in dark alleys and have fun on the streets of New Fang City.

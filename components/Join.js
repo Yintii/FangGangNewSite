@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { FangBtn } from "./FangBtn"
 
 const Join = () => {
 
@@ -18,19 +19,19 @@ const Join = () => {
                   <h2>JOIN A CREATIVE <span className='gold'> COMMUNITY</span>.</h2>
                   <FloatyFang placement={'mobile'} />
                 <div className="copy-btns">
-                      <a 
-                        href="https://discord.gg/fanggang" 
-                        className="section-button"
-                        target="_blank"
-                      >
-                          CHAT
-                      </a>
+            <FangBtn
+              label="CHAT"
+              linkTo="https://discord.gg/fanggang"
+              extraClasses='section-button ripple-btn'
+              growerType="rippleGrower"
+            />
+
                 </div>
                   <p className="section-p">
                       A supportive network full of talented and enthusiastic contributors to web3. The Fang Gang community as a whole has established itself as one of the most welcoming ones.
                   </p>
                   <p className="section-p">
-                      Tons of meaningful connections have been made, great projects havebeen founded from within the community and making others feelincluded is always a priority to its members.
+                      Tons of meaningful connections have been made, great projects have been founded from within the community and making others feel included is always a priority to its members.
                   </p>
                   <p className="section-p">
                       Join our Discord to get to know us and get a Fangster when you’re ready.

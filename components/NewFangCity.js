@@ -63,7 +63,12 @@ const NewFangCity = () => {
                         </h2>
                         <Tram placement={'mobile'}/>
                         <div className='copy-btns'>
-                            <a href="https://newfangcity.com" target="_blank" className='section-button ripple-btn'>VISIT</a>
+                            <FangBtn
+                                label="VISIT"
+                                linkTo="https://newfangcity.com"
+                                growerType="rippleGrower"
+                                extraClasses="section-button"
+                            />
                             <FangBtn 
                                 label="$AWOO"
                                 passedFunction={() => handleBankToggle()}

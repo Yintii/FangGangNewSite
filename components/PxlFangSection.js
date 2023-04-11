@@ -88,10 +88,15 @@ const PxlFangsSection = (props) => {
             <div id='px-wrapper'>
                 <div id="px-top">
                     <div id="pxl-copy">
-                        <h1>RUN WITH THE <span className="gold">PXLFANGS</span>.</h1>
+                        <h2>RUN WITH THE <span className="gold">PXLFANGS</span>.</h2>
                         <PxlMascot placement={'mobile'} />
                         <div className="copy-btns">
-                            <a href="https://opensea.io/collection/pxlfangs" target="_blank" className="section-button ripple-btn">JOIN</a>
+                            <FangBtn 
+                                label="JOIN"
+                                linkTo="https://opensea.io/collection/pxlfangs"
+                                extraClasses='section-button'
+                                growerType="rippleGrower"
+                            />
                             <FangBtn 
                                 label="CLAIM"
                                 extraClasses='section-button'

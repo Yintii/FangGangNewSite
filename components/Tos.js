@@ -6,12 +6,14 @@ export const Tos = ({hidden, setShowTos}) => {
     <div id="terms-modal" className={hidden ? '' : 'hidden'}>
         <div className="modal">
               <h2>Terms of Use and Conditions</h2>
-              <Image 
-                onClick={() => setShowTos(false)} 
-                src="/images/menu-x.svg"
-                width={25}
-                height={25}
-              />
+              <div className='close-btn-wrapper'>
+                <Image
+                  onClick={() => setShowTos(false)}
+                  src="/images/menu-x.svg"
+                  width={25}
+                  height={25}
+                />
+              </div>
             <div className="modal-wrap">
                   <div className="modal-section">
                     <h3>Terms of Use</h3>
