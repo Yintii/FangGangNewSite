@@ -42,7 +42,7 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
 
     async function getFangstersFromWallet() {
         if (!isConnected) {
-            connect();
+            return
         } else {
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const [add] = await provider.send("eth_requestAccounts", []);
@@ -240,20 +240,33 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
 
 
                 </div>
-                <div id="current_fangs" style={{ display: userFangs ? 'flex' : 'none' }}>
-                    <RenderFangsters />
-                </div>
-                {userFangs && (
+
+                {userFangs.length == 0 &&
+                    <FangBtn 
+                        id='wallet-connect'
+                        label="CONNECT WALLET"
+                        passedFunction={() => connect()}
+                        extraClasses="claim-options-btn ripple-btn"
+                        growerType="rippleGrowerMd"
+                    />
+                }
+
+                {userFangs.length > 0 &&
+                <>
+                    <div id="current_fangs" style={{ display: userFangs ? 'flex' : 'none' }}>
+                        <RenderFangsters />
+                    </div>
+                
                     <div id="claim-options">
                         <div>
-                            <FangBtn 
+                            <FangBtn
                                 label={`SELECT MAX (${unclaimedFangs.length})`}
                                 passedFunction={() => handleSelectMax()}
                                 extraClasses="claim-options-btn"
                                 growerType='rippleGrowerMd'
                                 variant="lg-blk"
                             />
-                            <FangBtn 
+                            <FangBtn
                                 label="UNSELECT ALL"
                                 passedFunction={() => handleUnselectAll()}
                                 extraClasses="claim-options-btn"
@@ -261,17 +274,18 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                                 variant="lg-blk"
                             />
                         </div>
-                        <FangBtn 
+                        <FangBtn
                             label="CLAIM"
-                            disabled={unclaimedFangs.length > 0 ? false : true} 
+                            disabled={unclaimedFangs.length > 0 ? false : true}
                             extraClasses={
                                 unclaimedFangs.length == 0 || toggledForClaimTokens.length == 0 ? 'none-to-claim' : 'some-to-claim'}
                             passedFunction={() => handlePxlClaims()}
                         />
                     </div>
-                )
-
+                
+                </>
                 }
+                
             </div>
             <Image
                 className="pxl-arrow"

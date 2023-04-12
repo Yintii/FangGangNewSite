@@ -40,14 +40,14 @@ export default function Home() {
 
 
     //make sure it's user is connected to the site
-    useEffect(()=>{
-        if(isConnected){
-            console.log("Connected with: ", address);
-        }
-        if(!isConnected){
-            connect();
-        }
-    },[])
+    // useEffect(()=>{
+    //     if(isConnected){
+    //         console.log("Connected with: ", address);
+    //     }
+    //     if(!isConnected){
+    //         connect();
+    //     }
+    // },[])
 
   return (
     <>

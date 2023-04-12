@@ -838,12 +838,15 @@ flex-flow: column nowrap;
     
 }
 
-
-#claim-options a{
+#wallet-connect{
+    margin-top: 3rem;
+}
+#claim-options a, #wallet-connect{
         width: 245px;
         height: 35px;
-        display: flex;
+
         align-content: center;
+        justify-content: center;
         background: #282429;
         border: 1px solid #6950D0;
         border-radius: 20px;
@@ -970,10 +973,11 @@ input{
     display:inline-flex;
 }
 
+
 #claim-inputs-wrap input{
     width: 286px;
         height: 29px;
-    
+    flex:1;
         background: #FFFFFF;
         border-radius: 25px;
 }
@@ -981,7 +985,7 @@ input{
 #claim-header a{
     width: 370px;
         height: 29px;
-    
+        flex:1;
         background: #6950D0;
         border-radius: 25px;
 }
@@ -1366,7 +1370,7 @@ input{
 
 .pxl-arrow{
     position:relative;
-    left:45%;
+    left:46%;
     cursor: pointer;
     top:40px;
     animation: floatUpAndDown 2s infinite ;
