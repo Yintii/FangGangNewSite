@@ -246,8 +246,10 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                         id='wallet-connect'
                         label="CONNECT WALLET"
                         passedFunction={() => connect()}
-                        extraClasses="claim-options-btn ripple-btn"
-                        growerType="rippleGrowerMd"
+                        extraClasses="claim-options-btn"
+                        growerType='rippleGrowerMd'
+                        variant='lg-blk'
+
                     />
                 }
 

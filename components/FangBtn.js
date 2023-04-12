@@ -19,7 +19,7 @@ export const FangBtn = (props) => {
 
   return (
         <a
-        id={props?.id}
+        id={props.id}
         className={`ripple-btn ${props.extraClasses}`}
         onClick={() => handleClick()}
         onMouseOver={() => handleHover()}
