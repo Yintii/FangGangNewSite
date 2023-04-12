@@ -838,10 +838,10 @@ flex-flow: column nowrap;
     
 }
 
-#wallet-connect{
+#wallet-connect, #no-fangsters{
     margin-top: 3rem;
 }
-#claim-options a, #wallet-connect{
+#claim-options a, #wallet-connect, #no-fangsters a{
         width: 245px;
         height: 35px;
 

@@ -241,8 +241,8 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
 
                 </div>
 
-                {userFangs.length == 0 &&
-                    <FangBtn 
+                {!isConnected &&
+                    <FangBtn
                         id='wallet-connect'
                         label="CONNECT WALLET"
                         passedFunction={() => connect()}
@@ -251,6 +251,25 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                         variant='lg-blk'
 
                     />
+                }
+
+                {userFangs.length == 0 && isConnected &&
+                    <div id='no-fangsters'>
+                        <Image
+                            src='/images/FangySweat.png'
+                            width={175}
+                            height={156}
+                            alt="fangy!"
+                        />
+                        <h3>Uh oh! It looks like you don't have any fangsters yet!</h3>
+                        <FangBtn 
+                            label="JOIN"
+                            linkTo="https://opensea.io/collection/fanggangnft"
+                            extraClasses="claim-options-btn"
+                            growerType='rippleGrowerMd'
+                            variant="lg-blk"
+                        />
+                    </div>
                 }
 
                 {userFangs.length > 0 &&
