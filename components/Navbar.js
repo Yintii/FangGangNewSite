@@ -47,6 +47,15 @@ const NavComponent = () => {
         return <></>;
     }
 
+    function handleMeet(){
+        document.querySelector('#meet').scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+    }
+    function handlePxl(){
+        document.querySelector('#pxlfangs').scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+    }
+    function handleGear(){
+        document.querySelector('#gear').scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+    }
 
 
     function handleRevealNav(){
@@ -97,9 +106,9 @@ const NavComponent = () => {
             />     
             <div id='desk-navigation'>
                 <div id="nav-menu">
-                    <Link href="#meet">FANG GANG</Link>
-                    <Link href="#pxlfangs">PXLFANGS</Link>
-                    <Link href="#gear">WLDFNGZ</Link>
+                    <a onClick={() => handleMeet()}>FANG GANG</a>
+                    <a onClick={() => handlePxl()}>PXLFANGS</a>
+                    <a onClick={() => handleGear()}>WLDFNGZ</a>
                 </div>
 
                 <div id="nav-buttons">
