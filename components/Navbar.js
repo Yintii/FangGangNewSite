@@ -14,6 +14,8 @@ const NavComponent = () => {
     const pxlBtnRef       = useRef(null);
 
 
+
+
     function handleRevealNav(){
         setRevealed(!revealed)
         if (revealed) {
@@ -37,6 +39,27 @@ const NavComponent = () => {
         }
     }
 
+    function ScrollDetector() {
+        const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+        useEffect(() => {
+            const handleScroll = () => {
+                const currentScrollPos = window.pageYOffset;
+                const isScrollingDown = currentScrollPos > prevScrollPos;
+                const isScrollingUp = currentScrollPos < prevScrollPos;
+                // do something with isScrollingDown or isScrollingUp
+                setPrevScrollPos(currentScrollPos);
+            };
+
+            window.addEventListener('scroll', handleScroll);
+
+            return () => {
+                window.removeEventListener('scroll', handleScroll);
+            };
+        }, [prevScrollPos]);
+
+        return <div>Scroll Detector</div>;
+    }
 
     useEffect(() => {
         document.querySelector('#mobile-navigation').classList.add('hidden');
@@ -44,6 +67,7 @@ const NavComponent = () => {
 
     return (
         <nav>
+            <div id="nav-wrap">
             <Image
                 id="brand"
                 src="/images/logo_fanggang_navbar.png"
@@ -80,6 +104,7 @@ const NavComponent = () => {
                         extraClasses="yellow-bg"
                         growerType="rippleGrower"
                     />
+                        
                 </div>
                 <div
                     id="join-drop-down"
@@ -96,12 +121,8 @@ const NavComponent = () => {
                             <Image src='/images/mascot_pxlfangs_head.png' width={43} height={39} /> PxlFangs
                         </a>
                 </div>
-
                 </div>
             </div>
-
-
-
             <div id='mobile-navigation' className={revealed ? 'droppingDownNav' : 'closingUpNav'} >
                 <div id="nav-menu">
                     <Link href="#meet">FANG GANG</Link>
@@ -120,6 +141,7 @@ const NavComponent = () => {
                     </a>
                     <a href="https://twitter.com/FangGangNFT" className='yellow-bg' target="_blank">FOLLOW US<FontAwesomeIcon id="twitter-icon" icon={faTwitter} size="2x"/></a>
                 </div>
+            </div>
             </div>
         </nav>
     )
