@@ -106,9 +106,25 @@ ul, li{
 
 .nav-shrink{
     transition: 1s;
-    height: 50px;
     transform: scale(.5);
 }
+
+.nav-grow{
+    transition: 1s;
+    height:unset;
+    transform: unset;
+}
+
+
+.nav-wrap-shrink{
+    transition: 1s;
+    height: 55px !important;
+}
+.nav-wrap-grow {
+    transition: 1s;
+    height: unset;
+}
+
 
 
 @media screen and (max-width: 1100px){

@@ -13,6 +13,61 @@ const NavComponent = () => {
     const fangBtnRef      = useRef(null);
     const pxlBtnRef       = useRef(null);
 
+    function ScrollDetector() {
+        const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+        useEffect(() => {
+            if (typeof window !== 'undefined') {
+                const handleScroll = () => {
+                    const currentScrollPos = window.pageYOffset;
+                    const isScrollingDown = currentScrollPos > prevScrollPos;
+                    const isScrollingUp = currentScrollPos < prevScrollPos;
+
+                    // do something with isScrollingDown or isScrollingUp
+                    if(isScrollingDown){
+                        console.log('scrolling down')
+                        document.querySelector('#desk-navigation > *').classList.remove('nav-grow')
+                        document.querySelector('#desk-navigation > *').classList.add('nav-shrink')
+
+                        document.querySelector('#nav-buttons').classList.remove('nav-grow')
+                        document.querySelector('#nav-buttons').classList.add('nav-shrink')
+
+                        document.querySelector('#brand').classList.add('nav-shrink')
+                        document.querySelector('#brand').classList.remove('nav-grow')
+
+                        document.querySelector("#nav-wrap").classList.add('nav-wrap-shrink')
+                        document.querySelector("#nav-wrap").classList.remove('nav-wrap-grow')
+                    }else if(isScrollingUp){
+                        console.log('scrolling up')
+                        document.querySelector('#desk-navigation > *').classList.remove('nav-shrink')
+                        document.querySelector('#desk-navigation > *').classList.add('nav-grow')
+
+                        document.querySelector('#nav-buttons').classList.remove('nav-shrink')
+                        document.querySelector('#nav-buttons').classList.add('nav-grow')
+
+                        document.querySelector('#brand').classList.remove('nav-shrink')
+                        document.querySelector('#brand').classList.add('nav-grow')
+
+                        document.querySelector("#nav-wrap").classList.remove('nav-wrap-shrink')
+                        document.querySelector("#nav-wrap").classList.add('nav-wrap-grow')
+
+
+                    }
+
+
+                    setPrevScrollPos(currentScrollPos);
+                };
+
+                window.addEventListener('scroll', handleScroll);
+
+                return () => {
+                    window.removeEventListener('scroll', handleScroll);
+                };
+            }
+        }, [prevScrollPos]);
+
+        return <></>;
+    }
 
 
 
@@ -39,27 +94,6 @@ const NavComponent = () => {
         }
     }
 
-    function ScrollDetector() {
-        const [prevScrollPos, setPrevScrollPos] = useState(0);
-
-        useEffect(() => {
-            const handleScroll = () => {
-                const currentScrollPos = window.pageYOffset;
-                const isScrollingDown = currentScrollPos > prevScrollPos;
-                const isScrollingUp = currentScrollPos < prevScrollPos;
-                // do something with isScrollingDown or isScrollingUp
-                setPrevScrollPos(currentScrollPos);
-            };
-
-            window.addEventListener('scroll', handleScroll);
-
-            return () => {
-                window.removeEventListener('scroll', handleScroll);
-            };
-        }, [prevScrollPos]);
-
-        return <div>Scroll Detector</div>;
-    }
 
     useEffect(() => {
         document.querySelector('#mobile-navigation').classList.add('hidden');
@@ -106,6 +140,7 @@ const NavComponent = () => {
                     />
                         
                 </div>
+                <ScrollDetector />
                 <div
                     id="join-drop-down"
                     className='yellow-bg'
