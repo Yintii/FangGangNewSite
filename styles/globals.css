@@ -703,6 +703,10 @@ flex-flow: column nowrap;
     color:white;    
 }
 
+#no-fangsters h3{
+    color:black;
+}
+
 #bank-drop-down .section-button{
     width: 178px;
     height: 76px;
