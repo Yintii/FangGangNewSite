@@ -24,7 +24,7 @@ const NavComponent = () => {
                     const isScrollingUp = currentScrollPos < prevScrollPos;
 
                     // do something with isScrollingDown or isScrollingUp
-                    if(isScrollingDown){
+                    if(isScrollingDown && currentScrollPos > 20){
                         document.querySelector('#nav-wrap').classList.add('wrap-slide-up');
                         document.querySelector('#nav-wrap').classList.remove('wrap-slide-down');
                     }else if(isScrollingUp){
