@@ -25,33 +25,11 @@ const NavComponent = () => {
 
                     // do something with isScrollingDown or isScrollingUp
                     if(isScrollingDown){
-                        console.log('scrolling down')
-                        document.querySelector('#desk-navigation > *').classList.remove('nav-grow')
-                        document.querySelector('#desk-navigation > *').classList.add('nav-shrink')
-
-                        document.querySelector('#nav-buttons').classList.remove('nav-grow')
-                        document.querySelector('#nav-buttons').classList.add('nav-shrink')
-
-                        document.querySelector('#brand').classList.add('nav-shrink')
-                        document.querySelector('#brand').classList.remove('nav-grow')
-
-                        document.querySelector("#nav-wrap").classList.add('nav-wrap-shrink')
-                        document.querySelector("#nav-wrap").classList.remove('nav-wrap-grow')
+                        document.querySelector('#nav-wrap').classList.add('wrap-slide-up');
+                        document.querySelector('#nav-wrap').classList.remove('wrap-slide-down');
                     }else if(isScrollingUp){
-                        console.log('scrolling up')
-                        document.querySelector('#desk-navigation > *').classList.remove('nav-shrink')
-                        document.querySelector('#desk-navigation > *').classList.add('nav-grow')
-
-                        document.querySelector('#nav-buttons').classList.remove('nav-shrink')
-                        document.querySelector('#nav-buttons').classList.add('nav-grow')
-
-                        document.querySelector('#brand').classList.remove('nav-shrink')
-                        document.querySelector('#brand').classList.add('nav-grow')
-
-                        document.querySelector("#nav-wrap").classList.remove('nav-wrap-shrink')
-                        document.querySelector("#nav-wrap").classList.add('nav-wrap-grow')
-
-
+                        document.querySelector('#nav-wrap').classList.remove('wrap-slide-up');
+                        document.querySelector('#nav-wrap').classList.add('wrap-slide-down');
                     }
 
 
