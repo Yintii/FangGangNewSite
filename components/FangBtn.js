@@ -26,7 +26,7 @@ export const FangBtn = (props) => {
         href={props?.linkTo}
         target="_blank"
         >
-            <label>{props.label}</label>
+            <label style={{position: 'absolute'}}>{props.label}</label>
             {rippleVisible && (
               <div className={`ripple1 ${props.growerType}`}> 
                   <div 

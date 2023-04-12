@@ -193,7 +193,7 @@ nav {
 
 .wrap-slide-up{
     transition: 1s;
-    top:-100px !important;
+    top:-200px !important;
 }
 .wrap-slide-down{
     transition: 1s;
@@ -676,6 +676,7 @@ flex-flow: column nowrap;
 
 
 
+
 #claim-drop-down, #game-drop-down, #bank-drop-down{
     position:relative;
     margin-top:-16px;
@@ -703,7 +704,16 @@ flex-flow: column nowrap;
 }
 
 #bank-drop-down .section-button{
-    border-radius: 10px;
+    width: 178px;
+    height: 76px;
+    border-radius: 20px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
 }
 
 
@@ -820,30 +830,65 @@ flex-flow: column nowrap;
 
 
 #claim-options{
-    width: 70%;
+    width: 80%;
     margin:0 auto;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     
 }
-#claim-options>button{
-    color:white;
-    background-color: #6950D0;
-    font-size:30px;
+
+
+#claim-options a{
+        width: 245px;
+        height: 35px;
+        display: flex;
+        align-content: center;
+        background: #282429;
+        border: 1px solid #6950D0;
+        border-radius: 20px;
 }
 
-#claim-options>a{
-    width: 254px !important;
-    height: 79px !important;
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
+#claim-options>a{ 
+        width: 254px;
+        height: 79px;
+        border: none;
+        background: #6950D0;
+        border-radius: 25px;
 }
 
-#claim-options>button {
-    width: 260px;
-    height: 55px;
+#claim-options>a>label{
+        width: 121px;
+        height: 44px;
+        font-family: 'Karla';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 47px;
+        letter-spacing: -0.02em;
+        color: #FFFFFF;
+        margin: 1rem;
 }
+
+#claim-options label{
+    width: 237px;
+        height: 35px;
+        
+        font-family: 'Karla';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 35px;
+        /* identical to box height */
+    
+        letter-spacing: -0.02em;
+    
+        color: #FFFFFF;
+}
+
+
+
+
 
 button, input[type=number]{
     border:none;
@@ -919,6 +964,26 @@ input{
 
 #claim-options>div {
     display: flex;
+}
+
+#claim-inputs-wrap{
+    display:inline-flex;
+}
+
+#claim-inputs-wrap input{
+    width: 286px;
+        height: 29px;
+    
+        background: #FFFFFF;
+        border-radius: 25px;
+}
+
+#claim-header a{
+    width: 370px;
+        height: 29px;
+    
+        background: #6950D0;
+        border-radius: 25px;
 }
 
 @media screen and (max-width: 767px) {

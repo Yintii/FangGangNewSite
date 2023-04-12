@@ -209,21 +209,23 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
             <div id="claim">
                 <div id="claim-header">
                     <h2 className="black">CLAIM YOUR PXLFANGSTER.</h2>
-                    <input
-                        value={fangsterToCheckClaim}
-                        type="number"
-                        placeholder="8888"
-                        onChange={(event) => handleClaimCheckChange(event)}
-                        min={0}
-                        max={8887}
-                    />
-                    <FangBtn 
-                        label="CHECK CLAIM STATUS"
-                        passedFunction={() => checkFangster()}
-                        extraClasses="purple-drawer-btn"
-                        growerType="rippleGrowerLg"
-                        variant="lg-purple"
-                    />
+                    <div id='claim-inputs-wrap'>
+                        <input
+                            value={fangsterToCheckClaim}
+                            type="number"
+                            placeholder="8888"
+                            onChange={(event) => handleClaimCheckChange(event)}
+                            min={0}
+                            max={8887}
+                        />
+                        <FangBtn
+                            label="CHECK CLAIM STATUS"
+                            passedFunction={() => checkFangster()}
+                            extraClasses="purple-drawer-btn"
+                            growerType="rippleGrowerLg"
+                            variant="lg-purple"
+                        />
+                    </div>
                     {isClaimable &&
                         <AvailableFangsterText />
                     }
