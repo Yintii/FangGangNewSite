@@ -707,6 +707,7 @@ flex-flow: column nowrap;
     width: 178px;
     height: 76px;
     border-radius: 20px;
+    padding: 0 1rem;
     font-family: 'Karla';
     font-style: normal;
     font-weight: 700;
