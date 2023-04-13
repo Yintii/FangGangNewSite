@@ -272,7 +272,7 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                     </div>
                 }
 
-                {userFangs.length > 0 &&
+                {userFangs.length > 0 && isConnected &&
                 <>
                     <div id="current_fangs" style={{ display: userFangs ? 'flex' : 'none' }}>
                         <RenderFangsters />
