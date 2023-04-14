@@ -192,7 +192,9 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
     }, [userFangs.length])
 
     useEffect(()  => {
-        claimDrawerActive ? document.getElementById('claim-drop-down').scrollIntoView({behavior: 'smooth'}) : null;
+        setTimeout(()=>{
+            claimDrawerActive ? document.getElementById('claim-drop-down').scrollIntoView({ behavior: 'smooth' }) : null;
+        },1000)
     }, [claimDrawerActive])
 
     useEffect(() => {

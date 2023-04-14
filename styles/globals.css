@@ -672,10 +672,13 @@ flex-flow: column nowrap;
 .drawers-wrapper{
     overflow: hidden;
     position: relative;
+    
 }
 
 
-
+/* #claim-drop-down{
+    min-height: 896px;
+} */
 
 #claim-drop-down, #game-drop-down, #bank-drop-down{
     position:relative;
