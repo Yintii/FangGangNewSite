@@ -676,9 +676,7 @@ flex-flow: column nowrap;
 }
 
 
-/* #claim-drop-down{
-    min-height: 896px;
-} */
+
 
 #claim-drop-down, #game-drop-down, #bank-drop-down{
     position:relative;

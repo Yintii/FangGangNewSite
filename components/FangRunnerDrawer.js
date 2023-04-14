@@ -35,7 +35,9 @@ function FangRunner({fangRunnerActive, handleToggleFangRunnerDrawer}) {
 
  
     useEffect(() => {
-        fangRunnerActive ? document.getElementById('game-drop-down').scrollIntoView({ behavior: 'smooth' }) : null;
+        setTimeout(()=>{
+            fangRunnerActive ? document.getElementById('game-drop-down').scrollIntoView({ behavior: 'smooth' }) : null;
+        },1000)
     }, [fangRunnerActive])
 
     return (
