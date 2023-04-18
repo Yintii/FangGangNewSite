@@ -11,7 +11,9 @@ html,body{
     color:white;
     max-width:100vw;
     overflow-x: hidden !important;
+    overflow: unset !important;
 }
+
 
 .no-break-wrap{
     white-space: pre;
