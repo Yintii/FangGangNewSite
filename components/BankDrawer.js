@@ -16,7 +16,7 @@ function BankDrawer({ bankActive, handleBankToggle }) {
                 Simply by holding a Fangster or PxlFangster you are passively earning the $AWOO ecosystem token. This token can be used on fun features such as upgrading your PxlFangsters or during special events.
             </p>
             <div className="copy-btns center-stuff">
-                <Image id="awootoken" src="/images/awootoken.gif" width={76} height={76} />
+                <Image id="awootoken" src="/images/awootoken.gif" width={76} height={76} className='desktop' />
                 <a href="https://medium.com/@fang_gang/the-awoo-token-8aea4798059b" target="_blank" className="section-button purple-bg">LEARN MORE</a>
             </div>
             <Image

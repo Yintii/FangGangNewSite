@@ -57,6 +57,13 @@ const NavComponent = () => {
         document.querySelector('#gear').scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
     }
 
+    function handleLogoClick(){
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
 
     function handleRevealNav(){
         setRevealed(!revealed)
@@ -93,6 +100,7 @@ const NavComponent = () => {
                 id="brand"
                 src="/images/logo_fanggang_navbar.png"
                 alt="FangGang Copyright Awoo Studios"
+                onClick={() => handleLogoClick()}
                 width={195}
                 height={74}
             />

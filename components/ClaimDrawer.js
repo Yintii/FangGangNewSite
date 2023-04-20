@@ -33,12 +33,10 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
     const InvalidFangsterText = () => {
         return <h3 className='unavailable-text'>You've entered an invalid Fangster ID. <br /> Please try something between 0 and 8887.</h3>
     }
-    
 
     const fangLoader = ({ src }) => {
         return `https://fanggang.s3.us-east-2.amazonaws.com/img/${src}`;
-    } 
-
+    }
 
     async function getFangstersFromWallet() {
         if (!isConnected) {
@@ -184,8 +182,6 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
         getFangstersFromWallet();
     }, [isConnected])
 
-
-
     useEffect(() => {
         let unclaimed = userFangs.filter(fangster => fangster.claimed == false);
         setUnclaimedFangs(unclaimed);
@@ -220,13 +216,12 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                             min={0}
                             max={8887}
                         />
-                        <FangBtn
-                            label="CHECK CLAIM STATUS"
-                            passedFunction={() => checkFangster()}
-                            extraClasses="purple-drawer-btn"
-                            growerType="rippleGrowerLg"
-                            variant="lg-purple"
-                        />
+                        <a
+                            onClick={() => checkFangster()}
+                            className='purple-drawer-btn'
+                        >
+                            CHECK CLAIM STATUS
+                        </a>
                     </div>
                     {isClaimable &&
                         <AvailableFangsterText />
@@ -244,15 +239,12 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                 </div>
 
                 {!isConnected &&
-                    <FangBtn
-                        id='wallet-connect'
-                        label="CONNECT WALLET"
-                        passedFunction={() => connect()}
-                        extraClasses="claim-options-btn"
-                        growerType='rippleGrowerMd'
-                        variant='lg-blk'
-
-                    />
+                    <a 
+                    id='wallet-connect'
+                    onClick={() => connect()}
+                    >
+                        CONNECT WALLET
+                    </a>
                 }
 
                 {userFangs.length == 0 && isConnected &&
@@ -264,13 +256,12 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                             alt="fangy!"
                         />
                         <h3>Uh oh! It looks like you don't have any fangsters yet!</h3>
-                        <FangBtn 
-                            label="JOIN"
-                            linkTo="https://opensea.io/collection/fanggangnft"
-                            extraClasses="claim-options-btn"
-                            growerType='rippleGrowerMd'
-                            variant="lg-blk"
-                        />
+                        <a
+                            href="https://opensea.io/collection/fanggangnft"
+                        >
+                            JOIN
+                        </a>
+
                     </div>
                 }
 
@@ -282,28 +273,28 @@ const ClaimDrawer = ({ web3, handleToggleClaimDrawer, claimDrawerActive}) => {
                 
                     <div id="claim-options">
                         <div>
-                            <FangBtn
-                                label={`SELECT MAX (${unclaimedFangs.length})`}
-                                passedFunction={() => handleSelectMax()}
-                                extraClasses="claim-options-btn"
-                                growerType='rippleGrowerMd'
-                                variant="lg-blk"
-                            />
-                            <FangBtn
-                                label="UNSELECT ALL"
-                                passedFunction={() => handleUnselectAll()}
-                                extraClasses="claim-options-btn"
-                                growerType={'rippleGrowerMd'}
-                                variant="lg-blk"
-                            />
+                            <a
+                                onClick={() => handleSelectMax()}
+                                className='claim-options-button'
+                            >
+                                SELECT MAX (${unclaimedFangs.length})
+                            </a>
+                            <a
+                                
+                                onClick={() => handleUnselectAll()}
+                                className='claim-options-button'
+                            >
+                                UNSELECT ALL
+                            </a>
                         </div>
-                        <FangBtn
-                            label="CLAIM"
+                        <a
+                            id='claim-btn'
                             disabled={unclaimedFangs.length > 0 ? false : true}
-                            extraClasses={
-                                unclaimedFangs.length == 0 || toggledForClaimTokens.length == 0 ? 'none-to-claim' : 'some-to-claim'}
-                            passedFunction={() => handlePxlClaims()}
-                        />
+                            className={unclaimedFangs.length == 0 || toggledForClaimTokens.length == 0 ? 'none-to-claim' : 'some-to-claim'}
+                            onClick={() => handlePxlClaims()}
+                        >
+                            CLAIM
+                        </a>
                     </div>
                 
                 </>
